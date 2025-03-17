@@ -1,0 +1,60 @@
+
+
+('Rolex Datejust 41mm Sundust Dial 18K Everose Gold Oyster 126331', 320000000, 480000000, 'Tkhung viền: thép không gỉ kết hợp vàng hồng 18k', 'https://luxuryhanoi.vn/admin/webroot/uploads/images/rolex/IMG_1140.JPG', 'Rolex', NOW(), 1),
+
+('Rolex Day Date 40mm 228235 Olive Green Dial Everose Gold', 99999999, 1220000000, 'Khung viền: vàng hồng 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/202405241606424f126adf14d1929bd1055dfc699c27b9.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1),
+
+('Rolex Day Date 40mm 228235 Chocolate Dial Everose Gold', 1100000000, 1330000000, 'Khung viền: vàng hồng nguyên khối 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/202406151056291cf15839181cac6c06ce7f002f793645.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1),
+
+('Rolex Oyster Perpetual 40mm 228238 Yellow Gold Mặt Đen Cọc Số Kim Cương',1000900000, 1210000000, 'Khung viền: vàng 18ct, Mặt số: Bộ màu đen nạm kim cương, Mặt kính: Ngọc bích chống trầy xướt', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/202405241713052964305ab056fa15b3edecae3f17d17a.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 2),
+('Rolex Sky Dweller Sundust Dial Everose Gold 326935', 1000000000, 1220000000, 'Khung viền: vàng hồng 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/20240525104954dac34c45f360e2914d6019e042e4816b.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1)
+('Rolex Day Date President Automatic 228235 Everose Gold', 1090900000, 1200000000, 'Khung viền: vàng hồng 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/20240524163957ed88c4ef8640b798ca1078737e97bc54.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1),
+('Rolex Day Date New Size 40mm 228235',1000000000, 1200000000, 'Khung viền: vàng hồng 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/202405241632445a067ac4d0ff4cbda536d47530f7f5a9.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1),
+('Rolex Day Date President Automatic 228235 Everose Gold', 1000000000, 1200000000,'Khung viền: vàng hồng 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/202405241639572c6da301188043c9f360963d1bad9b58.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1),
+('Rolex Day Date 40mm Yellow Gold Black Diagonal Motif 228238 Mens Watch',1000000000, 1200000000, 'Khung viền: vàng vàng 18k', 'https://luxuryhanoi.vn/admin/timthumb.php?src=img/product/20240524172329b7f0784e9eccafb1f7f22af6882c8de2.jpg&w=480&h=480&zc=1', 'Rolex', NOW(), 1),
+('GMT-Master II', 250000000, 293403000, 'Khung viền: thép Oystersteel', 'https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-majesty/c_limit,w_640/v1/catalogue/2024/upright-c/m126710grnr-0003', 'GMT', NOW(), 1),
+--10
+('Rolex Datejust Nam M126234-0037',2900000000, 332500000, 'Khung viền: thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/m126234-0037-1712663387.webp', 'Datejust', NOW(), 1),
+('Rolex Datejust Nữ M278273-0032',350000000, 370000000, 'Khung viền: dây vàng và thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/m278273-0032-1712663384.webp', 'Datejust', NOW(), 1),
+('Rolex Datejust Nam M126231-0039', 389000000, 408500000, 'Khung viền: dây vàng và thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/m126231-0039-1712663570.webp', 'Datejust', NOW(), 1),
+('Rolex Datejust Nam datejust-126331-41', 330000000, 445000000, 'Khung viền: dây vàng và thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/126331-2-1676275306389-1712591087.webp', 'Datejust', NOW(), 1),
+('Rolex Datejust Nữ M278275-0010', 838850000, 883000000, 'Khung viền: vàng hồng 18k', 'https://www.watchstore.vn/images/products/others/2024/large/m278275-0010-1712663175.webp', 'Datejust', NOW(), 1),
+('Rolex Datejust Nữ M278271-0002',332500000, 350000000, 'Khung viền: dây vàng và thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/m278271-0002-1712663321.webp', 'Datejust', NOW(), 1),
+('Rolex Datejust Nam M126300-0004',275500000, 290000000, 'Khung viền: dây thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/15-1668431823266-1712589257.webp', 'Datejust', NOW(), 1),
+('Daniel Wellington Nam DW00100646', 'Khung viền: dây thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/dw00100219-1-1838834040-1049266979-1712665647.webp', 'Daniel Wellington', NOW(), 1),
+('Daniel Wellington Nữ DW00100219', 3629000, 4270000, 'Khung viền: ', '', 'Daniel Wellington', NOW(), 1),
+('Daniel Wellington Nữ DW00100597', 4275000, 5030000, 'Khung viền: dây thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/dw00100597-1-30704635-1422275172-1712666424.webp', 'Daniel Wellington', NOW(), 1),
+--20
+('Daniel Wellington Nam DW00100630', 4488000, 5280000, 'Khung viền: dây thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/dw00100630-1-1933324325-1777881425-1712666085.webp', 'Daniel Wellington', NOW(), 1),
+('Daniel Wellington Nữ DW00100434', 3458000, 4270000, 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/dw00100434-1-1793739082-1110432955-1712665640.webp', 'Daniel Wellington', NOW(), 1),
+('Just Cavalli Nữ JC1L050M0065', 4550000, 6500000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/7-1659750374695-1712587323.webp', 'Just Cavalli', NOW(), 1),
+('Just Cavalli Nữ JC1L032L0035', 3500000, 5000000, 'Khung viền: dây vải/dù', 'https://www.watchstore.vn/images/products/others/2024/large/18-1659756455203-1712587334.webp', 'Just Cavalli', NOW(), 1),
+('Just Cavalli Nữ JC1L045L0035', 5460000, 7800000 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/17-1659756231604-1712587333.webp', 'Just Cavalli', NOW(), 1),
+('Just Cavalli Nữ JC1L001M0135', 5740000, 8200000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/16-1659755829369-1712587333.webp', 'Just Cavalli', NOW(), 1),
+('Just Cavalli Nữ JC1L046M0095', 5530000, 7900000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/15-1659755505367-1712587332.webp', 'Just Cavalli', NOW(), 1),
+('Just Cavalli Nữ JC1L056M0015', 3850000, 5500000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/14-1659755306043-1712587332.webp', 'Just Cavalli', NOW(), 1),
+('Just Cavalli Nữ JC1L050M0095', 5250000, 7500000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/81u8a3qokil-_ul1500_-1659754782940-1712587331.webp', 'Just Cavalli', NOW(), 1);
+('Just Cavalli Nữ JC1L059M0065', 5040000, 7200000,'Khung viền: Dây Kim Loại', 'https://www.watchstore.vn/images/products/others/2024/large/dong-ho-gowatch-nu-just-cavalli-jc1l059m0065-1659754479948-1712587330.webp', 'Just Cavalli', NOW(), 1);
+--30
+('Tissot Prx Nam T137.407.11.041.00', 15600000, 20610000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/t137-679443174-610497435-1712585231.webp', 'Tissot', NOW(), 1);
+('Tissot Prx Nam T137.407.11.351.00 ',16600000, 20610000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/gallery/2024/large/t137-1019668213-2121723031-1712554864.webp', 'Tissot', NOW(), 1);
+('Tissot Le Locle Nam T006.407.36.263.00', 15500000, 21000000, 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/t006-2133685469-2118898420-1712571970.webp', 'Tissot', NOW(), 1);
+('Tissot Nữ T050.207.37.017.04', 18800000, 22600000, 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/t050-207-37-017-04-2-1650859614330-1712571485.webp', 'Tissot', NOW(), 1);
+('Tissot Nam T086.408.22.036.00', 14800000, 19000000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/dong-ho-tissot-t086-408-22-036-00_1-ims-1712565982.webp', 'Tissot', NOW(), 1);
+('Tissot Chemin Des Tourelles Nữ T099.207.16.116.00', 9900000, 9900000, 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/t0992071611600-1-1247702914-975505614-1712582359.webp', 'Tissot', NOW(), 1);
+('Tissot Nữ T108.208.33.117.00', 11900000, 20000000, 'Khung viền: dây thép không gỉ mạ vàng PVD', 'https://www.watchstore.vn/images/products/others/2024/large/t1082083311700-1-989063965-213029457-1712573311.webp', 'Tissot', NOW(), 1);
+('Tissot Seastar Nam T120.407.11.091.01 ',, 17900000, 23980000, 'Khung viền: dây thép không gỉ', 'https://www.watchstore.vn/images/products/others/2024/large/t120-1207705051-108710417-1712590084.webp', 'Tissot', NOW(), 1);
+('Tissot Prx Nam T137.410.17.051.00', 7710000, 10290000, 'Khung viền: dây cao su', 'https://www.watchstore.vn/images/products/others/2024/large/t137-125350632-1588231874-1712664429.webp', 'Tissot', NOW(), 1);
+('Tissot Nam T109.610.17.037.00', 3600000, 4000000, 'Khung viền: dây dù/vải', 'https://www.watchstore.vn/images/products/others/2024/large/t1096101703700-1712668324.webp', 'Tissot', NOW(), 1);
+--40
+('Tissot Le Locle Nam T006.407.36.266.00', 19700000, 25550000, 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/t006-1384778471-126572272-1712571478.webp', 'Tissot', NOW(), 1);
+('Tissot Prx Nam T137.407.21.031.00',15900000, 21480000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/t137-511847648-1023808245-1712577586.webp', 'Tissot', NOW(), 1);
+('Calvin Klein Nữ K9U23646', 3528000, 4200000, 'Khung viền: dây thép không gỉ mạ vàng PVD', 'https://www.watchstore.vn/images/products/others/2024/large/k9u23646-1-1678436425768-1712585194.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nữ K3M5215X', 2940000, 3500000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/k3m5215x-1712579471.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nữ K4E2N61Y', 2850000, 6900000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/k4e2n61y-1-1675493327366-1712574652.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nữ K9H235L6', 2800000, 6700000, 'Khung viền: dây da', 'https://www.watchstore.vn/images/products/others/2024/large/k9h235l6-2-1654573805630-1712576320.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nữ K4E2N616', 2990000, 7790000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/k4e2n616-2-1664268652455-1712576257.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nữ K4E2N11N', 2620000, 3500000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/k4e2n11n-1645193421447-1712580815.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nữ K8G23626', 3468000, 4150000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/k8g23626-1-1678781038525-1712587487.webp', 'Calvin Klein', NOW(), 1);
+('Calvin Klein Nam K3M51T5N', 2750000, 6700000, 'Khung viền: dây kim loại', 'https://www.watchstore.vn/images/products/others/2024/large/k3m51t5n-1712574699.webp', 'Calvin Klein', NOW(), 1);
+-- 50
