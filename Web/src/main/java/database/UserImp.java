@@ -60,7 +60,7 @@ public class UserImp implements UserDao {
 			preStatement1.setString(2, user.getPassword());
 			preStatement1.setString(3, user.getFirstname());
 			preStatement1.setString(4, user.getLastname());
-			preStatement1.setString(5, "admin");
+			preStatement1.setString(5, user.getRole());
 			row += preStatement1.executeUpdate();
 
 		} catch (SQLException e) {
