@@ -7,8 +7,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import javax.mail.MessagingException;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import bean.Mail;
 import bean.User;
 import database.DAOFactory;
 import database.UserDao;
@@ -78,11 +81,23 @@ public class RegisterServlet extends HttpServlet {
 			insert = users.insert(new User(firstname, lastname, email, hashedPassword, role));
 		}
 		if (insert >= 1) {
-			destination = "login.jsp";
-		}
-		request.getRequestDispatcher(destination).forward(request, response);
-	}
+			String subject = "Chào mừng bạn đến với website!";
+		    String messageText = "Chúc mừng " + firstname + "! Bạn đã đăng ký thành công.";
+		    try {
+				Mail.sendMail(email);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
+		    request.setAttribute("message", "Đăng ký thành công! Kiểm tra email của bạn.");
+		    request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+		    request.setAttribute("error", "Có lỗi xảy ra, vui lòng thử lại!");
+		    request.getRequestDispatcher("register.jsp").forward(request, response);
+		}
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

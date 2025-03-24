@@ -268,12 +268,13 @@ public class ProductDao implements IProductDao {
 	public List<Product> searchResult(String txtSearch) {
 		Connection connect;
 		List<Product> res = new ArrayList<>();
-		String sql = "select * from product where name like ?";
+		String sql = "select * from product where name like ? OR detail LIKE ?";
 		String sqlImage = "SELECT * FROM product_image WHERE id_product = ?";
 		try {
 			connect = DatabaseConnection.getConnection();
 			PreparedStatement ps = connect.prepareStatement(sql);
 			ps.setString(1, "%" + txtSearch + "%");
+			ps.setString(2, "%" + txtSearch + "%");
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
