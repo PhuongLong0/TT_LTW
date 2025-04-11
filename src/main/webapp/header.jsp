@@ -12,7 +12,7 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
+	<!-- Tiêu đề cho trang chủ-->
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
@@ -88,8 +88,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="login" href="login.jsp"> <i class="user"> </i>
 							<li class="user_desc"><c:choose>
 									<c:when test="${not empty sessionScope.user}">
-									${sessionScope.user.lastname}
-										${sessionScope.user.firstname}
+									${sessionScope.user.userName}
+
 								</c:when>
 									<c:otherwise>
 									My account

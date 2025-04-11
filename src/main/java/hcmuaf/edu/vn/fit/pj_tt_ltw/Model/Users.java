@@ -13,13 +13,13 @@ public class Users {
     private Timestamp created_at ;
     private Timestamp updated_at ;
 
-    public Users(int userId, String userName,String firstname, String lastname, String password, String role, String email) {
+    public Users(int userId, String userName,String firstname, String lastname, String password, int role, String email) {
     this.userId = userId;
     this.userName = userName;
     this.firstname = firstname;
     this.lastname = lastname;
     this.passwordUser = password;
-    this.role = Integer.parseInt(role);
+    this.role = role;
     this.email = email;
     this.created_at=new Timestamp(System.currentTimeMillis());
     this.updated_at=new Timestamp(System.currentTimeMillis());
@@ -27,10 +27,10 @@ public class Users {
     }
 
     //create account
-    public Users(String name, String pass, String role, String s) {
+    public Users(String name, String pass, int role) {
         this.userName = name;
         this.passwordUser = pass;
-        this.role = Integer.parseInt(role);
+        this.role = role;
     }
 
     public int getUserId() {
@@ -84,16 +84,18 @@ public class Users {
         public void setPassword(String password) {
             this.passwordUser = password;
         }
-        public void setCreated_at(Timestamp created_at) {
+        public void setCreatedAt(Timestamp created_at) {
         this.created_at = created_at;
         }
-        public Timestamp getCreated_at() {
+        public Timestamp getCreatedAt() {
         return this.created_at;
         }
-        public void setUpdated_at(Timestamp updated_at) {
+        public void setUpdatedAt(Timestamp updated_at) {
         this.updated_at = updated_at;
         }
-        public Timestamp getUpdated_at() {
+        public Timestamp getUpdatedAt() {
         return this.updated_at;
         }
+
+
 }

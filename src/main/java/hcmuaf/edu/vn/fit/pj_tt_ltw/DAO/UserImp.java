@@ -2,6 +2,7 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.DAO;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DB.DBConnect;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Users;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.Service.MailjetService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.*;
@@ -23,9 +24,9 @@ public class UserImp implements UserDao{
             ResultSet result = stmt.executeQuery("SELECT * FROM user;");
             while (result.next()) {
                 String name = result.getString("userName");
-                String pass = result.getString("password");
-                String role= result.getString("role");
-                resultList.add(new Users(name, pass,role, role));
+                String pass = result.getString("passwordUser");
+                int role= result.getInt("role");
+                resultList.add(new Users(name, pass,role));
             }
             stmt.close();
         } catch (SQLException e) {
@@ -42,27 +43,29 @@ public class UserImp implements UserDao{
 
     @Override
     public int insert(Users user) {
-        // TODO Auto-generated method stub
         Connection conn = null;
         int row = 0;
         try {
-            String sqluser = "INSERT INTO user (email, pass,firstname, lastname,role) VALUES (?, ?,?,?,?)";
+            String sql = "INSERT INTO users (username, firstname, lastname,passwordUser,  role, email,created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             conn = DBConnect.getConnection();
-            PreparedStatement preStatement1 = conn.prepareStatement(sqluser);
-            preStatement1.setString(1, user.getEmail());
-            preStatement1.setString(2, user.getPassword());
-            preStatement1.setString(3, user.getFirstname());
-            preStatement1.setString(4, user.getLastname());
-            preStatement1.setInt(5, user.getRole());
-            row += preStatement1.executeUpdate();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getFirstname());
+            ps.setString(3, user.getLastname());
+            ps.setString(4, user.getPassword());
+            ps.setInt(5, user.getRole());
+            ps.setString(6, user.getEmail());
+            ps.setTimestamp(7, user.getCreatedAt());
+            ps.setTimestamp(8, user.getUpdatedAt());
 
+            row = ps.executeUpdate();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return row ;
+        return row;
     }
+
 
     @Override
     public int update(Users user) {
@@ -99,23 +102,84 @@ public class UserImp implements UserDao{
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         try {
             conn = DBConnect.getConnection();
-            String sql = "SELECT * FROM user WHERE email= ? ;";
+            String sql = "SELECT * FROM users WHERE email= ? ;";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, email);
             ResultSet rs= pstmt.executeQuery();
             while(rs.next()) {
-                if(passwordEncoder.matches(password, rs.getString("pass"))) {
+                String hashedPassword = rs.getString("passwordUser");
+                if(passwordEncoder.matches(password, hashedPassword)) {
+                    int id = rs.getInt("userid");
                     String userName = rs.getString("username");
-                    email = rs.getString("email");
-                    String role= rs.getString("role");
-                    userTemp = new Users(userName, email, rs.getString("pass"),role);
-                    break;
+                    String firstname = rs.getString("firstname");
+                    String lastname = rs.getString("lastname");
+                    int role = rs.getInt("role");
+                    String emailFromDB = rs.getString("email");
+
+                    userTemp = new Users(id, userName, hashedPassword, firstname, lastname, role, emailFromDB);
                 }
             }
+            rs.close();
+            pstmt.close();
+            conn.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return userTemp;
     }
+
+    @Override
+    public boolean existsEmail(String email) {
+        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    return count > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updatePassword(String emailToReset, String newPassword) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        try {
+            conn = DBConnect.getConnection();
+            String sql = "UPDATE users SET password = ? WHERE email = ?";
+            stmt = conn.prepareStatement(sql);
+
+            // Mã hóa mật khẩu mới
+            String hashedPassword = passwordEncoder.encode(newPassword);
+
+            stmt.setString(1, hashedPassword);
+            stmt.setString(2, emailToReset);
+
+            int affected = stmt.executeUpdate();
+            return affected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    @Override
+    public boolean sendOtpToEmail(String email, String otp) {
+        try {
+            return MailjetService.sendOtpMail(email, otp);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

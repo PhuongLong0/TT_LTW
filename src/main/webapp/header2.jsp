@@ -85,8 +85,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="login" href="login.jsp"> <i class="user"> </i>
 							<li class="user_desc"><c:choose>
 									<c:when test="${not empty sessionScope.user}">
-									${sessionScope.user.lastname}
-										${sessionScope.user.firstname}
+									${sessionScope.user.userName}
+
 								</c:when>
 									<c:otherwise>
 									My account

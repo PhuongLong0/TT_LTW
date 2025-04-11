@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet("/Login")
+@WebServlet(name = "LoginServlet", value = "/Login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -37,26 +37,42 @@ public class LoginServlet extends HttpServlet {
         UserDao users = DAOFactory.getInstance().getUserDao();
 //		Lay thong tin tu request
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String password = request.getParameter("passwordUser");
 
-        String role = request.getParameter("role");
-        if (email == null || email.equals("") || password == null || password.equals("")) {
-            errorMessage = "vui lòng điền đầy đủ thông tin";
+        //int role = request.getParameter("role");
+
+        if (email == null || email.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+            errorMessage = "Please fill in all required fields.";
             request.setAttribute("errorMessage", errorMessage);
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher(destination).forward(request, response);
             return;
         }
 
         Users user = users.checkPass(email, password);
-
+        System.out.println("Check đúng thông tin login");
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("index.jsp");
+            //response.sendRedirect("index.jsp");
+
+            int role= user.getRole();
+            session.setAttribute("role", role);
+            if (role == 1) {
+                // Điều hướng đến giao diện người dùng
+                System.out.println("Vào trang chủ");
+                response.sendRedirect("index.jsp");
+
+            } else if (role == 2) {
+                // Điều hướng đến giao diện admin
+                System.out.println("Vào trang admin");
+                response.sendRedirect("AdminLogin.jsp");
+
+            }
+
         } else {
-            errorMessage = "Email hoặc mật khẩu không chính xác";
+            errorMessage = "Incorrect email or password.";
             request.setAttribute("errorMessage", errorMessage);
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher(destination).forward(request, response);
         }
     }
 

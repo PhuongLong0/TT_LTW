@@ -12,12 +12,13 @@ public class Products {
     private String productDetail;
     private String brandName;
     private Timestamp createAt;
+    private int imageId;
     private int categoryId;
 
     private List<String> listimg = new ArrayList<>();
 
 
-    public Products(int productId, String productName, int priceSell, int priceBuy, String productDetail, String brandName, Timestamp createAt, int categoryId,List<String> listimg) {
+    public Products(int productId, String productName, int priceSell, int priceBuy, String productDetail, String brandName, Timestamp createAt,int imageId, int categoryId,List<String> listimg) {
         this.productId = productId;
         this.productName = productName;
         this.priceSell = priceSell;
@@ -25,6 +26,7 @@ public class Products {
         this.productDetail = productDetail;
         this.brandName = brandName;
         this.createAt = createAt;
+        this.imageId = imageId;
         this.categoryId = categoryId;
         this.listimg = listimg;
 
@@ -78,6 +80,12 @@ public class Products {
     public void setBrandName(String brandName) {
         this.brandName = brandName;
     }
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+    public int getImageId() {
+        return imageId;
+    }
     public Timestamp getCreateAt() {
         return createAt;
     }
@@ -100,6 +108,7 @@ public class Products {
                 ", priceSell=" + priceSell +
                 ", productDetail='" + productDetail + '\'' +
                 ", brandName='" + brandName + '\'' +
+                ", imageId=" + imageId +
                 ", createAt=" + createAt +
                 ", categoryId=" + categoryId +
                 '}';

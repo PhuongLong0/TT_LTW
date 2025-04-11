@@ -55,18 +55,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="register-top-grid">
 					<h2>PERSONAL INFORMATION</h2>
 					<div>
-						<span>First Name<label>*</label></span> <input type="text"
-							name="firstname">
+						<span>First Name<label>*</label></span>
+						<input type="text" name="firstname" value="${param.firstname}">
 							<p style="color: #dc3545;">${nameError}</p>  
 					</div>
 					<div>
-						<span>Last Name<label>*</label></span> <input type="text"
-							name="lastname">
+						<span>Last Name<label>*</label></span>
+						<input type="text" name="lastname" value="${param.lastname}">
 							<p style="color: #dc3545;">${lastnameError}</p>  
 					</div>
+
 					<div>
-						<span>Email Address<label>*</label></span> <input type="text"
-							name="email">
+						<span>User Name<label>*</label></span>
+						<input type="text" name="username" value="${param.username}">
+						<p style="color: #dc3545;">${usernameError}</p>
+					</div>
+					<div>
+						<span>Email Address<label>*</label></span>
+						<input type="email" name="email" value="${param.email}">
 							<p style="color: #dc3545;">${emailError}</p>  
 					</div>
 					<div class="clearfix"></div>
@@ -78,13 +84,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="register-bottom-grid">
 					<h2>LOGIN INFORMATION</h2>
 					<div>
-						<span>Password<label>*</label></span> <input type="password"
-							name="password">
+						<span>Password<label>*</label></span>
+						<input type="password" name="passwordUser" value="${param.passwordUser}">
 							<p style="color: #dc3545;">${passError}</p>  
 					</div>
 					<div>
-						<span>Confirm Password<label>*</label></span> <input
-							type="password" name="confirmPassword">
+						<span>Confirm Password<label>*</label></span>
+						<input type="password" name="confirmPassword" value="${param.confirmPassword}">
 							<p style="color: #dc3545;">${passError}</p>
 					</div>
 					<div class="clearfix"></div>

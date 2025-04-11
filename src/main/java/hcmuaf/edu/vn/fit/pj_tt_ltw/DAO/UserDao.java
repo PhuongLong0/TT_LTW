@@ -19,4 +19,9 @@ public interface UserDao {
 
         Users checkPass(String var1, String var2);
 
+        boolean existsEmail(String email);
+
+        boolean updatePassword(String emailToReset, String pass1);
+
+        boolean sendOtpToEmail(String email, String otp);
 }

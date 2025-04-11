@@ -38,19 +38,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <form action="${pageContext.request.contextPath}/Login" method="post">
 			<div> 	
 				<span>Email*</span>
-				<input type="text" name = "email"> 
+				<input type="text" name = "email" placeholder="Enter your email">
 			</div>
 			<div> 
 				<span class="pass">Password*</span>
-				<input type="password" name="password">
+				<input type="password" name="passwordUser" placeholder="Enter your password">
 				
 			</div>	
 					
-				<input type="submit""> 
-				 <a href="register.jsp" class="create">Tạo tài khoản</a>
-				 <a href="AdminLogin.jsp" class="create"> Đăng nhập Admin</a>
+				<input type="submit" value="Login">
+				 <a href="register.jsp" class="create">Register</a>
+				 <a href="ForgetPassword.jsp" class="create"> Forget password</a>
 		   </form>
-		  <p style="color: #dc3545;">${erorrMessage}</p>	
+		  <p style="color: #dc3545;">${errorMessage}</p>
 		   <!-- end -->
 		   
 		   
