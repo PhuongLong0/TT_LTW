@@ -33,4 +33,13 @@
         <servlet-name>ForgetPassword</servlet-name>
         <url-pattern>/forgetPassword</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>captchaServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.CaptchaServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>captchaServlet</servlet-name>
+        <url-pattern>/captchaServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

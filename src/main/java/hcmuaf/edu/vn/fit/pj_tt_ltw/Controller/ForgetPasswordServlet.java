@@ -24,6 +24,7 @@ public class ForgetPasswordServlet extends HttpServlet {
             String email = req.getParameter("email");
             String captcha = req.getParameter("captcha");
             String realCaptcha = (String) session.getAttribute("captcha");
+
             if (captcha != null && captcha.equalsIgnoreCase(realCaptcha)) {
                 String otp = generateOtp(); // tạo OTP
                 session.setAttribute("otp", otp);

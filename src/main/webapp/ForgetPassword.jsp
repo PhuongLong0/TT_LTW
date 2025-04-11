@@ -39,16 +39,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <c:if test="${empty step or step == 1}">
                 <form method="post" action="ForgetPasswordServlet">
                     <input type="hidden" name="action" value="verifyEmailCaptcha">
-                    <div>
-                        <label>Email*</label>
+                    <div class="form-group">
+                        <span>Email*</span>
                         <input type="text" name="email" required>
                     </div>
-                    <div>
-                        <label>Captcha*</label>
+                    <div class="form-group">
+                        <span>Captcha*</span>
+                        <div style="display: flex; align-items: center; gap: 10px;">
                         <input type="text" name="captcha" required>
-                        <img src="CaptchaServlet" alt="Captcha">
+                        </div>
+                        <img src="${pageContext.request.contextPath}/captchaServlet?ts=<%= System.currentTimeMillis() %>" alt="Captcha">
+
                     </div>
-                    <input type="submit" value="Xác nhận">
+                    <input type="submit" value="Verify Email">
                     <a href="login.jsp" class="create">Back to Login</a>
                 </form>
             </c:if>
@@ -57,10 +60,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <form method="post" action="ForgetPasswordServlet">
                     <input type="hidden" name="action" value="verifyOtp">
                     <div>
-                        <label>OTP đã gửi về email:</label>
+                        <label>Enter the OTP sent to your email:</label>
                         <input type="text" name="otp" required>
                     </div>
-                    <button type="submit">Xác minh OTP</button>
+                    <button type="submit">Verify OTP</button>
                 </form>
             </c:if>
 
@@ -69,19 +72,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <form method="post" action="ForgetPasswordServlet">
                     <input type="hidden" name="action" value="resetPassword">
                     <div>
-                        <label>Mật khẩu mới:</label>
+                        <label>New Password:</label>
                         <input type="password" name="password1" required>
                     </div>
                     <div>
-                        <label>Nhập lại mật khẩu:</label>
+                        <label>Confirm New Password:</label>
                         <input type="password" name="password2" required>
                     </div>
-                    <button type="submit">Đặt lại mật khẩu</button>
+                    <button type="submit" class="btn btn-success">Reset Password</button>
                 </form>
             </c:if>
             <!-- form dang nhap jsp  -->
-           <!-- <form action="${pageContext.request.contextPath}/forgetPasswordServlet" method="post">
-
+           <!--
                <div>
                     <span>Email*</span>
                     <input type="text" name = "email" placeholder="Enter your email" required>
@@ -94,8 +96,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="submit" value="Send OTP">
                 <a href="login.jsp" class="create">Back to Login</a>
             </form>-->
-            <p style="color: #dc3545;">${errorMessage}</p>
-            <p style="color: green">${successMessage}</p>
+            <p style="color: #dc3545;">${error}</p>
+            <p style="color: green">${success}</p>
 
 
         </div>
