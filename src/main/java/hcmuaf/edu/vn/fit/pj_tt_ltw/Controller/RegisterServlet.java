@@ -2,6 +2,7 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.UserDao;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Mail;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Users;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 
 @WebServlet(name = "register",value = "/register")
@@ -87,7 +89,12 @@ public class RegisterServlet extends HttpServlet {
             if (insert >= 1) {
                 response.sendRedirect("login.jsp"); //dùng redirect khi thành công
                 System.out.println("Tạo tài khoản thành công! - Username: " +username);
-                return;
+                try {
+                    Mail.sendMail(email);
+                } catch (MessagingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             } else {
                 request.setAttribute("emailError", "Registration failed. Please try again.");
             }
