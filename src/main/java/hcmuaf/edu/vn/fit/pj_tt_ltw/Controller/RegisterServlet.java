@@ -87,7 +87,6 @@ public class RegisterServlet extends HttpServlet {
             insert = users.insert(new Users(0, username, firstname, lastname, hashedPassword, role, email));
 
             if (insert >= 1) {
-                response.sendRedirect("login.jsp"); //dùng redirect khi thành công
                 System.out.println("Tạo tài khoản thành công! - Username: " +username);
                 try {
                     Mail.sendMail(email);
@@ -95,10 +94,12 @@ public class RegisterServlet extends HttpServlet {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                destination = "/login.jsp";
             } else {
                 request.setAttribute("emailError", "Registration failed. Please try again.");
+                destination = "/register.jsp";
             }
-
+            request.getRequestDispatcher(destination).forward(request, response);
         }
         // Nếu có lỗi hoặc insert thất bại, quay về trang đăng ký với thông báo lỗi
         request.getRequestDispatcher(destination).forward(request, response);
