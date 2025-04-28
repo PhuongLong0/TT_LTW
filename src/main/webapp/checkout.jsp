@@ -67,19 +67,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							});
 						});
 					</script>
-					<c:forEach var="product" items="${cart.getShoppingCart()}">
+					<c:forEach var="products" items="${cart.getShoppingCart()}">
 
 
 						<div class="cart-header">
-							<a class="close1" href="DeleteFromCart?productid=${product.id}"></a>
+							<a class="close1" href="DeleteFromCart?productid=${products.id}"></a>
 							<div class="cart-sec simpleCart_shelfItem">
 								<div class="cart-item cyc">
-									<img src="images/${product.getFirstImage()}"
+									<img src="images/${products.getFirstImage()}"
 										class="img-responsive" alt="" />
 								</div>
 								<div class="cart-item-info">
 									<h3>
-										<a href="#">${product.name }</a><span>Model No: 3578</span>
+										<a href="#">${products.name }</a><span>Model No: 3578</span>
 									</h3>
 									<ul class="qty">
 										<li><p>Size : 5</p></li>
@@ -88,10 +88,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="delivery">
 										<c:choose>
 											<c:when test="${tygia == null}">
-												<p>Service Charges :${product.cost} ${currency}</p>
+												<p>Service Charges :${products.cost} ${currency}</p>
 											</c:when>
 											<c:otherwise>
-												<p>Service Charges :${product.cost * tygia} ${currency}</p>
+												<p>Service Charges :${products.cost * tygia} ${currency}</p>
 											</c:otherwise>
 										</c:choose>
 										<span>Delivered in 2-3 business days</span>

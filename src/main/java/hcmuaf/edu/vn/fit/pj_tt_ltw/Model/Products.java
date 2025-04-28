@@ -18,7 +18,7 @@ public class Products {
     private List<String> listimg = new ArrayList<>();
 
 
-    public Products(int productId, String productName, int priceSell, int priceBuy, String productDetail, String brandName, Timestamp createAt,int imageId, int categoryId,List<String> listimg) {
+    public Products(int productId, String productName, int priceSell, int priceBuy, String productDetail, String brandName, Timestamp createAt, int imageId) {
         this.productId = productId;
         this.productName = productName;
         this.priceSell = priceSell;
@@ -27,11 +27,14 @@ public class Products {
         this.brandName = brandName;
         this.createAt = createAt;
         this.imageId = imageId;
-        this.categoryId = categoryId;
-        this.listimg = listimg;
+
 
     }
-    public Products() {
+    public Products(int productId, String productName, String productDetail, int priceSell) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productDetail = productDetail;
+        this.priceSell = priceSell;
     }
 
     public Products(int productId, String name, int priceSell, int priceBuy, String detail, int categoryId, ArrayList<String> imageNames) {
@@ -42,6 +45,10 @@ public class Products {
     this.productDetail = detail;
     this.categoryId = categoryId;
     this.listimg = imageNames;
+    }
+
+    public Products() {
+
     }
 
     public int getProductId() {
@@ -120,6 +127,8 @@ public class Products {
     public void setListimg(List<String> images) {
         this.listimg = images;
     }
-
+    public String getFirstImage() {
+        return listimg.get(0);
+    }
 }
 

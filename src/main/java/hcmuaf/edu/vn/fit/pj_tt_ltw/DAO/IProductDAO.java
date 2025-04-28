@@ -7,11 +7,11 @@ import java.util.List;
 public interface IProductDAO {
     public List<Products> all();
 
-    public int insert(Products product);
+    public int insert(Products products);
 
-    public int update(Products product);
+    public int update(Products products);
 
-    public int delete(Products product);
+    public int delete(Products products);
 
     public Products findById(String id);
 

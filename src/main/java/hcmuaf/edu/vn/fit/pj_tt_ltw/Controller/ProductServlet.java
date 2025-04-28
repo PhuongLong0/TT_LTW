@@ -29,16 +29,24 @@ public class ProductServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
         String destination = "/single.jsp";
-        String id = request.getParameter("productid");
+        String id = request.getParameter("productId");
         System.out.println(id);
+
         ServletContext application = getServletContext();
-        ProductDAO productdao = (ProductDAO) application.getAttribute("products");
-        Products product= productdao.findById(id);
-        request.setAttribute("product", product);
+        ProductDAO productdao = (ProductDAO) application.getAttribute("productdao");
+
+        if (productdao == null) {
+            // Nếu chưa có thì tự tạo mới
+            productdao = new ProductDAO();
+            application.setAttribute("productdao", productdao);
+        }
+
+        Products products = productdao.findById(id);
+        request.setAttribute("product", products);
         request.getRequestDispatcher(destination).forward(request, response);
     }
+
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

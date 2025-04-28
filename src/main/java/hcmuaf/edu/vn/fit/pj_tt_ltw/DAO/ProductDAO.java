@@ -11,58 +11,60 @@ import java.util.List;
 public class ProductDAO implements IProductDAO {
     @Override
     public List<Products> all() {
+        Connection connect;
         List<Products> res = new ArrayList<>();
-        /*String sql = "SELECT * FROM products";
-        try (Connection connect = DBConnect.getConnection();
+        String sql = "SELECT * FROM products ";
+        String sqlImage = "SELECT imageUrl FROM product_images WHERE productId = ?";
+        try {connect = DBConnect.getConnection();
              Statement statement = connect.createStatement();
-             ResultSet rs = statement.executeQuery(sql)) {
-
+             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Products product = new Products(
-                        rs.getInt("productId"),
-                        rs.getString("productName"),
-                        rs.getInt("priceBuy"),
-                        rs.getInt("priceSell"),
-                        rs.getString("productDetail"),
-                        rs.getString("brandName"),
-                        rs.getTimestamp("createAt"),
-                        rs.getInt("categoryId")
-                );
+                Products products = new Products(
+                    rs.getInt("productId"),
+                    rs.getString("productName"),
+                    rs.getString("productDetail"),
+                    rs.getInt("priceSell"));
 
-                // Lấy danh sách ảnh từ bảng product_images
-                product.setListimg(getImagesForProduct(product.getProductId()));
+                // Lấy danh sách ảnh theo productId
+                PreparedStatement pre = connect.prepareStatement(sqlImage);
+                pre.setInt(1, rs.getInt("productId"));
+                ResultSet rsimg = pre.executeQuery();
+                while (rsimg.next()) {
+                    products.getListimg().add(rsimg.getString("imageUrl"));
+                }
 
-                res.add(product);
+                res.add(products);
+                }
             }
-        } catch (SQLException e) {
+        catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
         return res;
     }
     @Override
-    public int insert(Products product) {
+    public int insert(Products products) {
         String sql = "INSERT INTO products (productName, priceBuy, priceSell, productDetail, brandName, createAt, categoryId) VALUES (?, ?, ?, ?, ?, ?, ?)";
         int res = 0;
 
         try (Connection connect = DBConnect.getConnection();
              PreparedStatement prs = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            prs.setString(1, product.getProductName());
-            prs.setDouble(2, product.getPriceBuy());
-            prs.setDouble(3, product.getPriceSell());
-            prs.setString(4, product.getProductDetail());
-            prs.setString(5, product.getBrandName());
-            prs.setTimestamp(6, product.getCreateAt());
-            prs.setInt(7, product.getCategoryId());
+            prs.setString(1, products.getProductName());
+            prs.setDouble(2, products.getPriceBuy());
+            prs.setDouble(3, products.getPriceSell());
+            prs.setString(4, products.getProductDetail());
+            prs.setString(5, products.getBrandName());
+            prs.setTimestamp(6, products.getCreateAt());
+            prs.setInt(7, products.getCategoryId());
 
             res = prs.executeUpdate();
             if (res > 0) {
                 ResultSet rs = prs.getGeneratedKeys();
                 if (rs.next()) {
                     int productId = rs.getInt(1);
-                    product.setProductId(productId);
+                    products.setProductId(productId);
                 }
-                insertImages(product);
+                insertImages(products);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,7 +89,7 @@ public class ProductDAO implements IProductDAO {
         return res;
     }
 
-    private void insertImage(Products product) {
+    private void insertImage(Products products) {
         String sql = "INSERT INTO products(productId, imageProduct ) VALUES( ?, ?)";
         Connection connect = null;
 
@@ -98,8 +100,8 @@ public class ProductDAO implements IProductDAO {
 
             // Duyệt qua danh sách hình ảnh của sản phẩm và chèn từng ảnh vào bảng
             // ProductImages
-            for (String img : product.getListimg()) {
-                prs.setInt(1, product.getProductId());
+            for (String img : products.getListimg()) {
+                prs.setInt(1, products.getProductId());
                 prs.setString(2, img);
                 prs.executeUpdate();
 
@@ -110,26 +112,26 @@ public class ProductDAO implements IProductDAO {
     }
 
     @Override
-    public int update(Products product) {
+    public int update(Products products) {
         String sql = "UPDATE products SET productName = ?, priceBuy = ?, priceSell = ?, productDetail = ?, brandName = ?, categoryId = ? WHERE productId = ?";
         int res = 0;
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement prs = connection.prepareStatement(sql)) {
 
-            prs.setString(1, product.getProductName());
-            prs.setInt(2, product.getPriceBuy());
-            prs.setInt(3, product.getPriceSell());
-            prs.setString(4, product.getProductDetail());
-            prs.setString(5, product.getBrandName());
-            prs.setInt(6, product.getCategoryId());
-            prs.setInt(7, product.getProductId());
+            prs.setString(1, products.getProductName());
+            prs.setInt(2, products.getPriceBuy());
+            prs.setInt(3, products.getPriceSell());
+            prs.setString(4, products.getProductDetail());
+            prs.setString(5, products.getBrandName());
+            prs.setInt(6, products.getCategoryId());
+            prs.setInt(7, products.getProductId());
 
             res = prs.executeUpdate();
 
             // Xóa và cập nhật danh sách ảnh
-            deleteImages(product.getProductId());
-            insertImages(product);
+            deleteImages(products.getProductId());
+            insertImages(products);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -138,16 +140,16 @@ public class ProductDAO implements IProductDAO {
     }
 
     @Override
-    public int delete(Products product) {
+    public int delete(Products products) {
         String sql = "DELETE FROM products WHERE productId=? ";
         int res = 0;
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             // Xóa ảnh trước khi xóa sản phẩm
-            deleteImages(product.getProductId());
+            deleteImages(products.getProductId());
 
-            preparedStatement.setInt(1, product.getProductId());
+            preparedStatement.setInt(1, products.getProductId());
             res = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -158,16 +160,16 @@ public class ProductDAO implements IProductDAO {
     @Override
     public Products findById(String id) {
         String sql = "SELECT * FROM products WHERE productId = ?";
-        Products product = null;
+        Products products = null;
 
-        /*try (Connection connect = DBConnect.getConnection();
+        try (Connection connect = DBConnect.getConnection();
              PreparedStatement prs = connect.prepareStatement(sql)) {
 
             prs.setInt(1, Integer.parseInt(id));
             ResultSet rs = prs.executeQuery();
 
             if (rs.next()) {
-                product = new Products(
+                products = new Products(
                         rs.getInt("productId"),
                         rs.getString("productName"),
                         rs.getInt("priceBuy"),
@@ -179,21 +181,21 @@ public class ProductDAO implements IProductDAO {
                 );
 
                 // Lấy danh sách ảnh từ bảng product_images
-                product.setListimg(getImagesForProduct(product.getProductId()));
+                products.setListimg(getImagesForProduct(products.getProductId()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
-        return product;
+        }
+        return products;
     }
 
-    private void insertImages(Products product) {
+    private void insertImages(Products products) {
         String sql = "INSERT INTO product_images (productId, imageProduct) VALUES (?, ?)";
         try (Connection connect = DBConnect.getConnection();
              PreparedStatement prs = connect.prepareStatement(sql)) {
 
-            for (String img : product.getListimg()) {
-                prs.setInt(1, product.getProductId());
+            for (String img : products.getListimg()) {
+                prs.setInt(1, products.getProductId());
                 prs.setString(2, img);
                 prs.executeUpdate();
             }
@@ -217,14 +219,14 @@ public class ProductDAO implements IProductDAO {
     }
 
 
-private int degreecategory(Products product) {
+private int degreecategory(Products products) {
     String sql = "update categories set soluong= soluong-1 where category=?";
     Connection connection;
     int res = 0;
     try {
         connection = DBConnect.getConnection();
         PreparedStatement prs = connection.prepareStatement(sql);
-        prs.setInt(1, product.getCategoryId());
+        prs.setInt(1, products.getCategoryId());
         res = prs.executeUpdate();
     } catch (SQLException e) {
         // TODO Auto-generated catch block

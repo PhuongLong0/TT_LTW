@@ -60,15 +60,15 @@ public class LoginServlet extends HttpServlet {
             if (role == 1) {
                 // Điều hướng đến giao diện người dùng
                 System.out.println("Vào trang chủ");
-                response.sendRedirect("index.jsp");
+                destination = "/index.jsp";
 
             } else if (role == 2) {
                 // Điều hướng đến giao diện admin
                 System.out.println("Vào trang admin");
-                response.sendRedirect("AdminLogin.jsp");
+                destination = "/adminOrder.jsp";
 
             }
-
+            request.getRequestDispatcher(destination).forward(request, response);
         } else {
             errorMessage = "Incorrect email or password.";
             request.setAttribute("errorMessage", errorMessage);

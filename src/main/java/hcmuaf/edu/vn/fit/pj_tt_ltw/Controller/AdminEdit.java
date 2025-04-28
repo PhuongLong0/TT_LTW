@@ -38,14 +38,14 @@ public class AdminEdit extends HttpServlet {
         String id = request.getParameter("productid");
         ServletContext application = getServletContext();
         ProductDAO productdao = (ProductDAO) application.getAttribute("products");
-        Products product = productdao.findById(id);
-        request.setAttribute("product", product);
+        Products products = productdao.findById(id);
+        request.setAttribute("product", products);
         switch (action) {
             case "detail":
-                destination = "AdminProductDetail.jsp";
+                destination = "adminProductDetail.jsp";
                 break;
             case "edit":
-                destination = "AdminEdit.jsp";
+                destination = "adminEdit.jsp";
                 break;
             default:
                 break;

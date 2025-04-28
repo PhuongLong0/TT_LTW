@@ -14,20 +14,20 @@
 	</c:if>
 
 	<!-- List of products -->
-	<c:forEach var="product" items="${searchResults}">
-		<div class="product">
-			<h2>${product.name}</h2>
+	<c:forEach var="products" items="${searchResults}">
+		<div class="products">
+			<h2>${products.name}</h2>
 			<p>
-				<strong>Description:</strong> ${product.detail}
+				<strong>Description:</strong> ${products.detail}
 			</p>
 			<p>
-				<strong>Cost:</strong> $${product.cost}
+				<strong>Cost:</strong> $${products.cost}
 			</p>
 
 			<!-- Display images -->
 			<div>
-				<c:forEach var="image" items="${product.listimg}">
-					<img src="${image}" alt="${product.name}" />
+				<c:forEach var="image" items="${products.listimg}">
+					<img src="${image}" alt="${products.name}" />
 				</c:forEach>
 			</div>
 		</div>

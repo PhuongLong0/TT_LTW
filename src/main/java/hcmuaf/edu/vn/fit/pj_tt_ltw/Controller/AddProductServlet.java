@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.UUID;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
@@ -90,21 +88,21 @@ public class AddProductServlet extends HttpServlet {
             }
 
             // Tạo đối tượng sản phẩm mới
-            Products product = new Products();
-            product.setProductName(name);
-            product.setPriceBuy(priceBuy);
-            product.setPriceSell(priceSell);
-            product.setProductDetail(detail);
-            product.getListimg();
-            product.setBrandName(brandName);
-            product.setCreateAt(new Timestamp(System.currentTimeMillis())); // Thêm ngày tạo sản phẩm
-            product.setCategoryId(categoryId);
+            Products products = new Products();
+            products.setProductName(name);
+            products.setPriceBuy(priceBuy);
+            products.setPriceSell(priceSell);
+            products.setProductDetail(detail);
+            products.getListimg();
+            products.setBrandName(brandName);
+            products.setCreateAt(new Timestamp(System.currentTimeMillis())); // Thêm ngày tạo sản phẩm
+            products.setCategoryId(categoryId);
 
             // Kết nối tới ProductDao để lưu sản phẩm
             ServletContext application = getServletContext();
             ProductDAO dao = (ProductDAO) application.getAttribute("products");
 
-            dao.insert(product);
+            dao.insert(products);
 
             // Chuyển hướng sau khi thêm sản phẩm thành công
             response.sendRedirect("adminAdd.jsp");

@@ -32,11 +32,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="men">
    	<div class="container">
       <div class="col-md-9 single_top">
-      	 <h1 class="page-heading product-listing">
+      	 <h1 class="page-heading products-listing">
 			Brands
 		    <span class="heading-counter">There are 4 brands</span>
          </h1>
-         <div class="product-count">Showing 1 - 4 of 4 items</div>
+         <div class="products-count">Showing 1 - 4 of 4 items</div>
           <div class="brand_box">
 	         <div class="left-side col-xs-12 col-sm-3">
 				 <img src="images/2nd-day.jpg" alt=""/>
@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="col-md-3 tabs">
 	      <h3 class="m_1">Related Products</h3>
-	      <ul class="product">
+	      <ul class="products">
 	      	<li class="product_img"><img src="images/m5.jpg" class="img-responsive" alt=""/></li>
 	      	<li class="product_desc">
 	      		<h4><a href="#">quod mazim</a></h4>
@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
-	      <ul class="product">
+	      <ul class="products">
 	      	<li class="product_img"><img src="images/m6.jpg" class="img-responsive" alt=""/></li>
 	      	<li class="product_desc">
 	      		<h4><a href="#">quod mazim</a></h4>
@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
-	      <ul class="product">
+	      <ul class="products">
 	      	<li class="product_img"><img src="images/m2.jpg" class="img-responsive" alt=""/></li>
 	      	<li class="product_desc">
 	      		<h4><a href="#">quod mazim</a></h4>
@@ -126,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
-	      <ul class="product">
+	      <ul class="products">
 	      	<li class="product_img"><img src="images/m3.jpg" class="img-responsive" alt=""/></li>
 	      	<li class="product_desc">
 	      		<h4><a href="#">quod mazim</a></h4>
