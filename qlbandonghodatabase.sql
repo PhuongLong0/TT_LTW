@@ -226,7 +226,7 @@ INSERT INTO `product_images` VALUES (95, 95,'https://res.garmin.com/transform/im
 INSERT INTO `product_images` VALUES (96, 96,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02785-50/v/cf-xl?pgw=1');
 INSERT INTO `product_images` VALUES (97, 97,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-52/v/cf-xl?pgw=1&pgwact=1');
 INSERT INTO `product_images` VALUES (98, 98,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-5B/v/cf-xl?pgw=1&pgwact=1');
-INSERT INTO `product_images` VALUES (99, 99,'đồng hồ smart watch vívoactive 5 5','https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-53/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (99, 99,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-53/v/cf-xl?pgw=1&pgwact=1');
 INSERT INTO `product_images` VALUES (100, 100,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02862-5A/v/cf-xl?pgw=1');
 INSERT INTO `product_images` VALUES (101, 101, 'https://www.zeitvintagewatch.com/cdn/shop/files/OMEGASEAMASTER2975-5-SC-1.jpg?v=1741069953&width=990');
 
@@ -317,15 +317,15 @@ INSERT INTO `products` VALUES (53, 'fēnix 8','10000.000','31990000 ','Garmin','
 INSERT INTO `products` VALUES (54, 'fēnix 8','10000.000','26990000 ','đồng hồ smart watch fēnix 8 ','Garmin', NOW(), 3, 54);
 INSERT INTO `products` VALUES (55, 'fēnix 8','10000.000','29990000 ','đồng hồ smart watch fēnix 8 ','Garmin', NOW(), 3, 55);
 INSERT INTO `products` VALUES (56, 'fēnix 8 Solar','10000.000','31990000 ','đồng hồ smart watch fēnix 8 Solar ','Garmin', NOW(), 3, 56);
-INSERT INTO `products` VALUES (57, 'Instinct 3','5000000','12290000','đồng hồ smart watch Instinct 3','Garmin', NOW(), 3, 6);
-INSERT INTO `products` VALUES (58, 'Instinct 3 Solar','5000000','12290000','đồng hồ smart watch Instinct 3 Solar','Garmin', NOW(), 3, 57);
-INSERT INTO `products` VALUES (59, 'Instinct 3 Solar','5000000','12290000','đồng hồ smart watch Instinct 3 Solar','Garmin', NOW(), 3, 58);
-INSERT INTO `products` VALUES (60, 'Instinct E','5000000','8290000','đồng hồ smart watch Instinct E','Garmin', NOW(), 3, 59);
-INSERT INTO `products` VALUES (61, 'Instinct E','5000000','8290000','đồng hồ smart watch Instinct E', NOW(), 3, 60);
-INSERT INTO `products` VALUES (62, 'Venu 3','5000000','12290000','đồng hồ smart watch Venu 3','Garmin', NOW(), 3, 61);
-INSERT INTO `products` VALUES (63, 'Venu 3','5000000','12290000','đồng hồ smart watch Venu 3', NOW(),'Garmin', 3, 62);
-INSERT INTO `products` VALUES (64, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 63);
-INSERT INTO `products` VALUES (65, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 64);
+INSERT INTO `products` VALUES (57, 'Instinct 3','5000000','12290000','đồng hồ smart watch Instinct 3','Garmin', NOW(), 3, 57);
+INSERT INTO `products` VALUES (58, 'Instinct 3 Solar','5000000','12290000','đồng hồ smart watch Instinct 3 Solar','Garmin', NOW(), 3, 58);
+INSERT INTO `products` VALUES (59, 'Instinct 3 Solar','5000000','12290000','đồng hồ smart watch Instinct 3 Solar','Garmin', NOW(), 3, 59);
+INSERT INTO `products` VALUES (60, 'Instinct E','5000000','8290000','đồng hồ smart watch Instinct E','Garmin', NOW(), 3, 60);
+INSERT INTO `products` VALUES (61, 'Instinct E','5000000','8290000','đồng hồ smart watch Instinct E','Garmin', NOW(), 3, 61);
+INSERT INTO `products` VALUES (62, 'Venu 3','5000000','12290000','đồng hồ smart watch Venu 3','Garmin', NOW(), 3, 62);
+INSERT INTO `products` VALUES (63, 'Venu 3','5000000','12290000','đồng hồ smart watch Venu 3', NOW(),'Garmin', 3, 63);
+INSERT INTO `products` VALUES (64, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 64);
+INSERT INTO `products` VALUES (65, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 65);
 INSERT INTO `products` VALUES (66, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 66);
 INSERT INTO `products` VALUES (67, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 67);
 INSERT INTO `products` VALUES (68, 'vívoactive 5','800000','5790000','đồng hồ smart watch vívoactive 5','Garmin', NOW(), 3, 68);
@@ -360,7 +360,7 @@ INSERT INTO `products` VALUES (96, 'Garmin Swim 2','900000','3690000','đồng h
 INSERT INTO `products` VALUES (97, 'Venu 3S','900000','12290000','đồng hồ smart watch Venu 3S','Garmin', NOW(), 3, 97);
 INSERT INTO `products` VALUES (98, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 98);
 INSERT INTO `products` VALUES (99, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 99);
-INSERT INTO `products` VALUES (100, 'vívoactive 5','900000','5790000','Garmin', NOW(), 3, 100);
+INSERT INTO `products` VALUES (100, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 100);
 INSERT INTO `products` VALUES (101, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 101);
 
 
