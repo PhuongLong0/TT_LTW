@@ -124,12 +124,12 @@ CREATE TABLE `product_images`  (
 -- ----------------------------
 -- Records of product_images
 -- ----------------------------
-INSERT INTO `product_images` VALUES (1, 1, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/products/_/0/_0002_cf-lg-9f340e51-97bc-4651-b885-00.jpg');
-INSERT INTO `product_images` VALUES (2, 2, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/products/_/0/_0005_cf-lg-65651489-2748-4e13-a2be-87_1_.jpg');
-INSERT INTO `product_images` VALUES (3, 3, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/products/_/0/_0001__-_-___6_2.jpg');
-INSERT INTO `product_images` VALUES (4, 4, 'https://cdn2.cellphones.com.vn/358x/media/catalog/products/g/a/garmin-2x-solar-do.jpg');
-INSERT INTO `product_images` VALUES (5, 5, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/products/t/e/text_ng_n_42__3_33.png');
-INSERT INTO `product_images` VALUES (6, 6, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/products/g/a/garmin-forerunner-965-trang-1.jpg');
+INSERT INTO `product_images` VALUES (1, 1, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/_/0/_0002_cf-lg-9f340e51-97bc-4651-b885-00.jpg');
+INSERT INTO `product_images` VALUES (2, 2, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/_/0/_0005_cf-lg-65651489-2748-4e13-a2be-87_1_.jpg');
+INSERT INTO `product_images` VALUES (3, 3, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/_/0/_0001__-_-___6_2.jpg');
+INSERT INTO `product_images` VALUES (4, 4, 'https://cdn2.cellphones.com.vn/358x/media/catalog/product/g/a/garmin-2x-solar-do.jpg');
+INSERT INTO `product_images` VALUES (5, 5, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_42__3_33.png');
+INSERT INTO `product_images` VALUES (6, 6, 'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/g/a/garmin-forerunner-965-trang-1.jpg');
 INSERT INTO `product_images` VALUES (7, 7, 'https://cdn.tgdd.vn/Products/Images/7077/327696/samsung-galaxy-watch7-lte-40mm-1-750x500.jpg');
 INSERT INTO `product_images` VALUES (8, 8, 'https://cdn.tgdd.vn/Products/Images/7077/328630/befit-sporty-3-rd-1-1-750x500.jpg');
 INSERT INTO `product_images` VALUES (9, 9, 'https://cdn.tgdd.vn/Products/Images/7077/315897/garmin-vivoactive-5-day-silicone-xanh-1-750x500.jpg');
@@ -175,6 +175,62 @@ INSERT INTO `product_images` VALUES (48, 48, 'https://www.zeitvintagewatch.com/c
 INSERT INTO `product_images` VALUES (49, 49, 'https://www.zeitvintagewatch.com/cdn/shop/files/P1345558.jpg?v=1720079523&width=990');
 INSERT INTO `product_images` VALUES (50, 50, 'https://www.zeitvintagewatch.com/cdn/shop/files/DSCF4504.jpg?v=1730867496&width=990');
 INSERT INTO `product_images` VALUES (51, 51, 'https://www.zeitvintagewatch.com/cdn/shop/files/OMEGASEAMASTER2975-5-SC-1.jpg?v=1741069953&width=990');
+
+
+
+
+INSERT INTO `product_images` VALUES (52, 52, 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_3_11_638457733130725371_garmin-forerunner-165-den%20(4).jpg');
+INSERT INTO `product_images` VALUES (53, 53,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02903-06/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (54, 54,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02903-06/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (55, 55,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02907-70/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (56, 56,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02936-40/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (57, 57,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02934-41/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (58, 58,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02935-41/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (59, 59,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02933-23/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (60, 60,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02932-13/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (61, 61,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_15,q_auto,w_66/c_limit,h_15,w_66/v1/Product_Images/vi_VN/products/010-02784-50/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (62, 62,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02784-51/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (63, 63,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02785-50/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (64, 64,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02785-51/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (65, 65,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02785-52/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (66, 66,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02785-54/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (67, 67,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-52/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (68, 68,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-03406-14/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (69, 69,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02810-53/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (70, 70,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02863-B1/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (71, 71,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_15,q_auto,w_66/c_limit,h_15,w_66/v1/Product_Images/vi_VN/products/010-02863-B2/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (72, 72,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02863-B3/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (73, 73,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02863-AB/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (74, 74,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02809-80/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (75, 75,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02839-21/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (76, 76,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02839-60/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (77, 77,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02839-61/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (78, 78,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02839-63/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (79, 79,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02839-62/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (80, 80,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02891-50/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (81, 81,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02891-51/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (82, 82,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02891-52/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (83, 83,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02562-51/v/cf-xl-a7a0c155-d16d-48f2-b280-61f05b1ccb27?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (84, 84,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-03393-D4/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (85, 85,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02648-A4/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (86, 86,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02648-B4/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (87, 87,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02648-C4/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (88, 88,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02722-B3/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (89, 89,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02665-80/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (90, 90,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_15,q_auto,w_66/c_limit,h_15,w_66/v1/Product_Images/vi_VN/products/010-02746-52/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (91, 91,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_15,q_auto,w_66/c_limit,h_15,w_66/v1/Product_Images/vi_VN/products/010-03010-40/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (92, 92,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02803-93/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (93, 93,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-01847-20/v/cf-xl-47b2fed2-0347-4d87-997b-52b7da0e869d?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (94, 94,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02441-51/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (95, 95,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02247-60/v/cf-xl-33453540-ede7-4573-96cb-d6b3b3907632?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (96, 96,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02785-50/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (97, 97,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-52/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (98, 98,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-5B/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (99, 99,'đồng hồ smart watch vívoactive 5 5','https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02862-53/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (100, 100,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_772,q_auto,w_1600/c_limit,h_772,w_1600/v1/Product_Images/vi_VN/products/010-02862-5A/v/cf-xl?pgw=1');
+INSERT INTO `product_images` VALUES (101, 101, 'https://www.zeitvintagewatch.com/cdn/shop/files/OMEGASEAMASTER2975-5-SC-1.jpg?v=1741069953&width=990');
+
+
 
 -- ----------------------------
 -- Table structure for products
@@ -251,6 +307,66 @@ INSERT INTO `products` VALUES (48, 'OMEGA GENÈVE DYNAMIC AUTOMATIC REF 166.107'
 INSERT INTO `products` VALUES (49, 'OMEGA GENÈVE AUTOMATIC REF. 162.0042', 7993000, 11685000, 'Khung viền: thép không gỉ', 'OMEGA', '2025-03-30 23:48:19', 2, 49);
 INSERT INTO `products` VALUES (50, 'OMEGA GENÈVE AUTOMATIC REF. 162.010', 7993000, 10384000, 'Khung viền: thép không gỉ', 'OMEGA', '2025-03-30 23:48:21', 2, 50);
 INSERT INTO `products` VALUES (51, 'OMEGA SEAMASTER AUTOMATIC REF. 2975-5-SC', 17999000, 22085000, 'Khung viền: thép không gỉ', 'OMEGA', '2025-03-30 23:48:23', 2, 51);
+
+
+
+
+
+INSERT INTO `products` VALUES (52, 'Garmin Forerunner 165','3020000','6020000','đồng hồ smart watch chạy bộ thế hệ mới Garmin Forerunner 165','Garmin', NOW(), 3, 52);
+INSERT INTO `products` VALUES (53, 'fēnix 8','10000.000','31990000 ','Garmin','đồng hồ smart watch fēnix 8 ', NOW(), 3, 53);
+INSERT INTO `products` VALUES (54, 'fēnix 8','10000.000','26990000 ','đồng hồ smart watch fēnix 8 ','Garmin', NOW(), 3, 54);
+INSERT INTO `products` VALUES (55, 'fēnix 8','10000.000','29990000 ','đồng hồ smart watch fēnix 8 ','Garmin', NOW(), 3, 55);
+INSERT INTO `products` VALUES (56, 'fēnix 8 Solar','10000.000','31990000 ','đồng hồ smart watch fēnix 8 Solar ','Garmin', NOW(), 3, 56);
+INSERT INTO `products` VALUES (57, 'Instinct 3','5000000','12290000','đồng hồ smart watch Instinct 3','Garmin', NOW(), 3, 6);
+INSERT INTO `products` VALUES (58, 'Instinct 3 Solar','5000000','12290000','đồng hồ smart watch Instinct 3 Solar','Garmin', NOW(), 3, 57);
+INSERT INTO `products` VALUES (59, 'Instinct 3 Solar','5000000','12290000','đồng hồ smart watch Instinct 3 Solar','Garmin', NOW(), 3, 58);
+INSERT INTO `products` VALUES (60, 'Instinct E','5000000','8290000','đồng hồ smart watch Instinct E','Garmin', NOW(), 3, 59);
+INSERT INTO `products` VALUES (61, 'Instinct E','5000000','8290000','đồng hồ smart watch Instinct E', NOW(), 3, 60);
+INSERT INTO `products` VALUES (62, 'Venu 3','5000000','12290000','đồng hồ smart watch Venu 3','Garmin', NOW(), 3, 61);
+INSERT INTO `products` VALUES (63, 'Venu 3','5000000','12290000','đồng hồ smart watch Venu 3', NOW(),'Garmin', 3, 62);
+INSERT INTO `products` VALUES (64, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 63);
+INSERT INTO `products` VALUES (65, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 64);
+INSERT INTO `products` VALUES (66, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 66);
+INSERT INTO `products` VALUES (67, 'Venu 3 S','5000000','12290000','đồng hồ smart watch Venu 3 S','Garmin', NOW(), 3, 67);
+INSERT INTO `products` VALUES (68, 'vívoactive 5','800000','5790000','đồng hồ smart watch vívoactive 5','Garmin', NOW(), 3, 68);
+INSERT INTO `products` VALUES (69, 'tactix 8','10000000','37990000','đồng hồ smart watch tactix 8','Garmin', NOW(), 3, 69);
+INSERT INTO `products` VALUES (70, 'Forerunner 265S','900000','11690000','đồng hồ smart watch Forerunner 265S','Garmin', NOW(), 3, 70);
+INSERT INTO `products` VALUES (71, 'Forerunner 165 Music','900000','7990000','đồng hồ smart watch Forerunner 265S','Garmin', NOW(), 3, 71);
+INSERT INTO `products` VALUES (72, 'Forerunner 165 Music','900000','7990000','đồng hồ smart watch Forerunner 265S','Garmin', NOW(), 3, 72);
+INSERT INTO `products` VALUES (73, 'Forerunner 165 Music','900000','7990000','đồng hồ smart watch Forerunner 265S','Garmin', NOW(), 3, 73);
+INSERT INTO `products` VALUES (74, 'Forerunner 165','900000','6690000','đồng hồ smart watch Forerunner 265S','Garmin', NOW(), 3, 74);
+INSERT INTO `products` VALUES (75, 'Forerunner 965','900000','16490000','đồng hồ smart watch Forerunner 965','Garmin', NOW(), 3, 75);
+INSERT INTO `products` VALUES (76, 'Lily 2','900000','6490000','đồng hồ smart watch Lily 2','Garmin', NOW(), 3, 76);
+INSERT INTO `products` VALUES (77, 'Lily 2 Classic','900000','8490000','đồng hồ smart watch Lily 2 Classic','Garmin', NOW(), 3, 77);
+INSERT INTO `products` VALUES (78, 'Lily 2 Classic','900000','8490000','đồng hồ smart watch Lily 2 Classic','Garmin', NOW(), 3, 78);
+INSERT INTO `products` VALUES (79, 'Lily 2 Classic','900000','8490000','đồng hồ smart watch Lily 2 Classic','Garmin', NOW(), 3, 79);
+INSERT INTO `products` VALUES (80, 'Lily 2 Classic','900000','8490000','đồng hồ smart watch Lily 2 Classic','Garmin', NOW(), 3, 80);
+INSERT INTO `products` VALUES (81, 'Lily 2 Active','900000','8490000','đồng hồ smart watch Lily 2 Active','Garmin', NOW(), 3, 81);
+INSERT INTO `products` VALUES (82, 'Lily 2 Active','900000','8490000','đồng hồ smart watch Lily 2 Active','Garmin', NOW(), 3, 82);
+INSERT INTO `products` VALUES (83, 'Lily 2 Active','900000','8490000','đồng hồ smart watch Lily 2 Active','Garmin', NOW(), 3, 83);
+INSERT INTO `products` VALUES (84, 'Forerunner 55','900000','3490000','đồng hồ smart watch Forerunner 55','Garmin', NOW(), 3, 84);
+INSERT INTO `products` VALUES (85, 'MARQ Adventurer (Gen 2) - Damascus Steel Edition','9000000','79990000','đồng hồ smart watch MARQ Adventurer (Gen 2) - Damascus Steel Edition','Garmin', NOW(), 3, 85);
+INSERT INTO `products` VALUES (86, 'MARQ Aviator (Gen 2)','9000000','59490000','đồng hồ smart watch MARQ Aviator (Gen 2)','Garmin', NOW(), 3, 86);
+INSERT INTO `products` VALUES (87, 'MARQ Aviator (Gen 2)','9000000','59490000','đồng hồ smart watch MARQ Aviator (Gen 2)','Garmin', NOW(), 3, 87);
+INSERT INTO `products` VALUES (88, 'MARQ Golfer (Gen 2)','9000000','62290000','đồng hồ smart watch MARQ Golfer (Gen 2)','Garmin', NOW(), 3, 88);
+INSERT INTO `products` VALUES (89, 'MARQ Athlete (Gen 2) - Carbon Edition','9000000','77990000','đồng hồ smart watch MARQ Athlete (Gen 2) - Carbon Edition','Garmin', NOW(), 3, 89);
+INSERT INTO `products` VALUES (90, 'vívomove Trend','900000','7290000','đồng hồ smart watch vívomove Trend','Garmin', NOW(), 3, 90);
+INSERT INTO `products` VALUES (91, 'Approach S70','900000','18290000','đồng hồ smart watch Approach S70','Garmin', NOW(), 3, 91);
+INSERT INTO `products` VALUES (92, 'Approach S50','900000','18290000','đồng hồ smart watch Approach S50','Garmin', NOW(), 3, 92);
+INSERT INTO `products` VALUES (93, 'quatix 7 Pro','900000','25990000','đồng hồ smart watch quatix 7 Pro','Garmin', NOW(), 3, 93);
+INSERT INTO `products` VALUES (94, 'vívofit 4','900000','2390000','đồng hồ smart watch vívofit 4','Garmin', NOW(), 3, 94);
+INSERT INTO `products` VALUES (95, 'vívofit jr. 3','900000','2690000','đồng hồ smart watch vívofit jr. 3','Garmin', NOW(), 3, 95);
+INSERT INTO `products` VALUES (96, 'Garmin Swim 2','900000','3690000','đồng hồ smart watch Garmin Swim 2','Garmin', NOW(), 3, 96);
+INSERT INTO `products` VALUES (97, 'Venu 3S','900000','12290000','đồng hồ smart watch Venu 3S','Garmin', NOW(), 3, 97);
+INSERT INTO `products` VALUES (98, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 98);
+INSERT INTO `products` VALUES (99, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 99);
+INSERT INTO `products` VALUES (100, 'vívoactive 5','900000','5790000','Garmin', NOW(), 3, 100);
+INSERT INTO `products` VALUES (101, 'vívoactive 5','900000','5790000','đồng hồ smart watch vívoactive 5 5','Garmin', NOW(), 3, 101);
+
+
+
+
+
 
 -- ----------------------------
 -- Table structure for productviews
