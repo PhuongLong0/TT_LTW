@@ -49,6 +49,9 @@ public class RegisterServlet extends HttpServlet {
         String confirmPass = request.getParameter("confirmPassword");
         int role = 1;
 
+        if(username == null || username.isEmpty()){
+            request.setAttribute("usernameError", "Username is required");
+        }
         if (firstname == null || firstname.isEmpty()) {
             request.setAttribute("nameError", "First name must not be empty.");
             isvalid = false;

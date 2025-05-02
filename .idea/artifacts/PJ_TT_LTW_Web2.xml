@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PJ_TT_LTW:Web2">
+    <output-path>$PROJECT_DIR$/out/artifacts/PJ_TT_LTW_Web2</output-path>
+    <root id="archive" name="PJ_TT_LTW_Web2.war">
+      <element id="artifact" artifact-name="PJ_TT_LTW:Web2 exploded" />
+    </root>
+  </artifact>
+</component>

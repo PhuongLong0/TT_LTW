@@ -11,20 +11,8 @@
 <meta name="keywords"
 	content="Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); }
-    
-
-
-
-
-
 </script>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -76,9 +64,11 @@
 			<div class="col-md-4 sidebar_men">
 				<h3>Categories</h3>
 				<ul class="product-categories color">
-					<c:forEach var="category" items="${products.getCategories()}">
-						<li class="cat-item cat-item-42"><a
-							href="FilterServlet?category=${category.category}">${category.category}</a>
+					<c:forEach var="category" items="${categories}">
+						<li class="cat-item cat-item-42">
+							<a href="FilterServlet?category=${category.categoryName}">
+								${category.categoryName}
+						</a>
 							<span class="count">${category.num}</span></li>
 					</c:forEach>
 				</ul>
@@ -115,7 +105,7 @@
 						<c:if test="${empty filter}">
 							<c:forEach var="product" items="${listproducts}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-									href="${pageContext.request.contextPath}/ProductServlet?productid=${product.id}">
+									href="${pageContext.request.contextPath}/ProductServlet?productid=${product.productId}">
 										<div class="view view-first">
 											<div class="inner_content clearfix">
 												<div class="product_image">
@@ -127,20 +117,20 @@
 														<div class="info">Quick View</div>
 													</div>
 													<div class="product_container">
-														<h4>${product.name}</h4>
+														<h4>${product.productName}</h4>
 														<p>Dresses</p>
 														<div class="price mount item_price">
 															<c:choose>
 																<c:when test="${tygia == null}">
-												${product.cost} ${currency}
+												${product.priceSell} ${currency}
 											</c:when>
 																<c:otherwise>
-												${product.cost * tygia} ${currency}
+												${product.priceSell * tygia} ${currency}
 											</c:otherwise>
 															</c:choose>
 														</div>
 														<a class="button item_add cbp-vm-icon cbp-vm-add"
-															href="${pageContext.request.contextPath}/AddToCart?productid=${product.id}">Add
+															href="${pageContext.request.contextPath}/AddToCart?productid=${product.productId}">Add
 															to cart</a>
 													</div>
 												</div>
@@ -153,7 +143,7 @@
 						<c:if test="${not empty filter}">
 							<c:forEach var="product" items="${filter}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-									href="${pageContext.request.contextPath}/ProductServlet?productid=${product.id}">
+									href="${pageContext.request.contextPath}/ProductServlet?productid=${product.productId}">
 										<div class="view view-first">
 											<div class="inner_content clearfix">
 												<div class="product_image">
@@ -165,20 +155,20 @@
 														<div class="info">Quick View</div>
 													</div>
 													<div class="product_container">
-														<h4>${product.name}</h4>
+														<h4>${product.productName}</h4>
 														<p>Dresses</p>
 														<div class="price mount item_price">
 															<c:choose>
 																<c:when test="${tygia == null}">
-												${product.cost} ${currency}
+												${product.priceSell} ${currency}
 											</c:when>
 																<c:otherwise>
-												${product.cost * tygia} ${currency}
+												${product.priceSell * tygia} ${currency}
 											</c:otherwise>
 															</c:choose>
 														</div>
 														<a class="button item_add cbp-vm-icon cbp-vm-add"
-															href="${pageContext.request.contextPath}/AddToCart?productid=${product.id}">Add
+															href="${pageContext.request.contextPath}/AddToCart?productid=${product.prodcutId}">Add
 															to cart</a>
 													</div>
 												</div>

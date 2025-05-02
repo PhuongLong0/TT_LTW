@@ -25,14 +25,31 @@ public class ForgetPasswordServlet extends HttpServlet {
             String captcha = req.getParameter("captcha");
             String realCaptcha = (String) session.getAttribute("captcha");
 
+            if(!users.existsEmail(email)){
+                req.setAttribute("error", "Email not exist!");
+                req.setAttribute("step", 1);
+                break;
+            }
             if (captcha != null && captcha.equalsIgnoreCase(realCaptcha)) {
+                System.out.println("Captcha is valid");
                 String otp = generateOtp(); // tạo OTP
                 session.setAttribute("otp", otp);
                 session.setAttribute("emailToReset", email);
-                users.sendOtpToEmail(email, otp);
+                boolean sent= users.sendOtpToEmail(email, otp);
+                System.out.println("Gửi email OTP thành công? " + sent);
+                if (sent) {
+                    System.out.println("OTP đã được gửi tới email: " + email);
+                } else {
+                    System.out.println("Lỗi khi gửi OTP!");
+                    req.setAttribute("error", "Không thể gửi email xác nhận. Vui lòng thử lại sau.");
+                    req.setAttribute("step", 1); // Quay về bước đầu nếu gửi thất bại
+                    break;
+                }
                 req.setAttribute("step", 2);
+                System.out.println("Đang gửi mã OTP...");
             } else {
                 req.setAttribute("error", "Captcha không đúng");
+                System.out.println("Captchar không đúng!");
                 req.setAttribute("step", 1);
             }
             break;
@@ -40,9 +57,11 @@ public class ForgetPasswordServlet extends HttpServlet {
             String inputOtp = req.getParameter("otp");
             String realOtp = (String) session.getAttribute("otp");
             if (inputOtp != null && inputOtp.equals(realOtp)) {
+                System.out.println("Nhập OTP thành công!");
                 req.setAttribute("step", 3);
             } else {
                 req.setAttribute("error", "OTP không đúng");
+                System.out.println("OTP không đúng!");
                 req.setAttribute("step", 2);
             }
             break;
@@ -54,13 +73,13 @@ public class ForgetPasswordServlet extends HttpServlet {
                 users.updatePassword(emailToReset, pass1); // cập nhật DB
                 req.setAttribute("message", "Đổi mật khẩu thành công!");
                 req.setAttribute("step", 1); // quay về bước đầu
+                System.out.println("Đổi mật khẩu thành công!");
             } else {
                 req.setAttribute("error", "Mật khẩu không khớp");
                 req.setAttribute("step", 3);
             }
             break;
     }
-
     req.getRequestDispatcher("ForgetPassword.jsp").forward(req, resp);
 }
 

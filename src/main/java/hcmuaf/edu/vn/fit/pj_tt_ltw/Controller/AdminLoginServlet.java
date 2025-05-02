@@ -32,6 +32,13 @@ public class AdminLoginServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
+        doPost(request, response);
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
         System.out.println(email);
@@ -43,15 +50,17 @@ public class AdminLoginServlet extends HttpServlet {
             ServletContext application = getServletContext();
             OrderDAO orders = DAOFactory.getInstance().getDonHangDao();
             application.setAttribute("orders", orders);
-        }
-        response.sendRedirect(des);
-    }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
+            // session để lưu trạng thái admin đăng nhập
+            request.getSession().setAttribute("adminEmail", email);
+            System.out.println("checkAdmin thành công!");
+        } else {
+            System.out.println("Tài khoản không hợp lệ hoặc không phải admin.");
+            request.setAttribute("error", "Email hoặc mật khẩu không đúng!");
+            request.getRequestDispatcher(des).forward(request, response);
+            return;
+        }
+
+        response.sendRedirect(des);
     }
 }

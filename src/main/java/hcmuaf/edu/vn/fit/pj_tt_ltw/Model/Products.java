@@ -44,6 +44,18 @@ public class Products {
     this.listimg = imageNames;
     }
 
+    public Products(int productId, String productName, int priceBuy, int priceSell, String productDetail, String brandName, Timestamp createAt, int categoryId, int imageId) {
+        this.productId = productId;
+        this.productName = productName;
+        this.priceSell = priceSell;
+        this.priceBuy = priceBuy;
+        this.productDetail = productDetail;
+        this.brandName = brandName;
+        this.createAt = createAt;
+        this.categoryId = categoryId;
+        this.imageId = imageId;
+    }
+
     public int getProductId() {
         return productId;
     }
@@ -119,6 +131,9 @@ public class Products {
     }
     public void setListimg(List<String> images) {
         this.listimg = images;
+    }
+    public String getFirstImage() {
+        return listimg != null && !listimg.isEmpty() ? listimg.get(0) : "default.jpg";
     }
 
 }

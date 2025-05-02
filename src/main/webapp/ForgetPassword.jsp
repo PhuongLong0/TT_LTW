@@ -37,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- Step 1: Nhập Email + Captcha -->
             <c:if test="${empty step or step == 1}">
-                <form method="post" action="ForgetPasswordServlet">
+                <form method="post" action="${pageContext.request.contextPath}/forgetPassword">
                     <input type="hidden" name="action" value="verifyEmailCaptcha">
                     <div class="form-group">
                         <span>Email*</span>
@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </c:if>
             <!-- Step 2: Nhập OTP -->
             <c:if test="${step == 2}">
-                <form method="post" action="ForgetPasswordServlet">
+                <form method="post" action="${pageContext.request.contextPath}/forgetPassword">
                     <input type="hidden" name="action" value="verifyOtp">
                     <div>
                         <label>Enter the OTP sent to your email:</label>
@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- Step 3: Đặt lại mật khẩu -->
             <c:if test="${step == 3}">
-                <form method="post" action="ForgetPasswordServlet">
+                <form method="post" action="${pageContext.request.contextPath}/forgetPassword">
                     <input type="hidden" name="action" value="resetPassword">
                     <div>
                         <label>New Password:</label>

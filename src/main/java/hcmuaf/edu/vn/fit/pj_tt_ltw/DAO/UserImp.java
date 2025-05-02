@@ -76,23 +76,31 @@ public class UserImp implements UserDao{
     public int delete(Users user) {
         return 0;
     }
-    public boolean checkAdmin(String admin,String password) {
+    public boolean checkAdmin(String email,String password) {
         boolean res=false;
         Connection conn = null;
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
         try {
             conn = DBConnect.getConnection();
-            String sql = "SELECT * FROM user WHERE email= ? AND pass= ? and role= ? ";
+            String sql = "SELECT passwordUser FROM users WHERE email = ? AND role = 2";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,admin);
-            pstmt.setString(2,password);
-            pstmt.setString(3, "admin");
-            ResultSet result = pstmt.executeQuery();
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
 
-            res=result.next();
+            if (rs.next()) {
+                String hashedPassword = rs.getString("passwordUser");
+
+                // So sánh password người dùng nhập với mật khẩu đã mã hóa
+                if (passwordEncoder.matches(password, hashedPassword)) {
+                    res = true;
+                }
+            }
             pstmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return res;
     }
     @Override
@@ -175,6 +183,7 @@ public class UserImp implements UserDao{
     @Override
     public boolean sendOtpToEmail(String email, String otp) {
         try {
+            System.out.println("Đang gọi tới Mailjet...");
             return MailjetService.sendOtpMail(email, otp);
         } catch (Exception e) {
             e.printStackTrace();

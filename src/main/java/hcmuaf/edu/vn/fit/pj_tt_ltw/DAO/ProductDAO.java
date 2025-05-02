@@ -7,12 +7,13 @@ import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductDAO implements IProductDAO {
     @Override
     public List<Products> all() {
         List<Products> res = new ArrayList<>();
-        /*String sql = "SELECT * FROM products";
+        String sql = "SELECT * FROM products";
         try (Connection connect = DBConnect.getConnection();
              Statement statement = connect.createStatement();
              ResultSet rs = statement.executeQuery(sql)) {
@@ -26,7 +27,8 @@ public class ProductDAO implements IProductDAO {
                         rs.getString("productDetail"),
                         rs.getString("brandName"),
                         rs.getTimestamp("createAt"),
-                        rs.getInt("categoryId")
+                        rs.getInt("categoryId"),
+                        rs.getInt("imageId")
                 );
 
                 // Lấy danh sách ảnh từ bảng product_images
@@ -36,9 +38,10 @@ public class ProductDAO implements IProductDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
         return res;
     }
+
     @Override
     public int insert(Products product) {
         String sql = "INSERT INTO products (productName, priceBuy, priceSell, productDetail, brandName, createAt, categoryId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -203,7 +206,6 @@ public class ProductDAO implements IProductDAO {
     }
 
 
-
     private void deleteImages(int productId) {
         String sql = "DELETE FROM product_images WHERE productId=?";
         try (Connection connect = DBConnect.getConnection();
@@ -217,23 +219,23 @@ public class ProductDAO implements IProductDAO {
     }
 
 
-private int degreecategory(Products product) {
-    String sql = "update categories set soluong= soluong-1 where category=?";
-    Connection connection;
-    int res = 0;
-    try {
-        connection = DBConnect.getConnection();
-        PreparedStatement prs = connection.prepareStatement(sql);
-        prs.setInt(1, product.getCategoryId());
-        res = prs.executeUpdate();
-    } catch (SQLException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+    private int degreecategory(Products product) {
+        String sql = "update categories set soluong= soluong-1 where category=?";
+        Connection connection;
+        int res = 0;
+        try {
+            connection = DBConnect.getConnection();
+            PreparedStatement prs = connection.prepareStatement(sql);
+            prs.setInt(1, product.getCategoryId());
+            res = prs.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
+
     }
-
-    return res;
-
-}
 
 
     public List<Categories> getCategories() {
@@ -300,7 +302,8 @@ private int degreecategory(Products product) {
         }*/
         return res;
 
-}
+    }
+
     private List<String> getImagesForProduct(int productId) {
         List<String> images = new ArrayList<>();
         String sql = "SELECT imageProduct FROM product_images WHERE productId=?";
@@ -319,37 +322,30 @@ private int degreecategory(Products product) {
     }
 
 
-    public List<Products> filter(String categoryFilter) {
-        List<Products> res = new ArrayList<>();
-       /* String sql = "SELECT * FROM products WHERE categoryId = ?";
+    public List<Products> filter(String categoryName) {
+        int categoryId = getCategoryIdByName(categoryName);
+        return all().stream()
+                .filter(p -> p.getCategoryId() == categoryId)
+                .collect(Collectors.toList());
+    }
 
+    private int getCategoryIdByName(String categoryName) {
+        String sql = "SELECT categoryId FROM categories WHERE categoryName = ?";
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement prs = conn.prepareStatement(sql)) {
 
-            prs.setString(1, categoryFilter);
+            prs.setString(1, categoryName);
             ResultSet rs = prs.executeQuery();
 
-            while (rs.next()) {
-                Products product = new Products(
-                        rs.getInt("productId"),
-                        rs.getString("productName"),
-                        rs.getInt("priceBuy"),
-                        rs.getInt("priceSell"),
-                        rs.getString("productDetail"),
-                        rs.getString("brandName"),
-                        rs.getTimestamp("createAt"),
-                        rs.getInt("categoryId")
-                );
-
-                // Lấy danh sách ảnh từ bảng product_images
-                product.setListimg(getImagesForProduct(product.getProductId()));
-
-                res.add(product);
+            if (rs.next()) {
+                return rs.getInt("categoryId");
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
-        return res;
+        }
+        return -1; // Trả về -1 nếu không tìm thấy
     }
 
 }
+

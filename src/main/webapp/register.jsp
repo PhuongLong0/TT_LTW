@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<jsp:include page="header2.jsp"></jsp:include>
 	<div class="account-in">
 		<div class="container">
-			<form action="${pageContext.request.contextPath}/RegisterServlet"
+			<form action="${pageContext.request.contextPath}/register"
 				method="post" >
 
 				<div class="register-top-grid">
@@ -67,12 +67,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div>
 						<span>User Name<label>*</label></span>
-						<input type="text" name="username" value="${param.username}">
+						<input type="text" name="username" value="${param.username}" >
 						<p style="color: #dc3545;">${usernameError}</p>
 					</div>
 					<div>
 						<span>Email Address<label>*</label></span>
-						<input type="email" name="email" value="${param.email}">
+						<input type="text" name="email" value="${param.email}">
 							<p style="color: #dc3545;">${emailError}</p>  
 					</div>
 					<div class="clearfix"></div>
@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div>
 						<span>Confirm Password<label>*</label></span>
-						<input type="password" name="confirmPassword" value="${param.confirmPassword}">
+						<input type="password" name="confirmPassword" value="${param.confirmPassword}" >
 							<p style="color: #dc3545;">${passError}</p>
 					</div>
 					<div class="clearfix"></div>

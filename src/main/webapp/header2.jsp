@@ -53,10 +53,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h4>
 								<p>Cart:<c:choose>
 											<c:when test="${tygia == null}">
-												${cart.getPrice()} ${currency}
+												${cart.getPriceSell()} ${currency}
 											</c:when>
 											<c:otherwise>
-												${cart.getPrice() * tygia} ${currency}
+												${cart.getPriceSell() * tygia} ${currency}
 											</c:otherwise>
 										</c:choose> (${cart.getsize()} items)</p>
 								<img src="images/bag.png" alt="" />

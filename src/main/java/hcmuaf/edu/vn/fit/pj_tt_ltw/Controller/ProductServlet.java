@@ -31,7 +31,7 @@ public class ProductServlet extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         String destination = "/single.jsp";
-        String id = request.getParameter("productid");
+        String id = request.getParameter("productId");
         System.out.println(id);
         ServletContext application = getServletContext();
         ProductDAO productdao = (ProductDAO) application.getAttribute("products");
@@ -49,5 +49,4 @@ public class ProductServlet extends HttpServlet {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
-
 }

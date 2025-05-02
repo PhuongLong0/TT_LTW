@@ -76,13 +76,12 @@ input[type="submit"]:hover {
 		<c:if test="${not empty errorMessage}">
 			<div class="error">${errorMessage}</div>
 		</c:if>
-		<form action="AdminLoginServlet"
-			method="post">
-			<label for="email">Email:</label> <input type="text" id="email"
-				name="email" placeholder="Nhập email" required> <label
-				for="password">Mật khẩu:</label> <input type="password"
-				id="password" name="password" placeholder="Nhập mật khẩu" required>
-
+		<form action="AdminLoginServlet" method="post">
+			<label for="email">Email:</label>
+			<input type="text" id="email"
+				name="email" placeholder="Nhập email" required>
+			<label for="password">Mật khẩu:</label>
+			<input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
 			<input type="submit" value="Đăng Nhập">
 		</form>
 	</div>

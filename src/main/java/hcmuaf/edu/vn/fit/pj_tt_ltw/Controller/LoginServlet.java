@@ -66,7 +66,6 @@ public class LoginServlet extends HttpServlet {
                 // Điều hướng đến giao diện admin
                 System.out.println("Vào trang admin");
                 response.sendRedirect("AdminLogin.jsp");
-
             }
 
         } else {

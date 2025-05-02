@@ -43,8 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="main">
 		<div class="container">
 			<ul class="content-home">
-				<li class="col-sm-4"><a href="men.jsp" class="item-link"
-					title="">
+				<li class="col-sm-4"><a href="men.jsp" class="item-link" title="">
 						<div class="bannerBox">
 							<img src="images/w1.jpg" class="item-img" title="" alt=""
 								width="100%" height="100%">

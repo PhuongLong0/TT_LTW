@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PJ_TT_LTW">
+    <output-path>$PROJECT_DIR$/out/artifacts/PJ_TT_LTW</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="PJ_TT_LTW:Web2" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    </root>
+  </artifact>
+</component>
