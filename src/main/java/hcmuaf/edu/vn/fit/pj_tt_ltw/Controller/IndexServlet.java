@@ -2,19 +2,24 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.IProductDAO;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Categories;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.ShoppingCart;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/IndexServlet")
+
+@WebServlet(name = "Index", value = "/index")
 public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -26,22 +31,37 @@ public class IndexServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    public static void main(String[] args) {
+
+    }
+
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String destination = "/index.jsp";
-//		them database vao application
-        IProductDAO productdao = DAOFactory.getInstance().getProductdao();
-        ServletContext application = getServletContext();
-        ShoppingCart cart= new ShoppingCart();
-        application.setAttribute("cart", cart);
-        application.setAttribute("products", productdao);
-        List<Products> listProducts= productdao.all().subList(0, 6);
-        application.setAttribute("listproducts", listProducts);
+    protected void doGet(@NotNull HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String destination = "/men.jsp";
 
-//		dieu huong sang trang index
-        response.sendRedirect(request.getContextPath() + destination);
+        IProductDAO productdao = DAOFactory.getInstance().getProductdao();
+        request.setAttribute("productdao", productdao);
+
+        List<Categories> categories = ((ProductDAO) productdao).getCategories();
+        request.setAttribute("categories", categories);
+
+        int totalProducts = productdao.all().size();
+        int totalPages = totalProducts / 6 + (totalProducts % 6 == 0 ? 0 : 1);
+        request.setAttribute("totalPages", totalPages);
+
+        List<Products> listProducts = productdao.all().subList(0, 6);
+        request.setAttribute("listProducts", listProducts);
+
+        ShoppingCart cart= new ShoppingCart();
+        request.setAttribute("cart", cart);
+
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/destination.jsp");
+        dispatcher.forward(request, response);
+
+
     }
 
     /**
@@ -53,3 +73,4 @@ public class IndexServlet extends HttpServlet {
     }
 
 }
+

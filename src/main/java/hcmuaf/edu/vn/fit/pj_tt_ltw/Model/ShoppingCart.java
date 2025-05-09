@@ -21,16 +21,16 @@ public class ShoppingCart {
     public int getsize() {
         return shoppingCart.size();
     }
-    public void add(Products product) {
-        shoppingCart.add(product);
+    public void add(Products products) {
+        shoppingCart.add(products);
     }
-    public void delete(Products product) {
-        shoppingCart.remove(product);
+    public void delete(Products products) {
+        shoppingCart.remove(products);
     }
     public double getPrice() {
         double res=0;
-        for (Products product : shoppingCart) {
-            res+=product.getPriceSell();
+        for (Products products : shoppingCart) {
+            res+= products.getPriceSell();
         }
         return res;
     }

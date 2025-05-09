@@ -120,7 +120,7 @@ img:hover {
 
 </head>
 <body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	<jsp:include page="adminHeader.jsp"></jsp:include>
 
 	<h1>Sửa Sản Phẩm</h1>
 
@@ -137,11 +137,11 @@ img:hover {
 	<form action="${pageContext.request.contextPath}/EditProductServlet" method="post" enctype="multipart/form-data">
 
 
-		<input type="hidden" name="productId" value="${product.id}">
+		<input type="hidden" name="productId" value="${products.id}">
 
 		<!-- Tên sản phẩm -->
 		<label for="name">Tên sản phẩm:</label> <input type="text" id="name"
-			name="name" value="${product.name}" placeholder="Nhập tên sản phẩm"
+			name="name" value="${products.name}" placeholder="Nhập tên sản phẩm"
 			required>
 
 		<!-- Danh mục--> 
@@ -152,7 +152,7 @@ img:hover {
 				<c:when test="${not empty products.getCategories()}">
 					<c:forEach var="category" items="${products.getCategories()}">
 						<option value="${category.category}"
-							${category.category == product.category ? 'selected' : ''}>
+							${category.category == products.category ? 'selected' : ''}>
 							${category.category}</option>
 					</c:forEach>
 				</c:when>
@@ -164,18 +164,18 @@ img:hover {
 
 		<!-- Giá -->
 		<label for="cost">Giá:</label> <input type="number" id="cost"
-			name="cost" value="${product.cost}" step="0.01"
+			name="cost" value="${products.cost}" step="0.01"
 			placeholder="Nhập giá sản phẩm" required>
 
 		<!-- Số lượng -->
 		<label for="quantity">Số lượng:</label> <input type="number"
-			id="quantity" name="quantity" value="${product.quantity}" step="1"
+			id="quantity" name="quantity" value="${products.quantity}" step="1"
 			placeholder="Nhập số lượng" required>
 
 		<!-- Chi tiết sản phẩm -->
 		<label for="detail">Chi tiết sản phẩm:</label>
 		<textarea id="detail" name="detail" rows="4"
-			placeholder="Nhập chi tiết sản phẩm" required>${product.detail}</textarea>
+			placeholder="Nhập chi tiết sản phẩm" required>${products.detail}</textarea>
 
 
 		<!-- Hình ảnh sản phẩm -->

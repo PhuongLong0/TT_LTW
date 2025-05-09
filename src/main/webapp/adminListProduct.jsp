@@ -69,12 +69,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	<jsp:include page="adminHeader.jsp"></jsp:include>
 	<div class="men">
 		<div class="container">
 			<div class="col-md-4 sidebar_men">
 				<h3>Categories</h3>
-				<ul class="product-categories color">
+				<ul class="products-categories color">
 					<c:forEach var="category" items="${products.getCategories()}">
 						<li class="cat-item cat-item-42"><a
 							href="FilterServlet?category=${category.category}&admin=admin">${category.category}</a>
@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="women_pagenation dc_paginationA dc_paginationA06">
 						<li><a href="#" class="previous">Page : </a></li>
 						<c:forEach var="i" begin="1"
-							end="${products.all().size()/6 + (products.all().size() % 6 == 0 ? 0 : 1)}">
+							end="${totalPages}">
 							<li><a href="FilterServlet?page=${i}&admin=admin" >${i}</a></li>
 						</c:forEach>
 					</ul>
@@ -115,54 +115,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- content load từ database  -->
 					<ul id="content">
 						<c:if test="${empty filter}">
-							<c:forEach var="product" items="${products.all()}">
+							<c:forEach var="products" items="${listProducts}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-									href="${pageContext.request.contextPath}/AdminEdit?productid=${product.id}&action=detail">
-										<div class="view view-first">
-											<div class="inner_content clearfix">
-												<div class="product_image">
-													<div class="mask1">
-														<img src="images/${product.getFirstImage()}" alt="image"
-															class="img-responsive zoom-img">
+									href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
+									<div class="view view-first">
+										<div class="inner_content clearfix">
+											<div class="product_image">
+												<div class="mask1">
+													<img src="${products.getFirstImage()}" alt="Product Image" class="img-responsive zoom-img">
+												</div>
+												<div class="mask">
+													<div class="info">Quick View</div>
+												</div>
+												<div class="product_container">
+													<h4>${products.productName}</h4>
+													<h4>${message}</h4>
+													<p>Dresses</p>
+													<div class="price mount item_price">
+														<c:choose>
+															<c:when test="${tygia == null}">
+																${products.priceSell} ${currency}
+															</c:when>
+															<c:otherwise>
+																${products.priceSell * tygia} ${currency}
+															</c:otherwise>
+														</c:choose>
 													</div>
-													<div class="mask">
-														<div class="info">Quick View</div>
-													</div>
-													<div class="product_container">
-														<h4>${product.name}</h4>
-														<p>Dresses</p>
-														<div class="price mount item_price">${product.cost}</div>
-														<a class="button item_add cbp-vm-icon cbp-vm-add"
-															href="${pageContext.request.contextPath}/AdminDelete?productid=${product.id}">Delete</a>
-													</div>
+													<a class="button item_add cbp-vm-icon cbp-vm-add"
+													   href="${pageContext.request.contextPath}/AddToCart?productid=${products.productId}">Add
+														to cart</a>
 												</div>
 											</div>
 										</div>
+									</div>
 								</a></li>
 							</c:forEach>
 
 						</c:if>
 
 						<c:if test="${not empty filter}">
-							<c:forEach var="product" items="${filter}">
+							<c:forEach var="products" items="${filter}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-									href="${pageContext.request.contextPath}/AdminEdit?productid=${product.id}&action=detail">
+									href="${pageContext.request.contextPath}/AdminEdit?productid=${products.id}&action=detail">
 										<div class="view view-first">
 											<div class="inner_content clearfix">
 												<div class="product_image">
 													<div class="mask1">
-														<img src="images/${product.getFirstImage()}" alt="image"
+														<img src="images/${products.getFirstImage()}" alt="image"
 															class="img-responsive zoom-img">
 													</div>
 													<div class="mask">
 														<div class="info">Quick View</div>
 													</div>
 													<div class="product_container">
-														<h4>${product.name}</h4>
+														<h4>${products.name}</h4>
 														<p>Dresses</p>
-														<div class="price mount item_price">${product.cost}</div>
+														<div class="price mount item_price">${products.cost}</div>
 														<a class="button item_add cbp-vm-icon cbp-vm-add"
-															href="${pageContext.request.contextPath}/AdminDelete?productid=${product.id}">Delete</a>
+															href="${pageContext.request.contextPath}/AdminDelete?productid=${products.id}">Delete</a>
 													</div>
 												</div>
 											</div>

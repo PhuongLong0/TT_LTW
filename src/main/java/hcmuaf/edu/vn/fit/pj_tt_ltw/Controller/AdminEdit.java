@@ -35,17 +35,17 @@ public class AdminEdit extends HttpServlet {
         // TODO Auto-generated method stub
         String action = request.getParameter("action");
         String destination = "adminListProduct.jsp";
-        String id = request.getParameter("productid");
+        String id = request.getParameter("productId");
         ServletContext application = getServletContext();
         ProductDAO productdao = (ProductDAO) application.getAttribute("products");
-        Products product = productdao.findById(id);
-        request.setAttribute("product", product);
+        Products products = productdao.findById(id);
+        request.setAttribute("product", products);
         switch (action) {
             case "detail":
-                destination = "AdminProductDetail.jsp";
+                destination = "adminProductDetail.jsp";
                 break;
             case "edit":
-                destination = "AdminEdit.jsp";
+                destination = "adminEdit.jsp";
                 break;
             default:
                 break;

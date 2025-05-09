@@ -74,7 +74,7 @@ tr:hover {
 </style>
 </head>
 <body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	<jsp:include page="adminHeader.jsp"></jsp:include>
 
 	<h1>Quản Lý Đơn Hàng</h1>
 

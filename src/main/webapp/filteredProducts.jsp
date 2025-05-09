@@ -46,33 +46,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<ul>
-		<c:forEach var="product" items="${filter}">
+		<c:forEach var="products" items="${filter}">
 			<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-				href="${pageContext.request.contextPath}/ProductServlet?productid=${product.id}">
+				href="${pageContext.request.contextPath}/ProductServlet?productid=${products.id}">
 					<div class="view view-first">
 						<div class="inner_content clearfix">
 							<div class="product_image">
 								<div class="mask1">
-									<img src="images/${product.getFirstImage()}" alt="image"
+									<img src="images/${products.getFirstImage()}" alt="image"
 										class="img-responsive zoom-img">
 								</div>
 								<div class="mask">
 									<div class="info">Quick View</div>
 								</div>
 								<div class="product_container">
-									<h4>${product.name}</h4>
+									<h4>${products.name}</h4>
 									<div class="price mount item_price">
 										<c:choose>
 											<c:when test="${tygia == null}">
-												${product.cost} ${currency}
+												${products.cost} ${currency}
 											</c:when>
 											<c:otherwise>
-												${product.cost * tygia} ${currency}
+												${products.cost * tygia} ${currency}
 											</c:otherwise>
 										</c:choose>
 									</div>
 									<a class="button item_add cbp-vm-icon cbp-vm-add"
-										href="${pageContext.request.contextPath}/AddToCart?productid=${product.id}">Add
+										href="${pageContext.request.contextPath}/AddToCart?productid=${products.id}">Add
 										to cart</a>
 								</div>
 							</div>

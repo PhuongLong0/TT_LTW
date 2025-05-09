@@ -10,8 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
-import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.ShoppingCart;
 import jakarta.servlet.http.HttpSession;
 
@@ -52,9 +50,9 @@ public class AddToCart extends HttpServlet {
 
         // Thêm sản phẩm vào giỏ hàng
         if (dao != null) {
-            Products product = dao.findById(id);
-            if (product != null) {
-                shoppingCart.add(product);
+            Products products = dao.findById(id);
+            if (products != null) {
+                shoppingCart.add(products);
             }
         }
 

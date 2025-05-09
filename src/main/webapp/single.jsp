@@ -65,26 +65,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="labout span_1_of_a1">
 						<div class="flexslider">
 							<ul class="slides">
-								<c:if test="${not empty product.getListimg()}">
-									<c:forEach var="img" items="${product.getListimg()}">
-										<li data-thumb="images/${img}"><img src="images/${img}" /></li>
+									<c:forEach var="img" items="${productImgs}">
+										<li data-thumb="images/${img}"><img src=${img} /></li>
 									</c:forEach>
-								</c:if>
 							</ul>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="cont1 span_2_of_a1 simpleCart_shelfItem">
-						<h1>${product.name}</h1>
+						<h1>${products.productName}</h1>
 						<p class="availability">
 							Availability: <span class="color">In stock</span>
 						</p>
 						<div class="price_single">
 							<span class="reducedfrom"></span> <span
-								class="amount item_price actual">${product.cost} ${currency}</span>
+								class="amount item_price actual">${products.priceSell} ${currency}</span>
 						</div>
 						<h2 class="quick">Quick Overview:</h2>
-						<p class="quick_desc">${product.detail}</p>
+						<p class="quick_desc">${products.productDetail}</p>
 						<div class="wish-list">
 							<ul>
 								<li class="wish"><a href="#">Add to Wishlist</a></li>
@@ -97,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">34</a></li>
 						</ul>
 						<div class="quantity_box">
-							<ul class="product-qty">
+							<ul class="products-qty">
 								<span>Quantity:</span>
 								<select>
 									<option>1</option>
@@ -214,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-3 tabs">
 				<h3 class="m_1">Related Products</h3>
-				<ul class="product">
+				<ul class="products">
 					<li class="product_img"><img src="images/m5.jpg"
 						class="img-responsive" alt="" /></li>
 					<li class="product_desc">
@@ -226,7 +224,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<div class="clearfix"></div>
 				</ul>
-				<ul class="product">
+				<ul class="products">
 					<li class="product_img"><img src="images/m6.jpg"
 						class="img-responsive" alt="" /></li>
 					<li class="product_desc">
@@ -238,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<div class="clearfix"></div>
 				</ul>
-				<ul class="product">
+				<ul class="products">
 					<li class="product_img"><img src="images/m2.jpg"
 						class="img-responsive" alt="" /></li>
 					<li class="product_desc">
@@ -250,7 +248,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<div class="clearfix"></div>
 				</ul>
-				<ul class="product">
+				<ul class="products">
 					<li class="product_img"><img src="images/m3.jpg"
 						class="img-responsive" alt="" /></li>
 					<li class="product_desc">

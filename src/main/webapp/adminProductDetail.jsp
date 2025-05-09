@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	<jsp:include page="adminHeader.jsp"></jsp:include>
 	<div class="men">
 		<div class="container">
 			<div class="col-md-9 single_top">
@@ -65,8 +65,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="labout span_1_of_a1">
 						<div class="flexslider">
 							<ul class="slides">
-								<c:if test="${not empty product.getListimg()}">
-									<c:forEach var="img" items="${product.getListimg()}">
+								<c:if test="${not empty products.getListimg()}">
+									<c:forEach var="img" items="${products.getListimg()}">
 										<li data-thumb="images/${img}"><img src="images/${img}" /></li>
 									</c:forEach>
 								</c:if>
@@ -75,16 +75,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="cont1 span_2_of_a1 simpleCart_shelfItem">
-						<h1>${product.name}</h1>
+						<h1>${products.name}</h1>
 						<p class="availability">
 							Availability: <span class="color">In stock</span>
 						</p>
 						<div class="price_single">
 							<span class="reducedfrom"></span> <span
-								class="amount item_price actual">$ ${product.cost}</span>
+								class="amount item_price actual">$ ${products.cost}</span>
 						</div>
 						<h2 class="quick">Quick Overview:</h2>
-						<p class="quick_desc">${product.detail}</p>
+						<p class="quick_desc">${products.detail}</p>
 						<div class="wish-list">
 							<ul>
 								<li class="wish"><a href="#">Add to Wishlist</a></li>
@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">34</a></li>
 						</ul>
 						<div class="quantity_box">
-							<ul class="product-qty">
+							<ul class="products-qty">
 								<span>Quantity:</span>
 								<select>
 									<option>1</option>
@@ -116,10 +116,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 							<div class="clearfix"></div>
 						</div>
-						<a  href="${pageContext.request.contextPath}/AdminDelete?productid=${product.id}"
+						<a  href="${pageContext.request.contextPath}/AdminDelete?productid=${products.id}"
 							class="btn btn-primary btn-normal btn-inline btn_form button item_add item_1"
 							target="_self">Delete</a>
-							<a href="${pageContext.request.contextPath}/AdminEdit?productid=${product.id}&action=edit"
+							<a href="${pageContext.request.contextPath}/AdminEdit?productid=${products.id}&action=edit"
 							class="btn btn-primary btn-normal btn-inline btn_form button item_add item_1"
 							target="_self">Edit</a>
 					</div>

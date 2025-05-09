@@ -2,7 +2,6 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.DAO;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DB.DBConnect;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Orders;
-import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 
 import java.sql.*;
 import java.util.ArrayList;

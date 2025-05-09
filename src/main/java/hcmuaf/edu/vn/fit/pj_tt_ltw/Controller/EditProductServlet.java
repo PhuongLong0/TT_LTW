@@ -64,7 +64,7 @@ public class EditProductServlet extends HttpServlet {
                 || priceSellStr.trim().isEmpty() || priceBuyStr == null || priceBuyStr.trim().isEmpty() || detail == null
                 || detail.trim().isEmpty()) {
             request.setAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin.");
-            request.getRequestDispatcher("/AdminEdit.jsp").forward(request, response);
+            request.getRequestDispatcher("/adminEdit.jsp").forward(request, response);
             return;
         }
 
@@ -76,7 +76,7 @@ public class EditProductServlet extends HttpServlet {
 
             if (priceSell <= 0 || priceBuy <= 0) {
                 request.setAttribute("errorMessage", "Giá và số lượng phải lớn hơn 0.");
-                request.getRequestDispatcher("/AdminEdit.jsp").forward(request, response);
+                request.getRequestDispatcher("/adminEdit.jsp").forward(request, response);
                 return;
             }
 
@@ -117,10 +117,10 @@ public class EditProductServlet extends HttpServlet {
 
         } catch (NumberFormatException e) {
             request.setAttribute("errorMessage", "Giá hoặc số lượng không hợp lệ.");
-            request.getRequestDispatcher("/AdminEdit.jsp").forward(request, response);
+            request.getRequestDispatcher("/adminEdit.jsp").forward(request, response);
         } catch (IOException e) {
             request.setAttribute("errorMessage", "Lỗi trong quá trình tải lên hình ảnh.");
-            request.getRequestDispatcher("/AdminEdit.jsp").forward(request, response);
+            request.getRequestDispatcher("/adminEdit.jsp").forward(request, response);
         }
     }
 

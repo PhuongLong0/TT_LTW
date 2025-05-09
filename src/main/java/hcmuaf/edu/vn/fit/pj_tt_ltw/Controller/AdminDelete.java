@@ -34,8 +34,8 @@ public class AdminDelete extends HttpServlet {
         String id= request.getParameter("productid");
         ServletContext application = getServletContext();
         ProductDAO productdao = (ProductDAO) application.getAttribute("products");
-        Products product= productdao.findById(id);
-        productdao.delete(product);
+        Products products = productdao.findById(id);
+        productdao.delete(products);
         response.sendRedirect("adminListProduct.jsp");
     }
 

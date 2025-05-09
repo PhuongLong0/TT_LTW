@@ -32,7 +32,7 @@ public class DuyetDonHangServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         OrderDAO donhang = DAOFactory.getInstance().getDonHangDao();
         donhang.duyet(id);
-        response.sendRedirect("adminDonHang.jsp");
+        response.sendRedirect("adminOrder.jsp");
     }
 
     /**
