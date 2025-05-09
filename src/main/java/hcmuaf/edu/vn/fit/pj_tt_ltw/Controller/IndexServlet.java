@@ -58,7 +58,7 @@ public class IndexServlet extends HttpServlet {
         request.setAttribute("cart", cart);
 
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/destination.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destination);
         dispatcher.forward(request, response);
 
 
