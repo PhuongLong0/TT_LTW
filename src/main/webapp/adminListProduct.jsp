@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
-	<jsp:include page="adminHeader2.jsp"></jsp:include>
+	<jsp:include page="adminHeader.jsp"></jsp:include>
 	<div class="men">
 		<div class="container">
 			<div class="col-md-4 sidebar_men">
@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="women_pagenation dc_paginationA dc_paginationA06">
 						<li><a href="#" class="previous">Page : </a></li>
 						<c:forEach var="i" begin="1"
-							end="${products.all().size()/6 + (products.all().size() % 6 == 0 ? 0 : 1)}">
+							end="${totalPages}">
 							<li><a href="FilterServlet?page=${i}&admin=admin" >${i}</a></li>
 						</c:forEach>
 					</ul>
@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<c:if test="${empty filter}">
 							<c:forEach var="products" items="${listProducts}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-																	href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
+									href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
 									<div class="view view-first">
 										<div class="inner_content clearfix">
 											<div class="product_image">

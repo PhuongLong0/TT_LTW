@@ -2,14 +2,18 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.IProductDAO;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Categories;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.ShoppingCart;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,20 +38,27 @@ public class IndexServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//them database vao application
+    protected void doGet(@NotNull HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String destination = "/men.jsp";
+
         IProductDAO productdao = DAOFactory.getInstance().getProductdao();
-        List<Products> listProducts = productdao.all().subList(0,6);
+        request.setAttribute("productdao", productdao);
+
+        List<Categories> categories = ((ProductDAO) productdao).getCategories();
+        request.setAttribute("categories", categories);
+
+        int totalProducts = productdao.all().size();
+        int totalPages = totalProducts / 6 + (totalProducts % 6 == 0 ? 0 : 1);
+        request.setAttribute("totalPages", totalPages);
+
+        List<Products> listProducts = productdao.all().subList(0, 6);
         request.setAttribute("listProducts", listProducts);
-        request.setAttribute("message", "Hello from Servlet");
 
         ShoppingCart cart= new ShoppingCart();
         request.setAttribute("cart", cart);
-        request.setAttribute("productdao", productdao);
-        System.out.println("Số sản phẩm lấy được: " + listProducts.size()); // Debug
-        request.setAttribute("listProducts", listProducts);
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/men.jsp");
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/destination.jsp");
         dispatcher.forward(request, response);
 
 

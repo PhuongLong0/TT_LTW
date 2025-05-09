@@ -20,10 +20,10 @@ public class ProductDAO implements IProductDAO {
              ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Products products = new Products(
-                    rs.getInt("productId"),
-                    rs.getString("productName"),
-                    rs.getString("productDetail"),
-                    rs.getInt("priceSell"));
+                        rs.getInt("productId"),
+                        rs.getString("productName"),
+                        rs.getString("productDetail"),
+                        rs.getInt("priceSell"));
 
                 // Lấy danh sách ảnh theo productId
                 PreparedStatement pre = connect.prepareStatement(sqlImage);
@@ -71,44 +71,7 @@ public class ProductDAO implements IProductDAO {
         }
         return res;
     }
-    public int addProduct(String productName, int priceBuy, int priceSell, String productDetail, String imgURL, String brand, Timestamp createAt ,int categoryId) {
-        String sql = "INSERT INTO products (productName, priceBuy, priceSell, productDetail, brandName, createAt, categoryId) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        String img_sql = "INSERT INTO product_images (productId, imageUrl) VALUES (?, ?)";
-        int res = 0;
-        Products products = new Products();
-        products.setProductName(productName);
-        products.setPriceBuy(priceBuy);
-        products.setPriceSell(priceSell);
-        products.setProductDetail(productDetail);
-        products.setBrandName(brand);
-        products.setCreateAt(createAt);
-        products.setCategoryId(categoryId);
 
-        try (Connection connect = DBConnect.getConnection();
-            PreparedStatement prs = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-            prs.setString(1, products.getProductName());
-            prs.setDouble(2, products.getPriceBuy());
-            prs.setDouble(3, products.getPriceSell());
-            prs.setString(4, products.getProductDetail());
-            prs.setString(5, products.getBrandName());
-            prs.setTimestamp(6, products.getCreateAt());
-            prs.setInt(7, products.getCategoryId());
-
-            res = prs.executeUpdate();
-            if (res > 0) {
-                ResultSet rs = prs.getGeneratedKeys();
-                if (rs.next()) {
-                    int productId = rs.getInt(1);
-                    products.setProductId(productId);
-                }
-                insertImages(products);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return res;
-    }
 
     private int updateCategory(int categoryId) {
         String sql = "update categories set soluong= soluong+1 where categoryId=?";
@@ -361,7 +324,7 @@ private int degreecategory(Products products) {
 
     public List<Products> filter(String categoryFilter) {
         List<Products> res = new ArrayList<>();
-       /* String sql = "SELECT * FROM products WHERE categoryId = ?";
+        String sql = "SELECT * FROM products WHERE categoryId = ?";
 
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement prs = conn.prepareStatement(sql)) {
@@ -388,8 +351,26 @@ private int degreecategory(Products products) {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
         return res;
+    }
+    public int countAll() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM product";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return count;
     }
 
 }

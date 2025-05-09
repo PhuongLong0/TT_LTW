@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/ProductServlet")
 public class ProductServlet extends HttpServlet {
@@ -43,7 +44,10 @@ public class ProductServlet extends HttpServlet {
         }
 
         Products products = productdao.findById(id);
-        request.setAttribute("product", products);
+        request.setAttribute("products", products);
+
+        List<String> productImgs =  products.getListimg();
+        request.setAttribute("productImgs", productImgs);
         request.getRequestDispatcher(destination).forward(request, response);
     }
 

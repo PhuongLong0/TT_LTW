@@ -65,25 +65,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="labout span_1_of_a1">
 						<div class="flexslider">
 							<ul class="slides">
-									<c:forEach var="img" items="${products.getListimg()}">
-										<li data-thumb="images/${img}"><img src="images/${img}" /></li>
+									<c:forEach var="img" items="${productImgs}">
+										<li data-thumb="images/${img}"><img src=${img} /></li>
 									</c:forEach>
-								</c:if>
 							</ul>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="cont1 span_2_of_a1 simpleCart_shelfItem">
-						<h1>${products.name}</h1>
+						<h1>${products.productName}</h1>
 						<p class="availability">
 							Availability: <span class="color">In stock</span>
 						</p>
 						<div class="price_single">
 							<span class="reducedfrom"></span> <span
-								class="amount item_price actual">${products.cost} ${currency}</span>
+								class="amount item_price actual">${products.priceSell} ${currency}</span>
 						</div>
 						<h2 class="quick">Quick Overview:</h2>
-						<p class="quick_desc">${products.detail}</p>
+						<p class="quick_desc">${products.productDetail}</p>
 						<div class="wish-list">
 							<ul>
 								<li class="wish"><a href="#">Add to Wishlist</a></li>

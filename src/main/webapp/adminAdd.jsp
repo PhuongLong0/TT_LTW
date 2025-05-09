@@ -38,7 +38,7 @@
 </style>
 </head>
 <body>
-    <jsp:include page="adminHeader2.jsp"></jsp:include>
+    <jsp:include page="adminHeader.jsp"></jsp:include>
 
     <h1>Thêm sản phẩm mới</h1>
 

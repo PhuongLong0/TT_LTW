@@ -52,4 +52,14 @@
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FilterServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.FilterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FilterServlet</servlet-name>
+        <url-pattern>/FilterServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

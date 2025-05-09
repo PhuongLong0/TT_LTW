@@ -18,4 +18,5 @@ public interface IProductDAO {
     public int count(String txtSearch);
 
     public List<Products> searchResult(String txtSearch);
+
 }

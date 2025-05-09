@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/FilterServlet")
+@WebServlet(name = "FilterServlet", value = "/filter")
 public class FilterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -31,21 +31,22 @@ public class FilterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String categoryFilter = request.getParameter("category");
+        String destination = "/filteredProducts.jsp";
+
+        String categoryFilter = request.getParameter("categoryName");
         String page = request.getParameter("page");
         String admin= request.getParameter("admin");
-        String destination = "filteredProducts.jsp";
-        ServletContext application = getServletContext();
-        ProductDAO dao = (ProductDAO) application.getAttribute("productdao");
-        List<Products> filterProducts = dao.filter(categoryFilter);
+
+        ProductDAO productdao = (ProductDAO) request.getAttribute("productdao");
+        List<Products> filterProducts = productdao.filter(categoryFilter);
         if(page!= null) {
             int pagenum= Integer.parseInt(page)-1;
-            filterProducts = dao.all().subList(pagenum*6, Math.min(pagenum*6+6, dao.all().size()));
+            filterProducts = productdao.all().subList(pagenum*6, Math.min(pagenum*6+6, productdao.all().size()));
         }
         if(admin!=null) {
-            destination = "adminListProduct.jsp";
+            destination = "/adminListProduct.jsp";
         }
-        request.setAttribute("filter", filterProducts);
+        request.setAttribute("filterProducts", filterProducts);
         request.getRequestDispatcher(destination).forward(request, response);
     }
 

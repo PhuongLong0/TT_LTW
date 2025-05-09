@@ -180,7 +180,7 @@ INSERT INTO `product_images` VALUES (51, 51, 'https://www.zeitvintagewatch.com/c
 
 
 INSERT INTO `product_images` VALUES (52, 52, 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_3_11_638457733130725371_garmin-forerunner-165-den%20(4).jpg');
-INSERT INTO `product_images` VALUES (53, 53,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02903-06/v/cf-xl?pgw=1&pgwact=1');
+INSERT INTO `product_images` VALUES (53, 53,'https://res.garmin.com/transform/image/upload/v1/Product_Images/vi_VN/products/010-02903-06/v/cf-xl?pgw=1&pgwact=1');
 INSERT INTO `product_images` VALUES (54, 54,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02903-06/v/cf-xl?pgw=1&pgwact=1');
 INSERT INTO `product_images` VALUES (55, 55,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02907-70/v/cf-xl?pgw=1&pgwact=1');
 INSERT INTO `product_images` VALUES (56, 56,'https://res.garmin.com/transform/image/upload/c_limit,dpr_1.0,f_auto,h_1004,q_auto,w_2080/c_limit,h_1004,w_2080/v1/Product_Images/vi_VN/products/010-02936-40/v/cf-xl?pgw=1&pgwact=1');

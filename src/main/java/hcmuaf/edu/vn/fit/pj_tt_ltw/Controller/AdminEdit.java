@@ -35,7 +35,7 @@ public class AdminEdit extends HttpServlet {
         // TODO Auto-generated method stub
         String action = request.getParameter("action");
         String destination = "adminListProduct.jsp";
-        String id = request.getParameter("productid");
+        String id = request.getParameter("productId");
         ServletContext application = getServletContext();
         ProductDAO productdao = (ProductDAO) application.getAttribute("products");
         Products products = productdao.findById(id);
