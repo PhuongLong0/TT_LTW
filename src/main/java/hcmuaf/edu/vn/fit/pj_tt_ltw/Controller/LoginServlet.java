@@ -49,7 +49,6 @@ public class LoginServlet extends HttpServlet {
         }
 
         Users user = users.checkPass(email, password);
-        request.getSession().setAttribute("user", user);
         System.out.println("Check đúng thông tin login");
         if (user != null) {
             HttpSession session = request.getSession();

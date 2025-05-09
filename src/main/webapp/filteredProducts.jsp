@@ -46,33 +46,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<ul>
-		<c:forEach var="products" items="${filter}">
+		<c:forEach var="products" items="${filterProducts}">
 			<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-				href="${pageContext.request.contextPath}/ProductServlet?productid=${products.id}">
+				href="${pageContext.request.contextPath}/ProductServlet?productid=${products.productId}">
 					<div class="view view-first">
 						<div class="inner_content clearfix">
 							<div class="product_image">
 								<div class="mask1">
-									<img src="images/${products.getFirstImage()}" alt="image"
-										class="img-responsive zoom-img">
+									<img src="${products.getFirstImage()}" alt="Product Image" class="img-responsive zoom-img">
 								</div>
 								<div class="mask">
 									<div class="info">Quick View</div>
 								</div>
 								<div class="product_container">
-									<h4>${products.name}</h4>
+									<h4>${products.productName}</h4>
 									<div class="price mount item_price">
 										<c:choose>
 											<c:when test="${tygia == null}">
-												${products.cost} ${currency}
+												${products.priceSell} ${currency}
 											</c:when>
 											<c:otherwise>
-												${products.cost * tygia} ${currency}
+												${products.priceSell * tygia} ${currency}
 											</c:otherwise>
 										</c:choose>
 									</div>
 									<a class="button item_add cbp-vm-icon cbp-vm-add"
-										href="${pageContext.request.contextPath}/AddToCart?productid=${products.id}">Add
+										href="${pageContext.request.contextPath}/AddToCart?productid=${products.productId}">Add
 										to cart</a>
 								</div>
 							</div>

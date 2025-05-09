@@ -6,6 +6,7 @@ import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Categories;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.ShoppingCart;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Users;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -56,6 +57,18 @@ public class IndexServlet extends HttpServlet {
 
         ShoppingCart cart= new ShoppingCart();
         request.setAttribute("cart", cart);
+
+
+        Users user = (Users) request.getSession().getAttribute("user");
+        if (user != null) {
+            int role = user.getRole();
+            if (role == 1) {
+                destination = "/men.jsp";
+            }
+            if (role == 2) {
+                destination = "/adminListProduct.jsp";
+            }
+        }
 
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destination);

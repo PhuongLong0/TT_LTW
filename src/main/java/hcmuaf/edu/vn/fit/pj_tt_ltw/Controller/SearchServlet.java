@@ -52,7 +52,7 @@ public class SearchServlet extends HttpServlet {
         List<Products> searchResults = productDao.searchResult(txtSearch);
 
         request.setAttribute("endPage", endPage);
-        request.setAttribute("filter", searchResults);
+        request.setAttribute("searchResults", searchResults);
         request.setAttribute("searchQuery", txtSearch);
 
         // Forward jsp

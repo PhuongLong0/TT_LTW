@@ -37,7 +37,7 @@ public class FilterServlet extends HttpServlet {
         String page = request.getParameter("page");
         String admin= request.getParameter("admin");
 
-        ProductDAO productdao = (ProductDAO) request.getAttribute("productdao");
+        ProductDAO productdao = new ProductDAO();
         List<Products> filterProducts = productdao.filter(categoryFilter);
         if(page!= null) {
             int pagenum= Integer.parseInt(page)-1;
