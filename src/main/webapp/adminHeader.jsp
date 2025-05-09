@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
             <div class="menu">
                 <ul class="megamenu skyblue">
-                    <li><a class="color2" href="adminListProduct.jsp">Products</a></li>
+                    <li><a class="color2" href="${pageContext.request.contextPath}/index">Products</a></li>
                     <li><a class="color10" href="adminAdd.jsp">Edit</a></li>
                     <li><a class="color3" href="adminOrder.jsp">Order</a></li>
                     <div class="clearfix"></div>

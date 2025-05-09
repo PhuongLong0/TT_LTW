@@ -112,7 +112,7 @@
 
 				<!-- content load từ database -->
 				<ul>
-					<c:if test="${empty filter}">
+					<c:if test="${empty filterProducts}">
 						<c:forEach var="products" items="${listProducts}">
 							<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
 								href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">

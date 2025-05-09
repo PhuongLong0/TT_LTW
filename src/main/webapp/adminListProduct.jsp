@@ -75,9 +75,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 sidebar_men">
 				<h3>Categories</h3>
 				<ul class="products-categories color">
-					<c:forEach var="category" items="${products.getCategories()}">
+					<c:forEach var="category" items="${categories}">
 						<li class="cat-item cat-item-42"><a
-							href="FilterServlet?category=${category.category}&admin=admin">${category.category}</a>
+								href="FilterServlet?category=${category.categoryName}">${category.categoryName}</a>
 							<span class="count">${category.num}</span></li>
 					</c:forEach>
 
@@ -97,8 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<ul class="women_pagenation dc_paginationA dc_paginationA06">
 						<li><a href="#" class="previous">Page : </a></li>
-						<c:forEach var="i" begin="1"
-							end="${totalPages}">
+						<c:forEach var="i" begin="1" end="${totalPages}">
 							<li><a href="FilterServlet?page=${i}&admin=admin" >${i}</a></li>
 						</c:forEach>
 					</ul>
@@ -114,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"></div>
 					<!-- content load từ database  -->
 					<ul id="content">
-						<c:if test="${empty filter}">
+						<c:if test="${empty filterProducts}">
 							<c:forEach var="products" items="${listProducts}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
 									href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
@@ -153,26 +152,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						</c:if>
 
-						<c:if test="${not empty filter}">
-							<c:forEach var="products" items="${filter}">
+						<c:if test="${not empty filterProducts}">
+							<c:forEach var="products" items="${filterProducts}">
 								<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-									href="${pageContext.request.contextPath}/AdminEdit?productid=${products.id}&action=detail">
+									href="${pageContext.request.contextPath}/AdminEdit?productid=${products.productId}&action=detail">
 										<div class="view view-first">
 											<div class="inner_content clearfix">
 												<div class="product_image">
 													<div class="mask1">
-														<img src="images/${products.getFirstImage()}" alt="image"
-															class="img-responsive zoom-img">
+														<img src="${products.getFirstImage()}" alt="Product Image" class="img-responsive zoom-img">
 													</div>
 													<div class="mask">
 														<div class="info">Quick View</div>
 													</div>
 													<div class="product_container">
-														<h4>${products.name}</h4>
+														<h4>${products.productName}</h4>
 														<p>Dresses</p>
-														<div class="price mount item_price">${products.cost}</div>
+														<div class="price mount item_price">${products.priceSell}</div>
 														<a class="button item_add cbp-vm-icon cbp-vm-add"
-															href="${pageContext.request.contextPath}/AdminDelete?productid=${products.id}">Delete</a>
+															href="${pageContext.request.contextPath}/AdminDelete?productid=${products.productId}">Delete</a>
 													</div>
 												</div>
 											</div>
