@@ -58,6 +58,7 @@ public class IndexServlet extends HttpServlet {
         ShoppingCart cart= new ShoppingCart();
         request.setAttribute("cart", cart);
 
+
         Users user = (Users) request.getSession().getAttribute("user");
         if (user != null) {
             int role = user.getRole();
@@ -68,6 +69,8 @@ public class IndexServlet extends HttpServlet {
                 destination = "/adminListProduct.jsp";
             }
         }
+
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destination);
         dispatcher.forward(request, response);
 
