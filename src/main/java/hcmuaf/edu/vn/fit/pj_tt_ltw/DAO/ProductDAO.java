@@ -306,14 +306,14 @@ private int degreecategory(Products products) {
 }
     private List<String> getImagesForProduct(int productId) {
         List<String> images = new ArrayList<>();
-        String sql = "SELECT imageProduct FROM product_images WHERE productId=?";
+        String sql = "SELECT imageURL FROM product_images WHERE productId=?";
         try (Connection connect = DBConnect.getConnection();
              PreparedStatement prs = connect.prepareStatement(sql)) {
 
             prs.setInt(1, productId);
             ResultSet rs = prs.executeQuery();
             while (rs.next()) {
-                images.add(rs.getString("imageProduct"));
+                images.add(rs.getString("imageURL"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -324,7 +324,8 @@ private int degreecategory(Products products) {
 
     public List<Products> filter(String categoryFilter) {
         List<Products> res = new ArrayList<>();
-        String sql = "SELECT * FROM products WHERE categoryId = ?";
+        String sql = "SELECT * FROM products WHERE categoryName = ?";
+        String imgSql = "SELECT * FROM product_images WHERE productId=?";
 
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement prs = conn.prepareStatement(sql)) {
@@ -344,9 +345,13 @@ private int degreecategory(Products products) {
                         rs.getInt("categoryId")
                 );
 
-                // Lấy danh sách ảnh từ bảng product_images
-                product.setListimg(getImagesForProduct(product.getProductId()));
-
+                //thêm danh sách ảnh
+                PreparedStatement pre = conn.prepareStatement(imgSql);
+                pre.setInt(1, rs.getInt("productId"));
+                ResultSet rsimg = pre.executeQuery();
+                while (rsimg.next()) {
+                    product.getListimg().add(rsimg.getString("imageURL"));
+                }
                 res.add(product);
             }
         } catch (SQLException e) {
