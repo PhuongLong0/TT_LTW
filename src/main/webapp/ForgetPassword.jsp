@@ -37,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- Step 1: Nhập Email + Captcha -->
             <c:if test="${empty step or step == 1}">
-                <form method="post" action="ForgetPasswordServlet">
+                <form method="post" action="${pageContext.request.contextPath}/forgetPassword">
                     <input type="hidden" name="action" value="verifyEmailCaptcha">
                     <div class="form-group">
                         <span>Email*</span>
@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </c:if>
             <!-- Step 2: Nhập OTP -->
             <c:if test="${step == 2}">
-                <form method="post" action="ForgetPasswordServlet">
+                <form method="post" action="${pageContext.request.contextPath}/forgetPassword">
                     <input type="hidden" name="action" value="verifyOtp">
                     <div>
                         <label>Enter the OTP sent to your email:</label>
@@ -69,33 +69,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- Step 3: Đặt lại mật khẩu -->
             <c:if test="${step == 3}">
-                <form method="post" action="ForgetPasswordServlet">
+                <form method="post" action="${pageContext.request.contextPath}/forgetPassword">
                     <input type="hidden" name="action" value="resetPassword">
-                    <div>
-                        <label>New Password:</label>
-                        <input type="password" name="password1" required>
+                    <div class="form-group mb-3">
+                        <label for="password1">New Password:</label>
+                        <input type="password" id="password1" name="password1" class="form-control" required>
                     </div>
-                    <div>
-                        <label>Confirm New Password:</label>
-                        <input type="password" name="password2" required>
+                    <div class="form-group mb-3">
+                        <label for="password2">Confirm New Password:</label>
+                        <input type="password" id="password2" name="password2" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-success">Reset Password</button>
                 </form>
             </c:if>
-            <!-- form dang nhap jsp  -->
-           <!--
-               <div>
-                    <span>Email*</span>
-                    <input type="text" name = "email" placeholder="Enter your email" required>
-                </div>
 
-                <input type="text" name="captcha" placeholder="Enter captcha" required>
-                <img src="CaptchaServlet" alt="Captcha Image">
-                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-
-                <input type="submit" value="Send OTP">
-                <a href="login.jsp" class="create">Back to Login</a>
-            </form>-->
             <p style="color: #dc3545;">${error}</p>
             <p style="color: green">${success}</p>
 
