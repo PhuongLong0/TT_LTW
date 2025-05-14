@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 <a href="ForgetPassword.jsp" class="create"> Forget password</a>
 		   </form>
 		  <p style="color: #dc3545;">${errorMessage}</p>
+			<p style="color: green">${message}</p>
 		   <!-- end -->
 		   
 		   
