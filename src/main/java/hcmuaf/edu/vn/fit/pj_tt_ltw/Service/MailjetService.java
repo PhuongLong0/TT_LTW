@@ -1,41 +1,51 @@
 package hcmuaf.edu.vn.fit.pj_tt_ltw.Service;
 
-import okhttp3.*;
-import java.io.IOException;
-import org.json.JSONObject;
-public class MailjetService {
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
-    private static final String API_KEY = "YOUR_MAILJET_API_KEY";
-    private static final String API_SECRET = "YOUR_MAILJET_API_SECRET";
-    private static final String FROM_EMAIL = "your_verified_email@mail.com"; // phải verify
-    private static final String FROM_NAME = "Hệ thống OTP";
+import java.util.Properties;
 
-    public static boolean sendOtpMail(String toEmail, String otp) {
-        OkHttpClient client = new OkHttpClient();
+    public class MailjetService {
+        //cseo nmcg ojoy uxou
+        private static final String USERNAME = "caccac7258@gmail.com"; // your Gmail
+        private static final String APP_PASSWORD = "cseo nmcg ojoy uxou"; // your app password
 
-        JSONObject message = new JSONObject();
-        message.put("From", new JSONObject()
-                .put("Email", FROM_EMAIL)
-                .put("Name", FROM_NAME));
-        message.put("To", new org.json.JSONArray().put(new JSONObject()
-                .put("Email", toEmail)));
-        message.put("Subject", "Mã xác nhận OTP");
-        message.put("TextPart", "Mã OTP của bạn là: " + otp + ". Không chia sẻ cho người khác.");
+        public static boolean sendOtpToEmail(String email, String otp) {
+            try {
+                // SMTP config
+                Properties props = new Properties();
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.starttls.enable", "true");
+                props.put("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.port", "587");
 
-        JSONObject body = new JSONObject().put("Messages", new org.json.JSONArray().put(message));
+                // Create session with authentication
+                Session session = Session.getInstance(props,
+                        new Authenticator() {
+                            protected PasswordAuthentication getPasswordAuthentication() {
+                                return new PasswordAuthentication(USERNAME, APP_PASSWORD);
+                            }
+                        });
 
-        Request request = new Request.Builder()
-                .url("https://api.mailjet.com/v3.1/send")
-                .post(RequestBody.create(body.toString(), MediaType.get("application/json")))
-                .addHeader("Authorization", Credentials.basic(API_KEY, API_SECRET))
-                .addHeader("Content-Type", "application/json")
-                .build();
+                // Create email message
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(USERNAME));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+                message.setSubject("Mã OTP xác thực tài khoản qua email" + email);
+                message.setContent(
+                        "<h3>Mã OTP của bạn là: <strong>" + otp + "</strong></h3>"
+                                + "<p>Vui lòng không chia sẻ mã này với bất kỳ ai.</p>",
+                        "text/html; charset=utf-8"
+                );
 
-        try (Response response = client.newCall(request).execute()) {
-            return response.isSuccessful();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+                // Send message
+                Transport.send(message);
+                return true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
     }
-}
