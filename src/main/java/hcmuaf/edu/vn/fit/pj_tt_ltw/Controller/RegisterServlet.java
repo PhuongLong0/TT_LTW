@@ -2,7 +2,7 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.UserDao;
-import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Mail;
+import hcmuaf.edu.vn.fit.pj_tt_ltw.Service.Mail;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Users;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -90,7 +90,7 @@ public class RegisterServlet extends HttpServlet {
                 System.out.println("Tạo tài khoản thành công! - Username: " +username);
                 try {
                     Mail.sendMail(email);
-                } catch (MessagingException e) {
+                } catch (jakarta.mail.MessagingException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }

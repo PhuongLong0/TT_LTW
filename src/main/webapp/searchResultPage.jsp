@@ -33,7 +33,7 @@
 		</div>
 	</c:forEach>
 	<div class="paging">
-		<c:forEach begin="1" end=${endPage } var="i">
+		<c:forEach begin="1" end= "${endPage}" var="i">
     		<a href="#">${i }</a>
     	</c:forEach>
 	</div>

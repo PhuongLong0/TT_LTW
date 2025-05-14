@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sửa sản phẩm</title>
+<title>Edit product</title>
 <style>
 /* Toàn bộ trang */
 body {
@@ -122,7 +122,7 @@ img:hover {
 <body>
 	<jsp:include page="adminHeader.jsp"></jsp:include>
 
-	<h1>Sửa Sản Phẩm</h1>
+	<h1>Edit product</h1>
 
 	<!-- Hiển thị thông báo lỗi -->
 	<c:if test="${not empty errorMessage}">
@@ -137,23 +137,23 @@ img:hover {
 	<form action="${pageContext.request.contextPath}/EditProductServlet" method="post" enctype="multipart/form-data">
 
 
-		<input type="hidden" name="productId" value="${products.id}">
+		<input type="hidden" name="productId" value="${products.productId}">
 
 		<!-- Tên sản phẩm -->
-		<label for="name">Tên sản phẩm:</label> <input type="text" id="name"
-			name="name" value="${products.name}" placeholder="Nhập tên sản phẩm"
+		<label for="name">Product name:</label> <input type="text" id="name"
+			name="name" value="${products.productName}" placeholder="Insert product name:"
 			required>
 
 		<!-- Danh mục--> 
-		<label for="category">Danh mục:</label> <select id="category"
+		<label for="category">Category:</label> <select id="category"
 			name="category" required>
-			<option value="" disabled selected>Chọn danh mục</option>
+			<option value="" disabled selected>Choose category</option>
 			<c:choose>
 				<c:when test="${not empty products.getCategories()}">
-					<c:forEach var="category" items="${products.getCategories()}">
-						<option value="${category.category}"
-							${category.category == products.category ? 'selected' : ''}>
-							${category.category}</option>
+					<c:forEach var="category" items="${products.categoryId}">
+						<option value="${category.categoryId}"
+							${category.category == products.categoryId ? 'selected' : ''}>
+							${category.categoryName}</option>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
@@ -164,22 +164,22 @@ img:hover {
 
 		<!-- Giá -->
 		<label for="cost">Giá:</label> <input type="number" id="cost"
-			name="cost" value="${products.cost}" step="0.01"
+			name="cost" value="${products.priceSell}" step="0.01"
 			placeholder="Nhập giá sản phẩm" required>
 
 		<!-- Số lượng -->
-		<label for="quantity">Số lượng:</label> <input type="number"
+		<label for="quantity">Quantity:</label> <input type="number"
 			id="quantity" name="quantity" value="${products.quantity}" step="1"
-			placeholder="Nhập số lượng" required>
+			placeholder="Insert quantity" required>
 
 		<!-- Chi tiết sản phẩm -->
-		<label for="detail">Chi tiết sản phẩm:</label>
+		<label for="detail">Product details:</label>
 		<textarea id="detail" name="detail" rows="4"
-			placeholder="Nhập chi tiết sản phẩm" required>${products.detail}</textarea>
+			placeholder="Insert product detail" required>${products.productDetail}</textarea>
 
 
 		<!-- Hình ảnh sản phẩm -->
-		<label for="listimg">Hình ảnh sản phẩm:</label> <input type="file"
+		<label for="listimg">Product image:</label> <input type="file"
 			id="listimg" name="listimg" multiple accept="image/*">
 			
 			
