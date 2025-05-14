@@ -172,14 +172,16 @@ public class UserImp implements UserDao{
 
     }
 
-    @Override
+   @Override
     public boolean sendOtpToEmail(String email, String otp) {
-        try {
-            return MailjetService.sendOtpMail(email, otp);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+
+        boolean success = MailjetService.sendOtpToEmail(email,otp);
+        if (success) {
+            System.out.println("Gửi email OTP thành công!");
+        } else {
+            System.out.println("Gửi email OTP thất bại.");
         }
+        return success;
     }
 
 }
