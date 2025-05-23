@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ForgetPassword</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.ForgetPasswordServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ForgetPassword</servlet-name>
+        <url-pattern>/forgetPassword</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>captchaServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.CaptchaServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>captchaServlet</servlet-name>
+        <url-pattern>/captchaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.IndexServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FilterServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.FilterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FilterServlet</servlet-name>
+        <url-pattern>/FilterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.SearchServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.ProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/productServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NewProductServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.NewProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NewProductServlet</servlet-name>
+        <url-pattern>/newProduct</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FilterNewProductServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.FilterNewProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FilterNewProductServlet</servlet-name>
+        <url-pattern>/filterNew</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddToCart</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.AddToCart</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddToCart</servlet-name>
+        <url-pattern>/AddToCart</url-pattern>
+    </servlet-mapping>
+</web-app>

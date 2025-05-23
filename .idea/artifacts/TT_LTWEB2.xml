@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="TT LTWEB">
+    <output-path>$PROJECT_DIR$/out/artifacts/TT_LTWEB</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="TT_LTWEB" />
+    </root>
+  </artifact>
+</component>
