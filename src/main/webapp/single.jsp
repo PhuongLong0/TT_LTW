@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header2.jsp"></jsp:include>
 	<div class="men">
 		<div class="container">
 			<div class="col-md-9 single_top">

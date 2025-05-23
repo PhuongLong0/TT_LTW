@@ -277,7 +277,7 @@ private int degreecategory(Products products) {
     @Override
     public List<Products> searchResult(String txtSearch) {
         List<Products> res = new ArrayList<>();
-        /*String sql = "SELECT * FROM products WHERE productName LIKE ?";
+        String sql = "SELECT * FROM products WHERE productName LIKE ?";
         try (Connection connect = DBConnect.getConnection();
              PreparedStatement ps = connect.prepareStatement(sql)) {
 
@@ -300,7 +300,7 @@ private int degreecategory(Products products) {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
         return res;
 
 }
@@ -324,7 +324,7 @@ private int degreecategory(Products products) {
 
     public List<Products> filter(String categoryFilter) {
         List<Products> res = new ArrayList<>();
-        String sql = "SELECT * FROM products WHERE categoryName = ?";
+        String sql = "SELECT * FROM products WHERE categoryId = ?";
         String imgSql = "SELECT * FROM product_images WHERE productId=?";
 
         try (Connection conn = DBConnect.getConnection();
@@ -377,5 +377,53 @@ private int degreecategory(Products products) {
 
         return count;
     }
+    public int getTotalIncome() {
+        int total = 0;
+        // sql lấy tổng
+        String sql = "SELECT SUM(totalAmount) FROM orders";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                total = rs.getInt(1); // Cột đầu tiên củ
+            }        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
 
+    public int getTotalNewOrder() {
+        int total = 0;
+        // sql lấy tổng số đơn hàng trong khoảng thời gian
+        String sql = "Select Count(*) FROM orders";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                total = rs.getInt(1); // Cột đầu tiên củ
+            }        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
+
+    public int getTotalExpense() {
+        int total = 0;
+        String sql = "Select Sum(p.priceBuy * od.quantity) "
+                + "from products p Join orderdetails od"
+                + " on p.productId = od.productId"
+                + " where od.statusDetail != 'canceled'";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if(rs.next()) {
+                total = rs.getInt(1);
+            }
+
+        }catch(SQLException e){
+                 e.printStackTrace();
+        }
+
+        return total;
+    }
 }

@@ -35,6 +35,7 @@ public class AddToCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
+
         String id = request.getParameter("productId");
         HttpSession session = request.getSession();
 
@@ -56,7 +57,7 @@ public class AddToCart extends HttpServlet {
             }
         }
 
-        request.getRequestDispatcher("men.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/index");
     }
 
     /**

@@ -1,5 +1,6 @@
 package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
+import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import jakarta.servlet.ServletContext;
@@ -33,12 +34,14 @@ public class FilterServlet extends HttpServlet {
         // TODO Auto-generated method stub
         String destination = "/filteredProducts.jsp";
 
-        String categoryFilter = request.getParameter("categoryName");
+        String categoryFilter = request.getParameter("category");
+        System.out.println("category = " + categoryFilter);
         String page = request.getParameter("page");
         String admin= request.getParameter("admin");
 
-        ProductDAO productdao = new ProductDAO();
+        ProductDAO productdao = (ProductDAO) DAOFactory.getInstance().getProductdao();
         List<Products> filterProducts = productdao.filter(categoryFilter);
+
         if(page!= null) {
             int pagenum= Integer.parseInt(page)-1;
             filterProducts = productdao.all().subList(pagenum*6, Math.min(pagenum*6+6, productdao.all().size()));
@@ -47,6 +50,8 @@ public class FilterServlet extends HttpServlet {
             destination = "/adminListProduct.jsp";
         }
         request.setAttribute("filterProducts", filterProducts);
+        System.out.println("Số sản phẩm lọc được: " + filterProducts.size());
+
         request.getRequestDispatcher(destination).forward(request, response);
     }
 

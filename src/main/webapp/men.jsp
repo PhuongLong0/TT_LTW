@@ -76,10 +76,10 @@
 		<div class="col-md-4 sidebar_men">
 			<h3>Categories</h3>
 			<ul class="product-categories color">
-				<c:forEach var="category" items="${categories}">
-					<li class="cat-item cat-item-42"><a
-							href="FilterServlet?category=${category.categoryName}">${category.categoryName}</a>
-						<span class="count">${category.num}</span></li>
+				<c:forEach var="categories" items="${categories}">
+					<li class="cat-item cat-item-42">
+						<a href="filter?category=${categories.categoryName}">${categories.categoryName}</a>
+<%--						<span class="count">${category.num}</span></li>--%>
 				</c:forEach>
 			</ul>
 		</div>
@@ -140,7 +140,7 @@
 													</c:choose>
 												</div>
 												<a class="button item_add cbp-vm-icon cbp-vm-add"
-												   href="${pageContext.request.contextPath}/AddToCart?productid=${products.productId}">Add
+												   href="${pageContext.request.contextPath}/AddToCart?productId=${products.productId}">Add
 													to cart</a>
 											</div>
 										</div>
@@ -151,9 +151,9 @@
 					</c:if>
 
 					<c:if test="${not empty filterProducts}">
-						<c:forEach var="products" items="${listProducts}">
+						<c:forEach var="products" items="${filterProducts}">
 							<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-																href="${pageContext.request.contextPath}/ProductServlet?productid=${products.productId}">
+								href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
 								<div class="view view-first">
 									<div class="inner_content clearfix">
 										<div class="product_image">
@@ -178,7 +178,7 @@
 													</c:choose>
 												</div>
 												<a class="button item_add cbp-vm-icon cbp-vm-add"
-												   href="${pageContext.request.contextPath}/AddToCart?productid=${products.productId}">Add
+												   href="${pageContext.request.contextPath}/AddToCart?productId=${products.productId}">Add
 													to cart</a>
 											</div>
 										</div>

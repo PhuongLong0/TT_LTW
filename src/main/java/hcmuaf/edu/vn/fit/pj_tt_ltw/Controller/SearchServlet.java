@@ -43,7 +43,7 @@ public class SearchServlet extends HttpServlet {
         IProductDAO productDao = DAOFactory.getInstance().getProductdao();
         int index = Integer.parseInt(request.getParameter("index"));
         int count = productDao.count(txtSearch);
-        int size = 3;
+        int size = 6;
         int endPage = count / size;
         if (count % size != 0) {
             endPage++;

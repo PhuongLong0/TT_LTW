@@ -47,6 +47,9 @@ public class IndexServlet extends HttpServlet {
 
         List<Categories> categories = ((ProductDAO) productdao).getCategories();
         request.setAttribute("categories", categories);
+        for (Categories c : categories) {
+            System.out.println(c.getCategoryName());
+        }
 
         int totalProducts = productdao.all().size();
         int totalPages = totalProducts / 6 + (totalProducts % 6 == 0 ? 0 : 1);

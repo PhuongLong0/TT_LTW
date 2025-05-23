@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<ul>
 		<c:forEach var="products" items="${filterProducts}">
 			<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-				href="${pageContext.request.contextPath}/ProductServlet?productid=${products.productId}">
+				href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
 					<div class="view view-first">
 						<div class="inner_content clearfix">
 							<div class="product_image">
@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</c:choose>
 									</div>
 									<a class="button item_add cbp-vm-icon cbp-vm-add"
-										href="${pageContext.request.contextPath}/AddToCart?productid=${products.productId}">Add
+										href="${pageContext.request.contextPath}/AddToCart?productId=${products.productId}">Add
 										to cart</a>
 								</div>
 							</div>

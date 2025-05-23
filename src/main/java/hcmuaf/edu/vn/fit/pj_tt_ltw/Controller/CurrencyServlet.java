@@ -41,15 +41,15 @@ public class CurrencyServlet extends HttpServlet {
         switch (selectedCurrency) {
             case "USD":
                 currencyName = "Dollar (USD)";
-                tygia=1;
+                tygia=0.000039;
                 break;
             case "EUR":
                 currencyName = "Euro (EUR)";
-                tygia=0.98;
+                tygia=0.000034;
                 break;
             case "VND":
                 currencyName = "Vietnam Dong (VND)";
-                tygia=25.385;
+                tygia=1;
                 break;
             default:
                 currencyName = "Unknown Currency";
