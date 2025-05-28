@@ -122,6 +122,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<!-- Search Icon -->
 								<span class="sb-icon-search"> </span>
 							</form>
+
+
 						</div>
 					</div>
 					<!-- End Search -->
@@ -130,6 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<script src="js/uisearch.js"></script>
 					<script>
 						new UISearch(document.getElementById('sb-search'));
+
 					</script>
 					<!----//search-scripts---->
 					<div class="clearfix"></div>

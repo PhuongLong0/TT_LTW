@@ -291,8 +291,8 @@ private int degreecategory(Products products) {
             ps.setInt(2, offset);
             ps.setInt(3, size);
 
-            // ps.setString(1, "%" + txtSearch + "%");
             ResultSet rs = ps.executeQuery();
+            List<Products> tempProducts = new ArrayList<>();
             while (rs.next()) {
                 Products product = new Products(
                         rs.getInt("productId"),
@@ -304,7 +304,9 @@ private int degreecategory(Products products) {
                         rs.getTimestamp("createAt"),
                         rs.getInt("categoryId")
                 );
-
+                tempProducts.add(product);
+            }
+            for (Products product : tempProducts) {
                 product.setListimg(getImagesForProduct(product.getProductId()));
                 res.add(product);
             }

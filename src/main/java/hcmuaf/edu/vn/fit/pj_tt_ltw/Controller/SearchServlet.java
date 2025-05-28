@@ -30,9 +30,11 @@ public class SearchServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String destination = "/men.jsp";
+        String destination = "/searchResultPage.jsp";
+        //String destination = "/men.jsp";
         // Lấy input từ search bar
         String txtSearch = request.getParameter("query");
+        System.out.println("Vào tìm kiếm với keyword: " + txtSearch);
 
         // Trả về index nếu search null
         if (txtSearch == null || txtSearch.trim().isEmpty()) {
@@ -57,8 +59,10 @@ public class SearchServlet extends HttpServlet {
         if (count % size != 0) {
             endPage++;
         }
+        System.out.println("Tổng số sản phẩm khớp: " + count);
 
         List<Products> searchResults = productDao.searchResult(txtSearch, index, size);
+        System.out.println("Số sản phẩm tìm thấy: " + searchResults.size());
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("searchResults", searchResults);
@@ -75,7 +79,7 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        doGet(request, response);
+        //doGet(request, response);
     }
 
 }

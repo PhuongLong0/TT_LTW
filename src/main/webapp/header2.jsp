@@ -107,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- start search-->
 					<div class="search-box">
 						<div id="sb-search" class="sb-search">
-							<form action="SearchServlet?index=1" method="post">
+							<form action="SearchServlet?index=1" method="get">
 								<!-- Input field for the search term -->
 								<input class="sb-search-input"
 									placeholder="Enter your search term..." type="search"
