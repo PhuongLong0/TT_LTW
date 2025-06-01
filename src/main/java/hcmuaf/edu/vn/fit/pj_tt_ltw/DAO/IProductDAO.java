@@ -22,4 +22,6 @@ public interface IProductDAO {
     public List<Products> getNewestProducts(int size);
 
     public List<Products> filterNewest(String categoryFilter);
+
+    public List<Products> getProductsByBrand(String selectedBrand);
 }

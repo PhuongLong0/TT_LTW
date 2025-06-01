@@ -390,6 +390,41 @@ private int degreecategory(Products products) {
 
     }
 
+    @Override
+    public List<Products> getProductsByBrand(String BrandName) {
+        List<Products> list = new ArrayList<>();
+        String imgSql = "SELECT * FROM product_images WHERE productId=?";
+        String sql="SELECT * FROM Products WHERE BrandName=?";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement prs = conn.prepareStatement(sql)) {
+             prs.setString(1, BrandName);
+             ResultSet rs = prs.executeQuery();
+             while (rs.next()) {
+                Products product = new Products(
+                        rs.getInt("productId"),
+                        rs.getString("productName"),
+                        rs.getInt("priceBuy"),
+                        rs.getInt("priceSell"),
+                        rs.getString("productDetail"),
+                        rs.getString("brandName"),
+                        rs.getTimestamp("createAt"),
+                        rs.getInt("categoryId")
+                );
+                try (PreparedStatement pre = conn.prepareStatement(imgSql)) {
+                    pre.setInt(1, product.getProductId());
+                    ResultSet rsimg = pre.executeQuery();
+                    while (rsimg.next()) {
+                        product.getListimg().add(rsimg.getString("imageURL"));
+                    }
+                }
+                list.add(product);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     private List<String> getImagesForProduct(int productId) {
         List<String> images = new ArrayList<>();
         String sql = "SELECT imageURL FROM product_images WHERE productId=?";
@@ -482,6 +517,23 @@ private int degreecategory(Products products) {
             e.printStackTrace();
         }
         return "default.jpg"; // Ảnh mặc định nếu không có
+    }
+
+    // Đếm số lượng sản phẩm theo brandName
+    public int countProductsByBrand(String brandName) {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM Products WHERE brandName = ?";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, brandName);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 
 }

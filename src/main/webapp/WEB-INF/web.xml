@@ -108,4 +108,14 @@
         <servlet-name>AddToCart</servlet-name>
         <url-pattern>/AddToCart</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BrandsServlet</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.BrandsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BrandsServlet</servlet-name>
+        <url-pattern>/brand</url-pattern>
+    </servlet-mapping>
 </web-app>
