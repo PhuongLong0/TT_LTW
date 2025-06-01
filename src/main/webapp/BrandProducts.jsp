@@ -53,10 +53,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
          .product-card {
              min-height: 400px; /* chiều cao cố định cho mỗi sản phẩm */
-             display: flex;
-             flex-direction: column;
-             justify-content: space-between;
+             margin-bottom: 20px;
+             box-sizing: border-box;
          }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-list .product-card {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
 
         .product_image img {
             width: 100%;

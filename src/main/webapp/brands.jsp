@@ -28,6 +28,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script src="js/jquery.easydropdown.js"></script>
 <script src="js/simpleCart.min.js"> </script>
+	<style>
+
+	</style>
+
 </head>
 <body>
 <!-- Reuse header and menu here -->
@@ -121,44 +125,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  </div>
 		</div>
 		<div class="col-md-3 tabs">
-	      <h3 class="m_1">Related Products</h3>
+	      <h3 class="m_1"> </h3>
 	      <ul class="products">
 	      	<li class="product_img"><img src="images/poster-omega.jpg" class="img-responsive" alt=""/></li>
 	      	<li class="product_desc">
-	      		<h4><a href="#">OMEGA – </a></h4>
-	      		<p class="single_price">The first watch on the Moon.</p>
-	      		<a href="#" class="link-cart">Add to Wishlist</a>
-	      	    <a href="#" class="link-cart">Add to Cart</a>
+	      		<h4><a href="brand?brand=OMEGA">OMEGA</a></h4>
+	      		<p class="single_price">- The first watch on the Moon.</p>
+	      		<p class="single_price">- Leading the trend</p>
+	      	    <a href="brand?brand=OMEGA" class="link-cart">View</a>
 	        </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
 	      <ul class="products">
 	      	<li class="product_img"><img src="images/poster-longines.jpg" class="img-responsive" alt=""/></li>
 	      	<li class="product_desc">
-	      		<h4><a href="#">Longines – </a></h4>
-	      		<p class="single_price">Classic by design, Swiss by heart.</p>
-	      		<a href="#" class="link-cart">Add to Wishlist</a>
-	      	    <a href="#" class="link-cart">Add to Cart</a>
-	        </li>
-	      	<div class="clearfix"> </div>
-	      </ul>
-	      <ul class="products">
-	      	<li class="product_img"><img src="images/weekday1.jpg" class="img-responsive" alt=""/></li>
-	      	<li class="product_desc">
-	      		<h4><a href="#">quod mazim</a></h4>
-	      		<p class="single_price">$66.30</p>
-	      		<a href="#" class="link-cart">Add to Wishlist</a>
-	      	    <a href="#" class="link-cart">Add to Cart</a>
-	        </li>
-	      	<div class="clearfix"> </div>
-	      </ul>
-	      <ul class="products">
-	      	<li class="product_img"><img src="images/weekday1.jpg" class="img-responsive" alt=""/></li>
-	      	<li class="product_desc">
-	      		<h4><a href="#">quod mazim</a></h4>
-	      		<p class="single_price">$66.30</p>
-	      		<a href="#" class="link-cart">Add to Wishlist</a>
-	      	    <a href="#" class="link-cart">Add to Cart</a>
+	      		<h4><a href="brand?brand=LONGINES">Longines</a></h4>
+	      		<p class="single_price">- Classic by design, Swiss by heart.</p>
+	      		<p class="single_price">- A timeless trendsetter</p>
+	      	    <a href="brand?brand=LONGINES" class="link-cart">View</a>
 	        </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
