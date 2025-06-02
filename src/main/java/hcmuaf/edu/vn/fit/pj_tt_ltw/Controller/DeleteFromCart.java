@@ -17,8 +17,9 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
-@WebServlet("/DeleteFromCart")
+@WebServlet(name = "DeleteFromCart", value = "/DeleteFromCart")
 public class DeleteFromCart extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -37,17 +38,31 @@ public class DeleteFromCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("productId");
-        int pid = Integer.parseInt(id);
-        // ServletContext application = getServletContext();
-
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
 
-        if (user == null) {
-            response.sendRedirect("login.jsp");
-        } else {
-            ServletContext application = getServletContext();
-            ShoppingCart cart = (ShoppingCart) application.getAttribute("cart");
+        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new ShoppingCart();
+            session.setAttribute("cart", cart);
+        }
+
+        // Xóa sản phẩm khỏi giỏ hàng nếu ID hợp lệ
+        if (id != null) {
+            try {
+                int productId = Integer.parseInt(id);
+                cart.delete(productId);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+        Map<Products, Integer> cartMap = cart.getProductQuantityMap();
+        request.setAttribute("cartMap", cartMap);
+        request.setAttribute("cartSize", cart.getSize());
+        request.setAttribute("cartTotal", cart.getTotalPrice());
+
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+    }
 
 //        String des = "checkout.jsp";
 //        ProductDAO dao = (ProductDAO) application.getAttribute("products");
@@ -62,18 +77,7 @@ public class DeleteFromCart extends HttpServlet {
 //        System.out.println();
 //        response.sendRedirect(des);
 
-            // ShoppingCart shoppingcart = (ShoppingCart) application.getAttribute("cart");
 
-            if (cart != null && !cart.getCart().isEmpty()) {
-                OrderDAO donhangDao = DAOFactory.getInstance().getDonHangDao();
-                donhangDao.insert(new Orders(cart.getCart())); // Giả sử bạn đã sửa class Orders
-                cart.getCart().clear();
-            }
-
-            response.sendRedirect("checkout.jsp");
-
-        }
-    }
 
         /**
          */

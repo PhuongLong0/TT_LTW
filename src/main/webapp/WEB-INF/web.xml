@@ -108,6 +108,16 @@
         <servlet-name>AddToCart</servlet-name>
         <url-pattern>/AddToCart</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteFromCart</servlet-name>
+        <servlet-class>hcmuaf.edu.vn.fit.pj_tt_ltw.Controller.DeleteFromCart</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteFromCart</servlet-name>
+        <url-pattern>/DeleteFromCart</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>BrandsServlet</servlet-name>

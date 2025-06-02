@@ -8,36 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ShoppingCart {
-//    List<Products> shoppingCart;
-//
-//    public ShoppingCart() {
-//        super();
-//        this.shoppingCart = new ArrayList<Products>();
-//    }
-//
-//    public List<Products> getShoppingCart() {
-//        return shoppingCart;
-//    }
-//
-//    public void setShoppingCart(List<Products> shoppingCart) {
-//        this.shoppingCart = shoppingCart;
-//    }
-//    public int getsize() {
-//        return shoppingCart.size();
-//    }
-//    public void add(Products products) {
-//        shoppingCart.add(products);
-//    }
-//    public void delete(Products products) {
-//        shoppingCart.remove(products);
-//    }
-//    public double getPrice() {
-//        double res=0;
-//        for (Products products : shoppingCart) {
-//            res+= products.getPriceSell();
-//        }
-//        return res;
-//    }
 
     private Map<Integer, Integer> cart = new HashMap<>(); // key: productId, value: quantity
 

@@ -41,15 +41,38 @@
 <meta name="keywords"
 	content="Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="application/x-javascript">
 	
 	
-	
-	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+// Xử lý tăng giảm số lượng sản phẩm
+	 $(document).ready(function () {
+		 console.log("jQuery is working!");
+		 $('.btn-increase, .btn-decrease').click(function () {
+			 let productId = $(this).data('id');
+			 let action = $(this).hasClass('btn-increase') ? 'increase' : 'decrease';
 
+			 $.ajax({
+				 url: 'UpdateCartServlet',
+				 method: 'POST',
+				 data: {
+					 productId: productId,
+					 action: action
+				 },
+				 success: function (response) {
 
+					 //let data = JSON.parse(response);
+					 $('#qty-' + productId).text(response.newQuantity);
+					 $('.total1').text(response.cartTotal + " VNĐ");
+					 $('.last_price span').text(response.cartTotal + " VNĐ");
+				 },
+				 error: function () {
+					 alert("Cập nhật giỏ hàng thất bại!");
+				 }
+			 });
+		 });
+	 });
 
 
 
@@ -103,26 +126,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<c:set var="total" value="${product.priceSell * quantity}" />
 
 						<div class="cart-header">
-							<a class="close1" href="DeleteFromCart?productId=${product.productId}"></a>
+							<a class="close1" href="DeleteFromCart?productId=${product.productId}"></a> <!--Xóa sản phẩm-->
 							<div class="cart-sec simpleCart_shelfItem">
 								<div class="cart-item cyc">
 									<img src="${product.firstImage}" class="img-responsive" alt="" />
 								</div>
 								<div class="cart-item-info">
 									<h3>
-										<a href="#">${product.productName}</a><span>Model No:${product.productId}</span>
+										<a href="${pageContext.request.contextPath}/productServlet?productId=${product.productId}">${product.productName}</a><span>Model No:${product.productId}</span>
 									</h3>
 									<ul class="qty">
 										<li><p>Size : 5</p></li>
-										<li><p>Qty : ${quantity}</p></li>
+										<!-- Tăng số lượng -->
+										<li>
+											<p>Quantity : </p>
+											<button class="btn-decrease" data-id="${product.productId}">-</button>
+											<span class="item-qty" id="qty-${product.productId}">${quantity}</span>
+											<button class="btn-increase" data-id="${product.productId}">+</button>
+										</li>
 									</ul>
 									<div class="delivery">
 										<c:choose>
 											<c:when test="${tygia == null}">
-												<p>Service Charges :${total} ${currency}</p>
+												<p>Service Charges :${total} VNĐ</p>
 											</c:when>
 											<c:otherwise>
-												<p>Service Charges :${total} ${currency}</p>
+												<p>Service Charges :${total * tygia} ${currency}</p>
 											</c:otherwise>
 										</c:choose>
 										<span>Delivered in 2-3 business days</span>
@@ -139,15 +168,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a class="continue" href="men.jsp">Continue to basket</a>
 					<div class="price-details">
 						<h3>Price Details</h3>
-						<span>Total</span> <span class="total1"> <c:choose>
+						<span>Total</span>
+						<span class="total1">
+						<c:choose>
 								<c:when test="${tygia == null}">
-									${total} ${currency}
+									<fmt:formatNumber value="${cart.getPrice()}" type="number" maxFractionDigits="0"/> VNĐ
 											</c:when>
 								<c:otherwise>
-									${total} * ${tygia} ${currency}
-											</c:otherwise>
+									<fmt:formatNumber value="${cart.getPrice() * tygia}" type="number" maxFractionDigits="0"/> ${currency}
+								</c:otherwise>
 							</c:choose>
-						</span> <span>Discount</span>
+						</span>
+						<span>Discount</span> <!-- Giảm giá-->
 						<div class="clearfix"></div>
 					</div>
 					<ul class="total_price">
@@ -155,13 +187,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h4>TOTAL</h4>
 						</li>
 						<li class="last_price"><span>
-
 							<c:choose>
 									<c:when test="${tygia == null}">
-										${cart.getPrice()} ${currency}
+										<fmt:formatNumber value="${cart.getPrice()}" type="number" maxFractionDigits="0"/>
+										${currency}
 											</c:when>
 									<c:otherwise>
-										${cart.getPrice() * tygia} ${currency}
+										<fmt:formatNumber value="${cart.getPrice()}" type="number" maxFractionDigits="0"/> x
+										<fmt:formatNumber value="${tygia}" type="number" maxFractionDigits="2"/> =
+										<fmt:formatNumber value="${cart.getPrice() * tygia}" type="number" maxFractionDigits="0"/> ${currency}
 											</c:otherwise>
 								</c:choose></span></li>
 						<div class="clearfix"></div>

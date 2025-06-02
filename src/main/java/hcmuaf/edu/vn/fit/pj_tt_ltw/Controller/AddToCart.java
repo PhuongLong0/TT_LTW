@@ -62,28 +62,6 @@ public class AddToCart extends HttpServlet {
         }
 
 
-//        response.sendRedirect("men.jsp");
-//   }
-//        if (id != null) {
-//            int productId = Integer.parseInt(id);
-//            HttpSession session = request.getSession();
-//
-//            ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-//            if (cart == null) {
-//                cart = new ShoppingCart();
-//                session.setAttribute("cart", cart);
-//            }
-//
-//            cart.add(productId);
-//        }
-
-//        HttpSession session = request.getSession();
-//        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-//
-//        if (cart == null) {
-//            cart = new ShoppingCart();
-//            session.setAttribute("cart", cart);
-//        }
 
         Map<Products, Integer> cartMap = cart.getProductQuantityMap();
         System.out.println("cartMap: " + cartMap);
@@ -91,7 +69,9 @@ public class AddToCart extends HttpServlet {
         request.setAttribute("cartSize", cart.getSize());
         request.setAttribute("cartTotal", cart.getTotalPrice());
 
-        response.sendRedirect("men.jsp");
+        //response.sendRedirect("men.jsp");
+        request.getRequestDispatcher("men.jsp").forward(request, response);
+
     }
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

@@ -20,6 +20,10 @@ public class Orders {
         this.items = items;
     }
 
+    public Orders() {
+
+    }
+
     public Map<Integer, Integer> getItems() {
         return items;
     }
@@ -47,5 +51,48 @@ public class Orders {
 
     public Products[] getListproduct() {
        return null;
+    }
+
+    public Date getOrderDate(Date orderDate) {
+        return orderDate;
+    }
+    public void setOrderDate(Date date) {
+        this.orderDate = date;
+    }
+    public StatusOrder getStatusOrder() {
+        return statusOrder;
+    }
+    public void setStatusOrder(StatusOrder statusOrder) {
+        this.statusOrder = statusOrder;
+    }
+    public Timestamp getUpdateAt() {
+        return updateAt;
+    }
+    public void setUpdateAt(Timestamp updateAt) {
+        this.updateAt = updateAt;
+    }
+    public int getTotalAmount() {
+        return totalAmount;
+    }
+    public void setTotalAmount(int totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    public int getOrderId() {
+        return orderId;
+    }
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }
