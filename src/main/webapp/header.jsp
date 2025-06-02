@@ -62,11 +62,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												${cart.getPrice() * tygia} ${currency}
 											</c:otherwise>
 									</c:choose>
-<<<<<<< HEAD
 									(${cart.getSize()} items)
-=======
-									(${cart.getsize()} items)
->>>>>>> origin/Long-Admin
+
 								</p>
 								<img src="images/bag.png" alt="" />
 								<div class="clearfix"></div>
@@ -114,11 +111,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- Start Search -->
 					<div class="search-box">
 						<div id="sb-search" class="sb-search">
-<<<<<<< HEAD
 							<form action="SearchServlet?index=1" method="get">
-=======
-							<form action="SearchServlet?index=1" method="post">
->>>>>>> origin/Long-Admin
+
 								<!-- Input field for the search term -->
 								<input class="sb-search-input"
 									placeholder="Enter your search term..." type="search"
@@ -130,11 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<!-- Search Icon -->
 								<span class="sb-icon-search"> </span>
 							</form>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> origin/Long-Admin
 						</div>
 					</div>
 					<!-- End Search -->
@@ -143,10 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<script src="js/uisearch.js"></script>
 					<script>
 						new UISearch(document.getElementById('sb-search'));
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/Long-Admin
 					</script>
 					<!----//search-scripts---->
 					<div class="clearfix"></div>
@@ -162,15 +149,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="menu">
 					<ul class="megamenu skyblue">
 						<li><a class="color2" href="${pageContext.request.contextPath}/index">Home</a></li>
-<<<<<<< HEAD
 						<li><a class="color10" href="${pageContext.request.contextPath}/brand">Brands</a></li>
 						<li><a class="color3" href="${pageContext.request.contextPath}/index">Sale</a></li>
 						<li><a class="color7" href="${pageContext.request.contextPath}/newProduct">News</a></li>
-=======
-						<li><a class="color10" href="brands.jsp">Brands</a></li>
-						<li><a class="color3" href="${pageContext.request.contextPath}/index">Sale</a></li>
-						<li><a class="color7" href="404.jsp">News</a></li>
->>>>>>> origin/Long-Admin
 						<div class="clearfix"></div>
 					</ul>
 				</div>

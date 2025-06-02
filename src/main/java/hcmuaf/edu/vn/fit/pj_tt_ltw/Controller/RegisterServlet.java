@@ -2,15 +2,10 @@ package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.UserDao;
-<<<<<<< HEAD
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Mail;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Users;
 
 import jakarta.mail.MessagingException;
-=======
-import hcmuaf.edu.vn.fit.pj_tt_ltw.Service.Mail;
-import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Users;
->>>>>>> origin/Long-Admin
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,16 +13,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-<<<<<<< HEAD
 import java.io.IOException;
 
 import static hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Mail.sendMail;
-
-=======
-import javax.mail.MessagingException;
-import java.io.IOException;
-
->>>>>>> origin/Long-Admin
 @WebServlet(name = "register",value = "/register")
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -102,19 +90,12 @@ public class RegisterServlet extends HttpServlet {
 
             if (insert >= 1) {
                 System.out.println("Tạo tài khoản thành công! - Username: " +username);
-<<<<<<< HEAD
 
                 try {
                     Mail.sendMail(email);
                     System.out.println("Đã gửi mail tạo tài khoản thành công!");
                 }  catch (jakarta.mail.MessagingException e)  {
                     System.out.println("Lỗi gửi mail!");
-=======
-                try {
-                    Mail.sendMail(email);
-                } catch (jakarta.mail.MessagingException e) {
-                    // TODO Auto-generated catch block
->>>>>>> origin/Long-Admin
                     e.printStackTrace();
                 }
                 destination = "/login.jsp";

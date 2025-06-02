@@ -47,11 +47,7 @@ public class ForgetPasswordServlet extends HttpServlet {
                 req.setAttribute("step", 2);
                 System.out.println("Đang gửi mã OTP...");
             } else {
-<<<<<<< HEAD
                 req.setAttribute("error", "Incorrect captcha!");
-=======
-                req.setAttribute("error", "Captcha không đúng");
->>>>>>> origin/Long-Admin
                 System.out.println("Captchar không đúng!");
                 req.setAttribute("step", 1);
             }
@@ -63,11 +59,8 @@ public class ForgetPasswordServlet extends HttpServlet {
             if (inputOtp != null && inputOtp.equals(realOtp)) {
                 req.setAttribute("step", 3);
             } else {
-<<<<<<< HEAD
                 req.setAttribute("error", "Incorrect OTP!");
-=======
-                req.setAttribute("error", "OTP không đúng");
->>>>>>> origin/Long-Admin
+
                 System.out.println("OTP không đúng!");
                 req.setAttribute("step", 2);
             }
@@ -78,19 +71,12 @@ public class ForgetPasswordServlet extends HttpServlet {
             if (pass1.equals(pass2)) {
                 String emailToReset = (String) session.getAttribute("emailToReset");
                 users.updatePassword(emailToReset, pass1); // cập nhật DB
-<<<<<<< HEAD
                 req.setAttribute("message", "Password changed successfully!");
                // req.setAttribute("step", 1); // quay về bước đầu
                 System.out.println("Đổi mật khẩu thành công!");
             } else {
                 req.setAttribute("error", "Passwords do not match");
-=======
-                req.setAttribute("message", "Đổi mật khẩu thành công!");
-               // req.setAttribute("step", 1); // quay về bước đầu
-                System.out.println("Đổi mật khẩu thành công!");
-            } else {
-                req.setAttribute("error", "Mật khẩu không khớp");
->>>>>>> origin/Long-Admin
+
                 req.setAttribute("step", 3);
             }
             req.getRequestDispatcher("login.jsp").forward(req, resp);

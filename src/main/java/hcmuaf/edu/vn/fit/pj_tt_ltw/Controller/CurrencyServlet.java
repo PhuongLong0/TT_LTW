@@ -41,11 +41,7 @@ public class CurrencyServlet extends HttpServlet {
         switch (selectedCurrency) {
             case "USD":
                 currencyName = "Dollar (USD)";
-<<<<<<< HEAD
                 tygia= 0.000038;
-=======
-                tygia=0.000039;
->>>>>>> origin/Long-Admin
                 break;
             case "EUR":
                 currencyName = "Euro (EUR)";
@@ -53,11 +49,8 @@ public class CurrencyServlet extends HttpServlet {
                 break;
             case "VND":
                 currencyName = "Vietnam Dong (VND)";
-<<<<<<< HEAD
                 tygia= 1;
-=======
-                tygia=1;
->>>>>>> origin/Long-Admin
+
                 break;
             default:
                 currencyName = "Unknown Currency";

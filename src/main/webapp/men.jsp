@@ -13,13 +13,6 @@
 	<script type="application/x-javascript">
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> origin/Long-Admin
 		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); }
 
@@ -79,16 +72,10 @@
 		<div class="col-md-4 sidebar_men">
 			<h3>Categories</h3>
 			<ul class="product-categories color">
-<<<<<<< HEAD
 				<c:forEach var="category" items="${categories}">
 					<li class="cat-item cat-item-42"><a
 							href="FilterServlet?category=${category.categoryName}">${category.categoryName}</a>
 						<span class="count">${category.num}</span></li>
-=======
-				<c:forEach var="categories" items="${categories}">
-					<li class="cat-item cat-item-42">
-						<a href="FilterServlet?category=${categories.categoryId}">${categories.categoryName}</a>
->>>>>>> origin/Long-Admin
 				</c:forEach>
 			</ul>
 		</div>
@@ -106,10 +93,6 @@
 					<c:forEach var="i" begin="1" end="${totalPages}">
 						<li><a href="FilterServlet?page=${i}">${i}</a></li>
 					</c:forEach>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/Long-Admin
 				</ul>
 				<div class="clearfix"></div>
 			</div>
@@ -127,11 +110,7 @@
 					<c:if test="${empty filterProducts}">
 						<c:forEach var="products" items="${listProducts}">
 							<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-<<<<<<< HEAD
 								href="${pageContext.request.contextPath}/productServlet?productId=${products.productId}">
-=======
-								href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
->>>>>>> origin/Long-Admin
 								<div class="view view-first">
 									<div class="inner_content clearfix">
 										<div class="product_image">
@@ -167,15 +146,9 @@
 					</c:if>
 
 					<c:if test="${not empty filterProducts}">
-<<<<<<< HEAD
 						<c:forEach var="products" items="${listProducts}">
 							<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
 																href="${pageContext.request.contextPath}/productServlet?productId=${products.productId}">
-=======
-						<c:forEach var="products" items="${filterProducts}">
-							<li class="simpleCart_shelfItem"><a class="cbp-vm-image"
-								href="${pageContext.request.contextPath}/ProductServlet?productId=${products.productId}">
->>>>>>> origin/Long-Admin
 								<div class="view view-first">
 									<div class="inner_content clearfix">
 										<div class="product_image">

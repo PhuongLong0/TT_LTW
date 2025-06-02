@@ -47,24 +47,12 @@ public class IndexServlet extends HttpServlet {
 
         List<Categories> categories = ((ProductDAO) productdao).getCategories();
         request.setAttribute("categories", categories);
-<<<<<<< HEAD
 
         int totalProducts = productdao.all().size();
         int totalPages = totalProducts / 6 + (totalProducts % 6 == 0 ? 0 : 1);
         request.setAttribute("totalPages", totalPages);
 
         List<Products> listProducts = productdao.all().subList(0, 6);
-=======
-        for (Categories c : categories) {
-            System.out.println(c.getCategoryName());
-        }
-
-        int totalProducts = productdao.all().size();
-        int totalPages = totalProducts / 10 + (totalProducts % 10 == 0 ? 0 : 1);
-        request.setAttribute("totalPages", totalPages);
-
-        List<Products> listProducts = productdao.all().subList(0, 10);
->>>>>>> origin/Long-Admin
         request.setAttribute("listProducts", listProducts);
 
         ShoppingCart cart= new ShoppingCart();

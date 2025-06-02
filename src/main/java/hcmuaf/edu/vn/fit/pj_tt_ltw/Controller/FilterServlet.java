@@ -1,9 +1,5 @@
 package hcmuaf.edu.vn.fit.pj_tt_ltw.Controller;
 
-<<<<<<< HEAD
-=======
-import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.DAOFactory;
->>>>>>> origin/Long-Admin
 import hcmuaf.edu.vn.fit.pj_tt_ltw.DAO.ProductDAO;
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products;
 import jakarta.servlet.ServletContext;
@@ -37,7 +33,6 @@ public class FilterServlet extends HttpServlet {
         // TODO Auto-generated method stub
         String destination = "/filteredProducts.jsp";
 
-<<<<<<< HEAD
         String categoryFilter = request.getParameter("categoryName");
         String page = request.getParameter("page");
         String admin= request.getParameter("admin");
@@ -47,29 +42,14 @@ public class FilterServlet extends HttpServlet {
         if(page!= null) {
             int pagenum= Integer.parseInt(page)-1;
             filterProducts = productdao.all().subList(pagenum*6, Math.min(pagenum*6+6, productdao.all().size()));
-=======
-        String categoryFilter = request.getParameter("category");
-        System.out.println("category = " + categoryFilter);
-        String page = request.getParameter("page");
-        String admin= request.getParameter("admin");
 
-        ProductDAO productdao = (ProductDAO) DAOFactory.getInstance().getProductdao();
-        List<Products> filterProducts = productdao.filter(categoryFilter);
-
-        if(page!= null) {
-            int pagenum= Integer.parseInt(page)-1;
-            filterProducts = productdao.all().subList(pagenum*10, Math.min(pagenum*10+10, productdao.all().size()));
->>>>>>> origin/Long-Admin
         }
         if(admin!=null) {
             destination = "/adminListProduct.jsp";
         }
         request.setAttribute("filterProducts", filterProducts);
-<<<<<<< HEAD
-=======
         System.out.println("Số sản phẩm lọc được: " + filterProducts.size());
 
->>>>>>> origin/Long-Admin
         request.getRequestDispatcher(destination).forward(request, response);
     }
 

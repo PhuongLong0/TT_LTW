@@ -12,8 +12,5 @@ public interface OrderDAO {
     public int delete(Orders order);
 
     public void duyet(int id);
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/Long-Admin
 }

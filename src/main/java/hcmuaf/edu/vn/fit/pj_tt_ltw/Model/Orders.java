@@ -4,10 +4,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.List;
-<<<<<<< HEAD
 import java.util.Map;
-=======
->>>>>>> origin/Long-Admin
 
 public class Orders {
    private int  orderId ;
@@ -17,7 +14,7 @@ public class Orders {
    private int totalAmount;
    private PaymentMethod paymentMethod ;
    private int userId;
-<<<<<<< HEAD
+
     private Map<Integer, Integer> items;
 
     public Orders(Map<Integer, Integer> items) {
@@ -31,8 +28,6 @@ public class Orders {
     public Map<Integer, Integer> getItems() {
         return items;
     }
-=======
->>>>>>> origin/Long-Admin
 
    public Orders(int orderId, Date orderDate, StatusOrder statusOrder, Timestamp updateAt, int totalAmount, PaymentMethod paymentMethod, int userId) {
        this.orderId = orderId;
@@ -58,7 +53,6 @@ public class Orders {
     public Products[] getListproduct() {
        return null;
     }
-<<<<<<< HEAD
 
     public Date getOrderDate(Date orderDate) {
         return orderDate;
@@ -102,6 +96,4 @@ public class Orders {
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
-=======
->>>>>>> origin/Long-Admin
 }

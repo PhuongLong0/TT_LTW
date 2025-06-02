@@ -12,21 +12,15 @@ public class Products {
     private String productDetail;
     private String brandName;
     private Timestamp createAt;
-<<<<<<< HEAD
+
    // private int imageId;
-=======
-    private int imageId;
->>>>>>> origin/Long-Admin
     private int categoryId;
 
     private List<String> listimg = new ArrayList<>();
 
 
-<<<<<<< HEAD
     public Products(int productId, String productName, int priceBuy, int priceSell, String productDetail, String brandName, Timestamp createAt, int categoryId) {
-=======
-    public Products(int productId, String productName, int priceSell, int priceBuy, String productDetail, String brandName, Timestamp createAt, int imageId) {
->>>>>>> origin/Long-Admin
+
         this.productId = productId;
         this.productName = productName;
         this.priceSell = priceSell;
@@ -34,13 +28,9 @@ public class Products {
         this.productDetail = productDetail;
         this.brandName = brandName;
         this.createAt = createAt;
-<<<<<<< HEAD
         this.categoryId = categoryId;
         //this.listimg =  imageNames;
        // this.imageId = imageId;
-=======
-        this.imageId = imageId;
->>>>>>> origin/Long-Admin
 
 
     }
@@ -101,21 +91,14 @@ public class Products {
     public void setBrandName(String brandName) {
         this.brandName = brandName;
     }
-<<<<<<< HEAD
+
 //    public void setImageId(int imageId) {
 //        this.imageId = imageId;
 //    }
 //    public int getImageId() {
 //        return imageId;
 //    }
-=======
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
-    }
-    public int getImageId() {
-        return imageId;
-    }
->>>>>>> origin/Long-Admin
+
     public Timestamp getCreateAt() {
         return createAt;
     }
@@ -138,11 +121,7 @@ public class Products {
                 ", priceSell=" + priceSell +
                 ", productDetail='" + productDetail + '\'' +
                 ", brandName='" + brandName + '\'' +
-<<<<<<< HEAD
                 //", imageId=" + imageId +
-=======
-                ", imageId=" + imageId +
->>>>>>> origin/Long-Admin
                 ", createAt=" + createAt +
                 ", categoryId=" + categoryId +
                 '}';

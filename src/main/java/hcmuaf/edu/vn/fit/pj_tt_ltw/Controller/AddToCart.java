@@ -8,10 +8,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-<<<<<<< HEAD
+
 import java.util.Map;
-=======
->>>>>>> origin/Long-Admin
+
 
 
 import hcmuaf.edu.vn.fit.pj_tt_ltw.Model.ShoppingCart;
@@ -20,11 +19,9 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class AddToCart
  */
-<<<<<<< HEAD
+
 @WebServlet(name = "AddToCart", value = "/AddToCart")
-=======
-@WebServlet("/AddToCart")
->>>>>>> origin/Long-Admin
+
 public class AddToCart extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -42,7 +39,6 @@ public class AddToCart extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
 
         String id = request.getParameter("productId");
        HttpSession session = request.getSession();
@@ -81,34 +77,6 @@ public class AddToCart extends HttpServlet {
         request.getRequestDispatcher("men.jsp").forward(request, response);
 
     }
-=======
-        // TODO Auto-generated method stub
-
-        String id = request.getParameter("productId");
-        HttpSession session = request.getSession();
-
-        ServletContext application= getServletContext();
-        ProductDAO dao= (ProductDAO) application.getAttribute("products");
-
-        // Lấy giỏ hàng từ session, nếu chưa có thì tạo mới
-        ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("cart");
-        if (shoppingCart == null) {
-            shoppingCart = new ShoppingCart();
-            session.setAttribute("cart", shoppingCart);
-        }
-
-        // Thêm sản phẩm vào giỏ hàng
-        if (dao != null) {
-            Products products = dao.findById(id);
-            if (products != null) {
-                shoppingCart.add(products);
-            }
-        }
-
-        response.sendRedirect(request.getContextPath() + "/index");
-    }
-
->>>>>>> origin/Long-Admin
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
      *      response)

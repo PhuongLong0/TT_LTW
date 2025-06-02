@@ -12,11 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-<<<<<<< HEAD
 @WebServlet(name = "SearchServlet", value = "/SearchServlet")
-=======
-@WebServlet("/SearchServlet")
->>>>>>> origin/Long-Admin
+
 public class SearchServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -34,24 +31,17 @@ public class SearchServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
         String destination = "/searchResultPage.jsp";
         //String destination = "/men.jsp";
         // Lấy input từ search bar
         String txtSearch = request.getParameter("query");
         System.out.println("Vào tìm kiếm với keyword: " + txtSearch);
-=======
-        String destination = "/men.jsp";
-        // Lấy input từ search bar
-        String txtSearch = request.getParameter("query");
->>>>>>> origin/Long-Admin
 
         // Trả về index nếu search null
         if (txtSearch == null || txtSearch.trim().isEmpty()) {
             response.sendRedirect("index.jsp");
             return;
         }
-<<<<<<< HEAD
 
         // lấy sản phẩm từ DB
         IProductDAO productDao = DAOFactory.getInstance().getProductdao();
@@ -66,35 +56,20 @@ public class SearchServlet extends HttpServlet {
 
         int count = productDao.count(txtSearch);
         int size = 3;
-=======
-        // lấy sản phẩm từ DB
-        IProductDAO productDao = DAOFactory.getInstance().getProductdao();
-        int index = Integer.parseInt(request.getParameter("index"));
-        int count = productDao.count(txtSearch);
-        int size = 6;
->>>>>>> origin/Long-Admin
         int endPage = count / size;
         if (count % size != 0) {
             endPage++;
         }
-<<<<<<< HEAD
         System.out.println("Tổng số sản phẩm khớp: " + count);
 
         List<Products> searchResults = productDao.searchResult(txtSearch, index, size);
         System.out.println("Số sản phẩm tìm thấy: " + searchResults.size());
-=======
-
-        List<Products> searchResults = productDao.searchResult(txtSearch);
->>>>>>> origin/Long-Admin
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("searchResults", searchResults);
         request.setAttribute("searchQuery", txtSearch);
-<<<<<<< HEAD
         request.setAttribute("currentPage", index);
-=======
 
->>>>>>> origin/Long-Admin
         // Forward jsp
         request.getRequestDispatcher(destination).forward(request, response);
     }
@@ -106,11 +81,7 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-<<<<<<< HEAD
         //doGet(request, response);
-=======
-        doGet(request, response);
->>>>>>> origin/Long-Admin
     }
 
 }

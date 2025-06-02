@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="hcmuaf.edu.vn.fit.pj_tt_ltw.Model.ShoppingCart" %>
 <%@ page import="hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products" %>
@@ -32,11 +32,6 @@
 	}
 	request.setAttribute("cartMap", cartMap);
 %>
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
->>>>>>> origin/Long-Admin
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +42,6 @@
 <meta name="keywords"
 	content="Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<<<<<<< HEAD
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="application/x-javascript">
 	
@@ -80,17 +74,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 });
 		 });
 	 });
-=======
-<script type="application/x-javascript">
-	
-	
-	
-	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
->>>>>>> origin/Long-Admin
 
 
 
@@ -128,11 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="check_box">
 				<div class="col-md-9 cart-items">
-<<<<<<< HEAD
 					<h1>My Shopping Bag (${cart.getSize()})</h1>
-=======
-					<h1>My Shopping Bag (${cart.getsize()})</h1>
->>>>>>> origin/Long-Admin
 					<script>
 						$(document).ready(function(c) {
 							$('.close1').on('click', function(c) {
@@ -142,7 +121,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							});
 						});
 					</script>
-<<<<<<< HEAD
 					<c:forEach var="entry" items="${cartMap}">
 						<c:set var="product" value="${entry.key}" />
 						<c:set var="quantity" value="${entry.value}" />
@@ -167,40 +145,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<span class="item-qty" id="qty-${product.productId}">${quantity}</span>
 											<button class="btn-increase" data-id="${product.productId}">+</button>
 										</li>
-=======
-					<c:forEach var="products" items="${cart.getShoppingCart()}">
-
-
-						<div class="cart-header">
-							<a class="close1" href="DeleteFromCart?productid=${products.id}"></a>
-							<div class="cart-sec simpleCart_shelfItem">
-								<div class="cart-item cyc">
-									<img src="images/${products.getFirstImage()}"
-										class="img-responsive" alt="" />
-								</div>
-								<div class="cart-item-info">
-									<h3>
-										<a href="#">${products.name }</a><span>Model No: 3578</span>
-									</h3>
-									<ul class="qty">
-										<li><p>Size : 5</p></li>
-										<li><p>Qty : 1</p></li>
->>>>>>> origin/Long-Admin
 									</ul>
 									<div class="delivery">
 										<c:choose>
 											<c:when test="${tygia == null}">
-<<<<<<< HEAD
 												<p>Service Charges :${total} VNĐ</p>
 											</c:when>
 											<c:otherwise>
 												<p>Service Charges :${total * tygia} ${currency}</p>
-=======
-												<p>Service Charges :${products.cost} ${currency}</p>
-											</c:when>
-											<c:otherwise>
-												<p>Service Charges :${products.cost * tygia} ${currency}</p>
->>>>>>> origin/Long-Admin
 											</c:otherwise>
 										</c:choose>
 										<span>Delivered in 2-3 business days</span>
@@ -217,7 +169,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a class="continue" href="men.jsp">Continue to basket</a>
 					<div class="price-details">
 						<h3>Price Details</h3>
-<<<<<<< HEAD
 						<span>Total</span>
 						<span class="total1">
 						<c:choose>
@@ -230,24 +181,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</c:choose>
 						</span>
 						<span>Discount</span> <!-- Giảm giá-->
-=======
-						<span>Total</span> <span class="total1"> <c:choose>
-								<c:when test="${tygia == null}">
-												${cart.getPrice()} ${currency}
-											</c:when>
-								<c:otherwise>
-												${cart.getPrice() * tygia} ${currency}
-											</c:otherwise>
-							</c:choose>
-						</span> <span>Discount</span>
->>>>>>> origin/Long-Admin
 						<div class="clearfix"></div>
 					</div>
 					<ul class="total_price">
 						<li class="last_price">
 							<h4>TOTAL</h4>
 						</li>
-<<<<<<< HEAD
 						<li class="last_price"><span>
 							<c:choose>
 									<c:when test="${tygia == null}">
@@ -258,14 +197,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<fmt:formatNumber value="${cart.getPrice()}" type="number" maxFractionDigits="0"/> x
 										<fmt:formatNumber value="${tygia}" type="number" maxFractionDigits="2"/> =
 										<fmt:formatNumber value="${cart.getPrice() * tygia}" type="number" maxFractionDigits="0"/> ${currency}
-=======
-						<li class="last_price"><span><c:choose>
-									<c:when test="${tygia == null}">
-												${cart.getPrice()} ${currency}
-											</c:when>
-									<c:otherwise>
-												${cart.getPrice() * tygia} ${currency}
->>>>>>> origin/Long-Admin
 											</c:otherwise>
 								</c:choose></span></li>
 						<div class="clearfix"></div>

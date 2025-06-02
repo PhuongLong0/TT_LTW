@@ -78,10 +78,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<c:forEach var="category" items="${categories}">
 						<li class="cat-item cat-item-42"><a
 								href="FilterServlet?category=${category.categoryName}">${category.categoryName}</a>
-<<<<<<< HEAD
-							<span class="count">${category.num}</span></li>
-=======
->>>>>>> origin/Long-Admin
 					</c:forEach>
 
 				</ul>

@@ -15,16 +15,9 @@ public class ProductDAO implements IProductDAO {
         List<Products> res = new ArrayList<>();
         String sql = "SELECT * FROM products ";
         String sqlImage = "SELECT imageUrl FROM product_images WHERE productId = ?";
-<<<<<<< HEAD
         try {connect = DBConnect.getConnection();
-             Statement statement = connect.createStatement();
-             ResultSet rs = statement.executeQuery(sql);
-=======
-        try {
-            connect = DBConnect.getConnection();
             Statement statement = connect.createStatement();
             ResultSet rs = statement.executeQuery(sql);
->>>>>>> origin/Long-Admin
             while (rs.next()) {
                 Products products = new Products(
                         rs.getInt("productId"),
@@ -41,22 +34,13 @@ public class ProductDAO implements IProductDAO {
                 }
 
                 res.add(products);
-<<<<<<< HEAD
-                }
             }
+        }
         catch (SQLException e) {
-=======
-            }
-        } catch (SQLException e) {
->>>>>>> origin/Long-Admin
             e.printStackTrace();
         }
         return res;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/Long-Admin
     @Override
     public int insert(Products products) {
         String sql = "INSERT INTO products (productName, priceBuy, priceSell, productDetail, brandName, createAt, categoryId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -176,10 +160,7 @@ public class ProductDAO implements IProductDAO {
 
     @Override
     public Products findById(String id) {
-<<<<<<< HEAD
         System.out.println("Đang tìm sản phẩm ...");
-=======
->>>>>>> origin/Long-Admin
         String sql = "SELECT * FROM products WHERE productId = ?";
         Products products = null;
 
@@ -203,13 +184,9 @@ public class ProductDAO implements IProductDAO {
 
                 // Lấy danh sách ảnh từ bảng product_images
                 products.setListimg(getImagesForProduct(products.getProductId()));
-<<<<<<< HEAD
                 System.out.println("Lấy sản phẩm thành công!");
             }
 
-=======
-            }
->>>>>>> origin/Long-Admin
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -232,10 +209,7 @@ public class ProductDAO implements IProductDAO {
     }
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/Long-Admin
     private void deleteImages(int productId) {
         String sql = "DELETE FROM product_images WHERE productId=?";
         try (Connection connect = DBConnect.getConnection();
@@ -249,26 +223,6 @@ public class ProductDAO implements IProductDAO {
     }
 
 
-<<<<<<< HEAD
-private int degreecategory(Products products) {
-    String sql = "update categories set soluong= soluong-1 where category=?";
-    Connection connection;
-    int res = 0;
-    try {
-        connection = DBConnect.getConnection();
-        PreparedStatement prs = connection.prepareStatement(sql);
-        prs.setInt(1, products.getCategoryId());
-        res = prs.executeUpdate();
-    } catch (SQLException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
-
-    return res;
-
-}
-
-=======
     private int degreecategory(Products products) {
         String sql = "update categories set soluong= soluong-1 where category=?";
         Connection connection;
@@ -287,7 +241,6 @@ private int degreecategory(Products products) {
 
     }
 
->>>>>>> origin/Long-Admin
 
     public List<Categories> getCategories() {
         List<Categories> res = new ArrayList<>();
@@ -306,10 +259,7 @@ private int degreecategory(Products products) {
         return res;
     }
 
-<<<<<<< HEAD
     //Search sản phẩm
-=======
->>>>>>> origin/Long-Admin
     @Override
     public int count(String txtSearch) {
         String query = "SELECT count(*) FROM products WHERE productName LIKE ?";
@@ -329,7 +279,6 @@ private int degreecategory(Products products) {
     }
 
     @Override
-<<<<<<< HEAD
     public List<Products> searchResult(String txtSearch, int index, int size) {
         List<Products> res = new ArrayList<>();
         //String sql = "SELECT * FROM products WHERE productName LIKE ?";
@@ -344,16 +293,6 @@ private int degreecategory(Products products) {
 
             ResultSet rs = ps.executeQuery();
             List<Products> tempProducts = new ArrayList<>();
-=======
-    public List<Products> searchResult(String txtSearch) {
-        List<Products> res = new ArrayList<>();
-        String sql = "SELECT * FROM products WHERE productName LIKE ?";
-        try (Connection connect = DBConnect.getConnection();
-             PreparedStatement ps = connect.prepareStatement(sql)) {
-
-            ps.setString(1, "%" + txtSearch + "%");
-            ResultSet rs = ps.executeQuery();
->>>>>>> origin/Long-Admin
             while (rs.next()) {
                 Products product = new Products(
                         rs.getInt("productId"),
@@ -365,13 +304,9 @@ private int degreecategory(Products products) {
                         rs.getTimestamp("createAt"),
                         rs.getInt("categoryId")
                 );
-<<<<<<< HEAD
                 tempProducts.add(product);
             }
             for (Products product : tempProducts) {
-=======
-
->>>>>>> origin/Long-Admin
                 product.setListimg(getImagesForProduct(product.getProductId()));
                 res.add(product);
             }
@@ -380,9 +315,8 @@ private int degreecategory(Products products) {
         }
         return res;
 
-<<<<<<< HEAD
-}
-// In ra số lượng 18 sản phẩm mới
+    }
+    // In ra số lượng 18 sản phẩm mới
     @Override
     public List<Products> getNewestProducts(int size) {
         List<Products> list = new ArrayList<>();
@@ -401,7 +335,7 @@ private int degreecategory(Products products) {
                 p.setBrandName(rs.getString("brandName"));
                 p.setCreateAt(rs.getTimestamp("createAt"));
                 p.setCategoryId(rs.getInt("categoryId"));
-               // p.setImageId(rs.getInt("imageId"));
+                // p.setImageId(rs.getInt("imageId"));
 
                 list.add(p);
             }
@@ -414,44 +348,44 @@ private int degreecategory(Products products) {
         }
         return list;
     }
-// Lọc trong sản phẩm mới
+    // Lọc trong sản phẩm mới
     @Override
     public List<Products> filterNewest(String categoryName) {
-            List<Products> list = new ArrayList<>();
+        List<Products> list = new ArrayList<>();
         String imgSql = "SELECT * FROM product_images WHERE productId=?";
         try (Connection conn = DBConnect.getConnection();
-                 PreparedStatement ps = conn.prepareStatement(
-                         "SELECT * FROM products p " +
-                                 "JOIN categories c ON p.categoryId = c.categoryId " +
-                                 "WHERE c.categoryName = ? " +
-                                 "ORDER BY p.createAt DESC")) {
-                ps.setString(1, categoryName);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    Products product = new Products(
-                            rs.getInt("productId"),
-                            rs.getString("productName"),
-                            rs.getInt("priceBuy"),
-                            rs.getInt("priceSell"),
-                            rs.getString("productDetail"),
-                            rs.getString("brandName"),
-                            rs.getTimestamp("createAt"),
-                            rs.getInt("categoryId")
+             PreparedStatement ps = conn.prepareStatement(
+                     "SELECT * FROM products p " +
+                             "JOIN categories c ON p.categoryId = c.categoryId " +
+                             "WHERE c.categoryName = ? " +
+                             "ORDER BY p.createAt DESC")) {
+            ps.setString(1, categoryName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Products product = new Products(
+                        rs.getInt("productId"),
+                        rs.getString("productName"),
+                        rs.getInt("priceBuy"),
+                        rs.getInt("priceSell"),
+                        rs.getString("productDetail"),
+                        rs.getString("brandName"),
+                        rs.getTimestamp("createAt"),
+                        rs.getInt("categoryId")
 
-                    );
-                    try (PreparedStatement pre = conn.prepareStatement(imgSql)) {
-                        pre.setInt(1, product.getProductId());
-                        ResultSet rsimg = pre.executeQuery();
-                        while (rsimg.next()) {
-                            product.getListimg().add(rsimg.getString("imageURL"));
-                        }
+                );
+                try (PreparedStatement pre = conn.prepareStatement(imgSql)) {
+                    pre.setInt(1, product.getProductId());
+                    ResultSet rsimg = pre.executeQuery();
+                    while (rsimg.next()) {
+                        product.getListimg().add(rsimg.getString("imageURL"));
                     }
-                    list.add(product);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                list.add(product);
             }
-            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
 
 
     }
@@ -463,9 +397,9 @@ private int degreecategory(Products products) {
         String sql="SELECT * FROM Products WHERE BrandName=?";
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement prs = conn.prepareStatement(sql)) {
-             prs.setString(1, BrandName);
-             ResultSet rs = prs.executeQuery();
-             while (rs.next()) {
+            prs.setString(1, BrandName);
+            ResultSet rs = prs.executeQuery();
+            while (rs.next()) {
                 Products product = new Products(
                         rs.getInt("productId"),
                         rs.getString("productName"),
@@ -489,8 +423,6 @@ private int degreecategory(Products products) {
             e.printStackTrace();
         }
         return list;
-=======
->>>>>>> origin/Long-Admin
     }
 
     private List<String> getImagesForProduct(int productId) {
@@ -513,15 +445,11 @@ private int degreecategory(Products products) {
 
     public List<Products> filter(String categoryFilter) {
         List<Products> res = new ArrayList<>();
-<<<<<<< HEAD
         //String sql = "SELECT * FROM products WHERE categoryName = ?";
         String sql =
                 "SELECT p.* FROM products p " +
                         "JOIN categories c ON p.categoryId = c.categoryId " +
                         "WHERE c.categoryName = ?";
-=======
-        String sql = "SELECT * FROM products WHERE categoryId = ?";
->>>>>>> origin/Long-Admin
         String imgSql = "SELECT * FROM product_images WHERE productId=?";
 
         try (Connection conn = DBConnect.getConnection();
@@ -556,16 +484,9 @@ private int degreecategory(Products products) {
         }
         return res;
     }
-<<<<<<< HEAD
     public int countAll() {
         int count = 0;
         String sql = "SELECT COUNT(*) FROM products";
-=======
-
-    public int countAll() {
-        int count = 0;
-        String sql = "SELECT COUNT(*) FROM product";
->>>>>>> origin/Long-Admin
 
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -582,7 +503,6 @@ private int degreecategory(Products products) {
         return count;
     }
 
-<<<<<<< HEAD
     //Gọi lấy ảnh trong giỏ hàng
     public String getFirstImage(int productId) {
         String sql = "SELECT imageUrl FROM Product_Images WHERE productId = ? LIMIT 1";
@@ -616,8 +536,6 @@ private int degreecategory(Products products) {
         return count;
     }
 
-}
-=======
     // Lấy tổng doanh thu
     public int getTotalIncome() {
         int total = 0;
@@ -775,5 +693,3 @@ private int degreecategory(Products products) {
 
 
 }
-
->>>>>>> origin/Long-Admin
