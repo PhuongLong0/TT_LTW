@@ -78,8 +78,7 @@
 			<ul class="product-categories color">
 				<c:forEach var="categories" items="${categories}">
 					<li class="cat-item cat-item-42">
-						<a href="filter?category=${categories.categoryName}">${categories.categoryName}</a>
-<%--						<span class="count">${category.num}</span></li>--%>
+						<a href="FilterServlet?category=${categories.categoryId}">${categories.categoryName}</a>
 				</c:forEach>
 			</ul>
 		</div>
@@ -97,7 +96,6 @@
 					<c:forEach var="i" begin="1" end="${totalPages}">
 						<li><a href="FilterServlet?page=${i}">${i}</a></li>
 					</c:forEach>
-
 				</ul>
 				<div class="clearfix"></div>
 			</div>

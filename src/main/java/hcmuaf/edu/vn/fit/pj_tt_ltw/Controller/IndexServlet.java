@@ -52,10 +52,10 @@ public class IndexServlet extends HttpServlet {
         }
 
         int totalProducts = productdao.all().size();
-        int totalPages = totalProducts / 6 + (totalProducts % 6 == 0 ? 0 : 1);
+        int totalPages = totalProducts / 10 + (totalProducts % 10 == 0 ? 0 : 1);
         request.setAttribute("totalPages", totalPages);
 
-        List<Products> listProducts = productdao.all().subList(0, 6);
+        List<Products> listProducts = productdao.all().subList(0, 10);
         request.setAttribute("listProducts", listProducts);
 
         ShoppingCart cart= new ShoppingCart();

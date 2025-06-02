@@ -35,9 +35,8 @@
           media="all" />
     <script type="text/javascript" src="js/megamenu.js"></script>
     <script src="js/jquery.easydropdown.js"></script>
-    <script src="js/simpleCart.min.js">
-
-    </script>
+    <script src="js/simpleCart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <jsp:include page="adminHeader.jsp"></jsp:include>
@@ -81,10 +80,7 @@
                         <div class="content">
                             <h6 class="mb-10">New Orders</h6>
                             <h3 class="text-bold mb-10">${totalNewOrders}</h3>
-                            <p class="text-sm text-success">
-                                <i class="lni lni-arrow-up"></i> +2.00%
-                                <span class="text-gray">(30 days)</span>
-                            </p>
+
                     </div>
                     <!-- End Icon Cart -->
                 </div>
@@ -93,10 +89,7 @@
                         <div class="content">
                             <h6 class="mb-10">Total Income</h6>
                             <h3 class="text-bold mb-10">${totalIncome}</h3>
-                            <p class="text-sm text-success">
-                                <i class="lni lni-arrow-up"></i> +5.45%
-                                <span class="text-gray">Increased</span>
-                            </p>
+
                         </div>
                     <!-- End Icon Cart -->
                 </div>
@@ -105,35 +98,35 @@
                         <div class="content">
                             <h6 class="mb-10">Total Expense</h6>
                             <h3 class="text-bold mb-10">${totalExpense}</h3>
-                            <p class="text-sm text-danger">
-                                <i class="lni lni-arrow-down"></i> -2.00%
-                                <span class="text-gray">Expense</span>
-                            </p>
+
                         </div>
                     <!-- End Icon Cart -->
                 </div>
             </div>
+            <div class="year-dropbox">
+                <div class="select-style-1">
+                    <div class="select-position select-sm">
+                            <select name="timeFilter" id="timeFilterSelect" class="light-bg">
+                                <option value="">-- Select year --</option>
+                                <c:forEach var="i" items="${yearly}">
+                                    <option value="${i}" ${i == selectedYear ? "selected" : ""}>${i}</option>
+                                </c:forEach>
+                            </select>
+                    </div>
+                </div>
+                <!-- end select -->
+            </div>
             <!-- End Row -->
+            <div id="chartContainer">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="card-style mb-30">
                         <div class="title d-flex flex-wrap justify-content-between">
                             <div class="left">
                                 <h6 class="text-medium mb-10">Yearly Stats</h6>
-                                <h3 class="text-bold">$245,479</h3>
+                                <h3 class="text-bold">${yearIncome}</h3>
                             </div>
-                            <div class="right">
-                                <div class="select-style-1">
-                                    <div class="select-position select-sm">
-                                        <select class="light-bg">
-                                            <option value="">Yearly</option>
-                                            <option value="">Monthly</option>
-                                            <option value="">Weekly</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- end select -->
-                            </div>
+
                         </div>
                         <!-- Total chart -->
                         <div class="chart">
@@ -149,18 +142,7 @@
                             <div class="left">
                                 <h6 class="text-medium mb-30">Sales/Revenue</h6>
                             </div>
-                            <div class="right">
-                                <div class="select-style-1">
-                                    <div class="select-position select-sm">
-                                        <select class="light-bg">
-                                            <option value="">Yearly</option>
-                                            <option value="">Monthly</option>
-                                            <option value="">Weekly</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- end select -->
-                            </div>
+
                         </div>
                         <!-- Revenue chart -->
                         <div class="chart">
@@ -169,6 +151,7 @@
                         <!-- End Chart -->
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>
@@ -270,9 +253,7 @@
                     label: "",
                     backgroundColor: "transparent",
                     borderColor: "#365CF5",
-                    data: [
-                        600, 800, 750, 880, 940, 880, 900, 770, 920, 890, 976, 1100,
-                    ],
+                    data: ${monthlyIncome},
                     pointBackgroundColor: "transparent",
                     pointHoverBackgroundColor: "#365CF5",
                     pointBorderColor: "transparent",
@@ -388,9 +369,7 @@
                     borderRadius: 30,
                     barThickness: 6,
                     maxBarThickness: 8,
-                    data: [
-                        600, 700, 1000, 700, 650, 800, 690, 740, 720, 1120, 876, 900,
-                    ],
+                    data: ${monthlyRevenue},
                 },
             ],
         },
@@ -484,243 +463,6 @@
         },
     });
     // =========== chart two end
-
-    // =========== chart three start
-    const ctx3 = document.getElementById("Chart3").getContext("2d");
-    const chart3 = new Chart(ctx3, {
-        type: "line",
-        data: {
-            labels: [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec",
-            ],
-            datasets: [
-                {
-                    label: "Revenue",
-                    backgroundColor: "transparent",
-                    borderColor: "#365CF5",
-                    data: [80, 120, 110, 100, 130, 150, 115, 145, 140, 130, 160, 210],
-                    pointBackgroundColor: "transparent",
-                    pointHoverBackgroundColor: "#365CF5",
-                    pointBorderColor: "transparent",
-                    pointHoverBorderColor: "#365CF5",
-                    pointHoverBorderWidth: 3,
-                    pointBorderWidth: 5,
-                    pointRadius: 5,
-                    pointHoverRadius: 8,
-                    fill: false,
-                    tension: 0.4,
-                },
-                {
-                    label: "Profit",
-                    backgroundColor: "transparent",
-                    borderColor: "#9b51e0",
-                    data: [
-                        120, 160, 150, 140, 165, 210, 135, 155, 170, 140, 130, 200,
-                    ],
-                    pointBackgroundColor: "transparent",
-                    pointHoverBackgroundColor: "#9b51e0",
-                    pointBorderColor: "transparent",
-                    pointHoverBorderColor: "#9b51e0",
-                    pointHoverBorderWidth: 3,
-                    pointBorderWidth: 5,
-                    pointRadius: 5,
-                    pointHoverRadius: 8,
-                    fill: false,
-                    tension: 0.4,
-                },
-                {
-                    label: "Order",
-                    backgroundColor: "transparent",
-                    borderColor: "#f2994a",
-                    data: [180, 110, 140, 135, 100, 90, 145, 115, 100, 110, 115, 150],
-                    pointBackgroundColor: "transparent",
-                    pointHoverBackgroundColor: "#f2994a",
-                    pointBorderColor: "transparent",
-                    pointHoverBorderColor: "#f2994a",
-                    pointHoverBorderWidth: 3,
-                    pointBorderWidth: 5,
-                    pointRadius: 5,
-                    pointHoverRadius: 8,
-                    fill: false,
-                    tension: 0.4,
-                },
-            ],
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    intersect: false,
-                    backgroundColor: "#fbfbfb",
-                    titleColor: "#8F92A1",
-                    bodyColor: "#272727",
-                    titleFont: {
-                        size: 16,
-                        family: "Plus Jakarta Sans",
-                        weight: "400",
-                    },
-                    bodyFont: {
-                        family: "Plus Jakarta Sans",
-                        size: 16,
-                    },
-                    multiKeyBackground: "transparent",
-                    displayColors: false,
-                    padding: {
-                        x: 30,
-                        y: 15,
-                    },
-                    borderColor: "rgba(143, 146, 161, .1)",
-                    borderWidth: 1,
-                    enabled: true,
-                },
-                title: {
-                    display: false,
-                },
-                legend: {
-                    display: false,
-                },
-            },
-            layout: {
-                padding: {
-                    top: 0,
-                },
-            },
-            responsive: true,
-            // maintainAspectRatio: false,
-            legend: {
-                display: false,
-            },
-            scales: {
-                y: {
-                    grid: {
-                        display: false,
-                        drawTicks: false,
-                        drawBorder: false,
-                    },
-                    ticks: {
-                        padding: 35,
-                    },
-                    max: 350,
-                    min: 50,
-                },
-                x: {
-                    grid: {
-                        drawBorder: false,
-                        color: "rgba(143, 146, 161, .1)",
-                        drawTicks: false,
-                        zeroLineColor: "rgba(143, 146, 161, .1)",
-                    },
-                    ticks: {
-                        padding: 20,
-                    },
-                },
-            },
-        },
-    });
-    // =========== chart three end
-
-    // ================== chart four start
-    const ctx4 = document.getElementById("Chart4").getContext("2d");
-    const chart4 = new Chart(ctx4, {
-        type: "bar",
-        data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-            datasets: [
-                {
-                    label: "",
-                    backgroundColor: "#365CF5",
-                    borderColor: "transparent",
-                    borderRadius: 20,
-                    borderWidth: 5,
-                    barThickness: 20,
-                    maxBarThickness: 20,
-                    data: [600, 700, 1000, 700, 650, 800],
-                },
-                {
-                    label: "",
-                    backgroundColor: "#d50100",
-                    borderColor: "transparent",
-                    borderRadius: 20,
-                    borderWidth: 5,
-                    barThickness: 20,
-                    maxBarThickness: 20,
-                    data: [690, 740, 720, 1120, 876, 900],
-                },
-            ],
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    backgroundColor: "#F3F6F8",
-                    titleColor: "#8F92A1",
-                    titleFontSize: 12,
-                    bodyColor: "#171717",
-                    bodyFont: {
-                        weight: "bold",
-                        size: 16,
-                    },
-                    multiKeyBackground: "transparent",
-                    displayColors: false,
-                    padding: {
-                        x: 30,
-                        y: 10,
-                    },
-                    bodyAlign: "center",
-                    titleAlign: "center",
-                    enabled: true,
-                },
-                legend: {
-                    display: false,
-                },
-            },
-            layout: {
-                padding: {
-                    top: 0,
-                },
-            },
-            responsive: true,
-            // maintainAspectRatio: false,
-            title: {
-                display: false,
-            },
-            scales: {
-                y: {
-                    grid: {
-                        display: false,
-                        drawTicks: false,
-                        drawBorder: false,
-                    },
-                    ticks: {
-                        padding: 35,
-                        max: 1200,
-                        min: 0,
-                    },
-                },
-                x: {
-                    grid: {
-                        display: false,
-                        drawBorder: false,
-                        color: "rgba(143, 146, 161, .1)",
-                        zeroLineColor: "rgba(143, 146, 161, .1)",
-                    },
-                    ticks: {
-                        padding: 20,
-                    },
-                },
-            },
-        },
-    });
-    // =========== chart four end
 </script>
 </body>
 </html>

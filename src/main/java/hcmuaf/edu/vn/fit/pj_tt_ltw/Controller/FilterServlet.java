@@ -44,7 +44,7 @@ public class FilterServlet extends HttpServlet {
 
         if(page!= null) {
             int pagenum= Integer.parseInt(page)-1;
-            filterProducts = productdao.all().subList(pagenum*6, Math.min(pagenum*6+6, productdao.all().size()));
+            filterProducts = productdao.all().subList(pagenum*10, Math.min(pagenum*10+10, productdao.all().size()));
         }
         if(admin!=null) {
             destination = "/adminListProduct.jsp";
