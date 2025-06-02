@@ -154,7 +154,11 @@ public class UserImp implements UserDao{
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         try {
             conn = DBConnect.getConnection();
+<<<<<<< HEAD
             String sql = "UPDATE users SET passwordUser = ? WHERE email = ?";
+=======
+            String sql = "UPDATE users SET password = ? WHERE email = ?";
+>>>>>>> origin/Long-Admin
             stmt = conn.prepareStatement(sql);
 
             // Mã hóa mật khẩu mới

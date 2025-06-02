@@ -6,7 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 <title>Sửa sản phẩm</title>
+=======
+<title>Edit product</title>
+>>>>>>> origin/Long-Admin
 <style>
 /* Toàn bộ trang */
 body {
@@ -122,7 +126,11 @@ img:hover {
 <body>
 	<jsp:include page="adminHeader.jsp"></jsp:include>
 
+<<<<<<< HEAD
 	<h1>Sửa Sản Phẩm</h1>
+=======
+	<h1>Edit product</h1>
+>>>>>>> origin/Long-Admin
 
 	<!-- Hiển thị thông báo lỗi -->
 	<c:if test="${not empty errorMessage}">
@@ -137,6 +145,7 @@ img:hover {
 	<form action="${pageContext.request.contextPath}/EditProductServlet" method="post" enctype="multipart/form-data">
 
 
+<<<<<<< HEAD
 		<input type="hidden" name="productId" value="${products.id}">
 
 		<!-- Tên sản phẩm -->
@@ -154,6 +163,25 @@ img:hover {
 						<option value="${category.category}"
 							${category.category == products.category ? 'selected' : ''}>
 							${category.category}</option>
+=======
+		<input type="hidden" name="productId" value="${products.productId}">
+
+		<!-- Tên sản phẩm -->
+		<label for="name">Product name:</label> <input type="text" id="name"
+			name="name" value="${products.productName}" placeholder="Insert product name:"
+			required>
+
+		<!-- Danh mục--> 
+		<label for="category">Category:</label> <select id="category"
+			name="category" required>
+			<option value="" disabled selected>Choose category</option>
+			<c:choose>
+				<c:when test="${not empty products.getCategories()}">
+					<c:forEach var="category" items="${products.categoryId}">
+						<option value="${category.categoryId}"
+							${category.category == products.categoryId ? 'selected' : ''}>
+							${category.categoryName}</option>
+>>>>>>> origin/Long-Admin
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
@@ -164,6 +192,7 @@ img:hover {
 
 		<!-- Giá -->
 		<label for="cost">Giá:</label> <input type="number" id="cost"
+<<<<<<< HEAD
 			name="cost" value="${products.cost}" step="0.01"
 			placeholder="Nhập giá sản phẩm" required>
 
@@ -180,6 +209,24 @@ img:hover {
 
 		<!-- Hình ảnh sản phẩm -->
 		<label for="listimg">Hình ảnh sản phẩm:</label> <input type="file"
+=======
+			name="cost" value="${products.priceSell}" step="0.01"
+			placeholder="Nhập giá sản phẩm" required>
+
+		<!-- Số lượng -->
+		<label for="quantity">Quantity:</label> <input type="number"
+			id="quantity" name="quantity" value="${products.quantity}" step="1"
+			placeholder="Insert quantity" required>
+
+		<!-- Chi tiết sản phẩm -->
+		<label for="detail">Product details:</label>
+		<textarea id="detail" name="detail" rows="4"
+			placeholder="Insert product detail" required>${products.productDetail}</textarea>
+
+
+		<!-- Hình ảnh sản phẩm -->
+		<label for="listimg">Product image:</label> <input type="file"
+>>>>>>> origin/Long-Admin
 			id="listimg" name="listimg" multiple accept="image/*">
 			
 			

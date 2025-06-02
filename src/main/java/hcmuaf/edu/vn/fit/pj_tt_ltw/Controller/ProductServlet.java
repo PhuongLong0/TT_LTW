@@ -12,7 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+<<<<<<< HEAD
 @WebServlet(name = "ProductServlet", value = "/productServlet")
+=======
+@WebServlet("/ProductServlet")
+>>>>>>> origin/Long-Admin
 public class ProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +34,11 @@ public class ProductServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
         String destination = "single.jsp";
+=======
+        String destination = "/single.jsp";
+>>>>>>> origin/Long-Admin
         String id = request.getParameter("productId");
         System.out.println(id);
 
@@ -41,7 +49,10 @@ public class ProductServlet extends HttpServlet {
             // Nếu chưa có thì tự tạo mới
             productdao = new ProductDAO();
             application.setAttribute("productdao", productdao);
+<<<<<<< HEAD
             System.out.println("Tạo mới productdao ...");
+=======
+>>>>>>> origin/Long-Admin
         }
 
         Products products = productdao.findById(id);
@@ -49,7 +60,11 @@ public class ProductServlet extends HttpServlet {
 
         List<String> productImgs =  products.getListimg();
         request.setAttribute("productImgs", productImgs);
+<<<<<<< HEAD
         request.getRequestDispatcher("single.jsp").forward(request, response);
+=======
+        request.getRequestDispatcher(destination).forward(request, response);
+>>>>>>> origin/Long-Admin
     }
 
 

@@ -72,4 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
   <jsp:include page="footer.jsp"></jsp:include>
 </body>
+<<<<<<< HEAD
 </html>		
+=======
+</html>		
+>>>>>>> origin/Long-Admin

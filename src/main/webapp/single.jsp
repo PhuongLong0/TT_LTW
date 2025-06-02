@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page import="hcmuaf.edu.vn.fit.pj_tt_ltw.Model.Products" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
@@ -12,6 +13,12 @@
 <%
 	}
 %>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+>>>>>>> origin/Long-Admin
 
 <!DOCTYPE HTML>
 <html>
@@ -36,8 +43,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--webfont-->
+<<<<<<< HEAD
 
 	<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700'
+=======
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700'
+>>>>>>> origin/Long-Admin
 	rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Dorsa' rel='stylesheet'
 	type='text/css'>
@@ -68,7 +79,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="header2.jsp"></jsp:include>
+=======
+	<jsp:include page="header2.jsp"></jsp:include>
+>>>>>>> origin/Long-Admin
 	<div class="men">
 		<div class="container">
 			<div class="col-md-9 single_top">
@@ -125,7 +140,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 							<div class="clearfix"></div>
 						</div>
+<<<<<<< HEAD
 						<a href="AddToCart?productId=${products.productId}"
+=======
+						<a href="#"
+>>>>>>> origin/Long-Admin
 							class="btn btn-primary btn-normal btn-inline btn_form button item_add item_1"
 							target="_self">Add to cart</a>
 					</div>

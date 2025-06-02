@@ -62,6 +62,7 @@
         <servlet-name>FilterServlet</servlet-name>
         <url-pattern>/FilterServlet</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
 
     <servlet>
         <servlet-name>SearchServlet</servlet-name>
@@ -128,4 +129,6 @@
         <servlet-name>BrandsServlet</servlet-name>
         <url-pattern>/brand</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> origin/Long-Admin
 </web-app>

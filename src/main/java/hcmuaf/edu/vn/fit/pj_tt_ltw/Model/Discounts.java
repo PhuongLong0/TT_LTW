@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 public class Discounts {
     private int discountId;
+<<<<<<< HEAD
     private String discountCode;
     private String discountDetail;
     private int discountValue;
@@ -17,6 +18,16 @@ public class Discounts {
 
 
    public Discounts(int discountId, String discountCode, String discountDetail, int discountValue, Date statusDate, Date endDate, Timestamp createAt, String discountType, int minOrderValue, Integer targetProductCode) {
+=======
+    private String discountDetail;
+    private String discountCode;
+    private int discountValue;
+    private Date statusDate;
+    private Date endDate;
+    private Timestamp createAt ;
+
+   public Discounts(int discountId, String discountCode, String discountDetail, int discountValue, Date statusDate, Date endDate, Timestamp createAt) {
+>>>>>>> origin/Long-Admin
        this.discountId = discountId;
        this.discountCode = discountCode;
        this.discountDetail = discountDetail;
@@ -24,6 +35,7 @@ public class Discounts {
        this.statusDate = statusDate;
        this.endDate = endDate;
        this.createAt = createAt;
+<<<<<<< HEAD
        this.discountType = discountType;
        this.minOrderValue = minOrderValue;
        this.targetProductCode = targetProductCode;
@@ -90,4 +102,7 @@ public class Discounts {
        this.targetProductCode = targetProductCode;
    }
 
+=======
+   }
+>>>>>>> origin/Long-Admin
 }

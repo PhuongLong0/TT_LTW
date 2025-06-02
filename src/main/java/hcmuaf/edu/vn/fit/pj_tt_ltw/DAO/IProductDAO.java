@@ -17,6 +17,7 @@ public interface IProductDAO {
 
     public int count(String txtSearch);
 
+<<<<<<< HEAD
     public List<Products> searchResult(String txtSearch, int index, int size);
 
     public List<Products> getNewestProducts(int size);
@@ -24,4 +25,9 @@ public interface IProductDAO {
     public List<Products> filterNewest(String categoryFilter);
 
     public List<Products> getProductsByBrand(String selectedBrand);
+=======
+    public List<Products> searchResult(String txtSearch);
+
+    
+>>>>>>> origin/Long-Admin
 }

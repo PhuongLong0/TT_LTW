@@ -58,7 +58,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<c:otherwise>
 												${cart.getPrice() * tygia} ${currency}
 											</c:otherwise>
+<<<<<<< HEAD
 										</c:choose> (${cart.getSize()} items)</p>
+=======
+										</c:choose> (${cart.getsize()} items)</p>
+>>>>>>> origin/Long-Admin
 								<img src="images/bag.png" alt="" />
 								<div class="clearfix"></div>
 							</h4>
@@ -107,7 +111,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- start search-->
 					<div class="search-box">
 						<div id="sb-search" class="sb-search">
+<<<<<<< HEAD
 							<form action="SearchServlet?index=1" method="get">
+=======
+							<form action="SearchServlet?index=1" method="post">
+>>>>>>> origin/Long-Admin
 								<!-- Input field for the search term -->
 								<input class="sb-search-input"
 									placeholder="Enter your search term..." type="search"
@@ -141,9 +149,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="menu">
 					<ul class="megamenu skyblue">
 						<li><a class="color2" href="index.jsp">Home</a></li>
+<<<<<<< HEAD
 						<li><a class="color10" href="${pageContext.request.contextPath}/brand">Brands</a></li>
 						<li><a class="color3" href="${pageContext.request.contextPath}/index">Sale</a></li>
 						<li><a class="color7" href="${pageContext.request.contextPath}/newProduct">News</a></li>
+=======
+						<li><a class="color10" href="brands.jsp">Brands</a></li>
+						<li><a class="color3" href="${pageContext.request.contextPath}/index">Sale</a></li>
+						<li><a class="color7" href="404.jsp">News</a></li>
+>>>>>>> origin/Long-Admin
 						<div class="clearfix"></div>
 					</ul>
 				</div>

@@ -15,9 +15,16 @@ public class ProductDAO implements IProductDAO {
         List<Products> res = new ArrayList<>();
         String sql = "SELECT * FROM products ";
         String sqlImage = "SELECT imageUrl FROM product_images WHERE productId = ?";
+<<<<<<< HEAD
         try {connect = DBConnect.getConnection();
              Statement statement = connect.createStatement();
              ResultSet rs = statement.executeQuery(sql);
+=======
+        try {
+            connect = DBConnect.getConnection();
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+>>>>>>> origin/Long-Admin
             while (rs.next()) {
                 Products products = new Products(
                         rs.getInt("productId"),
@@ -34,13 +41,22 @@ public class ProductDAO implements IProductDAO {
                 }
 
                 res.add(products);
+<<<<<<< HEAD
                 }
             }
         catch (SQLException e) {
+=======
+            }
+        } catch (SQLException e) {
+>>>>>>> origin/Long-Admin
             e.printStackTrace();
         }
         return res;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Long-Admin
     @Override
     public int insert(Products products) {
         String sql = "INSERT INTO products (productName, priceBuy, priceSell, productDetail, brandName, createAt, categoryId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -160,7 +176,10 @@ public class ProductDAO implements IProductDAO {
 
     @Override
     public Products findById(String id) {
+<<<<<<< HEAD
         System.out.println("Đang tìm sản phẩm ...");
+=======
+>>>>>>> origin/Long-Admin
         String sql = "SELECT * FROM products WHERE productId = ?";
         Products products = null;
 
@@ -184,9 +203,13 @@ public class ProductDAO implements IProductDAO {
 
                 // Lấy danh sách ảnh từ bảng product_images
                 products.setListimg(getImagesForProduct(products.getProductId()));
+<<<<<<< HEAD
                 System.out.println("Lấy sản phẩm thành công!");
             }
 
+=======
+            }
+>>>>>>> origin/Long-Admin
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -209,7 +232,10 @@ public class ProductDAO implements IProductDAO {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Long-Admin
     private void deleteImages(int productId) {
         String sql = "DELETE FROM product_images WHERE productId=?";
         try (Connection connect = DBConnect.getConnection();
@@ -223,6 +249,7 @@ public class ProductDAO implements IProductDAO {
     }
 
 
+<<<<<<< HEAD
 private int degreecategory(Products products) {
     String sql = "update categories set soluong= soluong-1 where category=?";
     Connection connection;
@@ -241,6 +268,26 @@ private int degreecategory(Products products) {
 
 }
 
+=======
+    private int degreecategory(Products products) {
+        String sql = "update categories set soluong= soluong-1 where category=?";
+        Connection connection;
+        int res = 0;
+        try {
+            connection = DBConnect.getConnection();
+            PreparedStatement prs = connection.prepareStatement(sql);
+            prs.setInt(1, products.getCategoryId());
+            res = prs.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
+
+    }
+
+>>>>>>> origin/Long-Admin
 
     public List<Categories> getCategories() {
         List<Categories> res = new ArrayList<>();
@@ -259,7 +306,10 @@ private int degreecategory(Products products) {
         return res;
     }
 
+<<<<<<< HEAD
     //Search sản phẩm
+=======
+>>>>>>> origin/Long-Admin
     @Override
     public int count(String txtSearch) {
         String query = "SELECT count(*) FROM products WHERE productName LIKE ?";
@@ -279,6 +329,7 @@ private int degreecategory(Products products) {
     }
 
     @Override
+<<<<<<< HEAD
     public List<Products> searchResult(String txtSearch, int index, int size) {
         List<Products> res = new ArrayList<>();
         //String sql = "SELECT * FROM products WHERE productName LIKE ?";
@@ -293,6 +344,16 @@ private int degreecategory(Products products) {
 
             ResultSet rs = ps.executeQuery();
             List<Products> tempProducts = new ArrayList<>();
+=======
+    public List<Products> searchResult(String txtSearch) {
+        List<Products> res = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE productName LIKE ?";
+        try (Connection connect = DBConnect.getConnection();
+             PreparedStatement ps = connect.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + txtSearch + "%");
+            ResultSet rs = ps.executeQuery();
+>>>>>>> origin/Long-Admin
             while (rs.next()) {
                 Products product = new Products(
                         rs.getInt("productId"),
@@ -304,9 +365,13 @@ private int degreecategory(Products products) {
                         rs.getTimestamp("createAt"),
                         rs.getInt("categoryId")
                 );
+<<<<<<< HEAD
                 tempProducts.add(product);
             }
             for (Products product : tempProducts) {
+=======
+
+>>>>>>> origin/Long-Admin
                 product.setListimg(getImagesForProduct(product.getProductId()));
                 res.add(product);
             }
@@ -315,6 +380,7 @@ private int degreecategory(Products products) {
         }
         return res;
 
+<<<<<<< HEAD
 }
 // In ra số lượng 18 sản phẩm mới
     @Override
@@ -423,6 +489,8 @@ private int degreecategory(Products products) {
             e.printStackTrace();
         }
         return list;
+=======
+>>>>>>> origin/Long-Admin
     }
 
     private List<String> getImagesForProduct(int productId) {
@@ -445,11 +513,15 @@ private int degreecategory(Products products) {
 
     public List<Products> filter(String categoryFilter) {
         List<Products> res = new ArrayList<>();
+<<<<<<< HEAD
         //String sql = "SELECT * FROM products WHERE categoryName = ?";
         String sql =
                 "SELECT p.* FROM products p " +
                         "JOIN categories c ON p.categoryId = c.categoryId " +
                         "WHERE c.categoryName = ?";
+=======
+        String sql = "SELECT * FROM products WHERE categoryId = ?";
+>>>>>>> origin/Long-Admin
         String imgSql = "SELECT * FROM product_images WHERE productId=?";
 
         try (Connection conn = DBConnect.getConnection();
@@ -484,9 +556,16 @@ private int degreecategory(Products products) {
         }
         return res;
     }
+<<<<<<< HEAD
     public int countAll() {
         int count = 0;
         String sql = "SELECT COUNT(*) FROM products";
+=======
+
+    public int countAll() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM product";
+>>>>>>> origin/Long-Admin
 
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -503,6 +582,7 @@ private int degreecategory(Products products) {
         return count;
     }
 
+<<<<<<< HEAD
     //Gọi lấy ảnh trong giỏ hàng
     public String getFirstImage(int productId) {
         String sql = "SELECT imageUrl FROM Product_Images WHERE productId = ? LIMIT 1";
@@ -537,3 +617,163 @@ private int degreecategory(Products products) {
     }
 
 }
+=======
+    // Lấy tổng doanh thu
+    public int getTotalIncome() {
+        int total = 0;
+        // sql lấy tổng
+        String sql = "SELECT SUM(totalAmount) FROM orders";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                total = rs.getInt(1); // Cột đầu tiên củ
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
+
+    // Tính tổng đơn hàng
+    public int getTotalNewOrder() {
+        int total = 0;
+        // sql lấy tổng số đơn hàng trong khoảng thời gian
+        String sql = "Select Count(*) FROM orders";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                total = rs.getInt(1); // Cột đầu tiên
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
+
+    // Lấy tổng chi phí
+    public int getTotalExpense() {
+        int total = 0;
+        String sql = "Select Sum(p.priceBuy * od.quatity) "
+                + "from products p Join orderdetails od"
+                + " on p.productId = od.productId"
+                + " where od.statusDetail != 'canceled'";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return total;
+    }
+
+    // Lấy danh sách các năm
+    public List<Integer> getTimePeriod() {
+        List<Integer> result = new ArrayList<>();
+        String sql = "SELECT DISTINCT YEAR(orderDate) AS orderYear " +
+                "FROM orders " +
+                "ORDER BY orderYear;";
+        try (Connection conn = DBConnect.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            while (rs.next()) {
+                result.add(rs.getInt("orderYear"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    // Lấy doanh thu tháng theo các năm
+    public List<Double> getMonthlyIncome(int year) {
+        List<Double> monthlyIncome = new ArrayList<>();
+        String sql = "SELECT MONTH(orderDate) AS month, SUM(totalAmount) AS income " +
+                "FROM orders " +
+                "WHERE YEAR(orderDate) = ? " +
+                "GROUP BY MONTH(orderDate) " +
+                "ORDER BY month";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, year);
+            ResultSet rs = ps.executeQuery();
+
+            // Tạo mảng 12 tháng mặc định = 0
+            double[] monthly = new double[12];
+            while (rs.next()) {
+                int month = rs.getInt("month");
+                double income = rs.getDouble("income");
+                monthly[month - 1] = income;
+            }
+            for (double r : monthly) {
+                monthlyIncome.add(r);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return monthlyIncome;
+    }
+    // Lấy doanh thu theo năm được
+    public int totalIncomeInYear(int year) {
+        String sql = "SELECT SUM(totalAmount) FROM orders "+
+                "WHERE YEAR(orderDate) = ?";
+        int total = 0;
+        try {
+            Connection conn = DBConnect.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, year);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
+
+    // Lấy lợi nhuận không tính chi phí hàng tháng theo năm
+    public List<Double> getMonthlyRevenue(int year) {
+        List<Double> monthlyRevenue = new ArrayList<>();
+        String sql = "SELECT MONTH(o.orderDate) AS month, " +
+                "SUM((od.unitPrice - p.priceBuy) * od.quatity) AS revenue " +
+                "FROM orders o " +
+                "JOIN orderDetails od ON o.orderId = od.orderId " +
+                "JOIN products p ON od.productId = p.productId " +
+                "WHERE YEAR(o.orderDate) = ? " +
+                "GROUP BY MONTH(o.orderDate) " +
+                "ORDER BY month;";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, year);
+            ResultSet rs = ps.executeQuery();
+
+            double[] monthly = new double[12]; // 12 tháng mặc định = 0
+            while (rs.next()) {
+                int month = rs.getInt("month");
+                double revenue = rs.getDouble("revenue");
+                monthly[month - 1] = revenue;
+            }
+            for (double r : monthly) {
+                monthlyRevenue.add(r);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return monthlyRevenue;
+    }
+
+
+}
+
+>>>>>>> origin/Long-Admin

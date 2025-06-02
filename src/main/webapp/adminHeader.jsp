@@ -121,6 +121,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a class="color2" href="${pageContext.request.contextPath}/index">Products</a></li>
                     <li><a class="color10" href="adminAdd.jsp">Edit</a></li>
                     <li><a class="color3" href="adminOrder.jsp">Order</a></li>
+<<<<<<< HEAD
+=======
+                    <li><a class="color5" href="${pageContext.request.contextPath}/dashBoard">DashBoard</a></li>
+>>>>>>> origin/Long-Admin
                     <div class="clearfix"></div>
                 </ul>
             </div>

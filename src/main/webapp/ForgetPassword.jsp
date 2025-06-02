@@ -46,7 +46,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="form-group">
                         <span>Captcha*</span>
                         <div style="display: flex; align-items: center; gap: 10px;">
+<<<<<<< HEAD
                             <input type="text" name="captcha" required>
+=======
+                        <input type="text" name="captcha" required>
+>>>>>>> origin/Long-Admin
                         </div>
                         <img src="${pageContext.request.contextPath}/captchaServlet?ts=<%= System.currentTimeMillis() %>" alt="Captcha">
 
@@ -104,4 +108,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/Long-Admin
